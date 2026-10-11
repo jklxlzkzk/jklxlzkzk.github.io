@@ -429,6 +429,31 @@ async function renderNews() {
 
 /* ---------- match detail ---------- */
 
+async function renderAnalyses() {
+  let data = null;
+  try { data = await getJSON('analyses.json'); } catch (e) { data = null; }
+  const items = (data && data.analyses) || [];
+  let html = `<h2 class="section-title">📝 ပွဲပြီး သုံးသပ်ချက်များ</h2>`;
+  if (data && data.updated) html += `<div class="refresh-line">နောက်ဆုံးအပ်ဒိတ်: ${esc(data.updated)}</div>`;
+  if (!items.length) {
+    html += `<div class="empty">သုံးသပ်ချက်တွေ မကြာမီ လာမယ်။</div>`;
+  } else {
+    html += items.map((a) => {
+      const body = esc(a.body_mm || '').replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
+      const score = (a.home_score != null && a.away_score != null) ? `${a.home_score} - ${a.away_score}` : '';
+      return `
+      <article class="analysis-card">
+        <h3 class="analysis-title">${esc(a.title_mm || '')}</h3>
+        <div class="analysis-score">${esc(a.home_mm || a.home || '')} <b>${esc(score)}</b> ${esc(a.away_mm || a.away || '')}</div>
+        <div class="analysis-meta">🏆 ${esc(a.league_mm || a.league || '')}${a.date ? ' • ' + esc(a.date) : ''}</div>
+        <div class="analysis-text"><p>${body}</p></div>
+      </article>`;
+    }).join('');
+  }
+  content.innerHTML = html;
+  stamp();
+}
+
 function mmTeamName(en) {
   if (!en) return '';
   return TEAM_MM_BY_NAME[String(en).toLowerCase()] || en;
@@ -732,6 +757,7 @@ async function loadTab(quiet) {
     else if (state.tab === 'standings') await renderStandings();
     else if (state.tab === 'predictions') await renderPredictions();
     else if (state.tab === 'news') await renderNews();
+    else if (state.tab === 'analyses') await renderAnalyses();
   } catch (e) {
     if (!quiet) showError();
   }
