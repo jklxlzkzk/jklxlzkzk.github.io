@@ -382,3 +382,6 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .team-news b { display: block; font-size: .85rem; margin-bottom: 2px; }
 .team-news span { font-size: .78rem; color: var(--muted); }
 @media (max-width: 480px) { .team-info-grid { grid-template-columns: 1fr 1fr; } }
+
+.flag-wrap { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
+.flag-hint { font-size: 11px; color: #ffd700; opacity: .85; white-space: nowrap; }
