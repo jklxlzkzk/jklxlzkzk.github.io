@@ -746,7 +746,7 @@ function buildLeagues() {
 function buildTabs() {
   document.querySelectorAll('.tab').forEach((b) => {
     b.classList.toggle('active', b.dataset.tab === state.tab);
-    b.onclick = () => { state.tab = b.dataset.tab; buildTabs(); loadTab(); };
+    b.onclick = () => { state.tab = b.dataset.tab; try { location.hash = state.tab; } catch (e) {} buildTabs(); loadTab(); };
   });
 }
 
@@ -775,6 +775,7 @@ async function loadTab(quiet) {
   }
 }
 
+try { const h = (location.hash || '').replace('#', ''); if (['live','fixtures','results','standings','predictions','news','analyses'].includes(h)) state.tab = h; } catch (e) {}
 buildLeagues();
 buildTabs();
 window.loadTab = loadTab;
