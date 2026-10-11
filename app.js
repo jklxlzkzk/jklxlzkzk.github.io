@@ -804,12 +804,20 @@ async function openPlayerDetail(pid) {
   document.body.style.overflow = 'hidden';
   try {
     const d = await getJSON(`https://sports.core.api.espn.com/v2/sports/soccer/athletes/${encodeURIComponent(pid)}?lang=en`);
-    box.innerHTML = playerDetailHtml(d);
+    let posName = '–';
+    const posRef = d.position && d.position.$ref;
+    if (posRef) {
+      try {
+        const pd = await getJSON(posRef.replace('http:', 'https:'));
+        posName = pd.displayName || pd.name || '–';
+      } catch (e) {}
+    }
+    box.innerHTML = playerDetailHtml(d, posName);
   } catch (e) {
     box.innerHTML = `<div class="error">အချက်အလက် ဆွဲမရသေးပါ။<br><button onclick="closeModal()">ပိတ်မယ်</button></div>`;
   }
 }
-function playerDetailHtml(d) {
+function playerDetailHtml(d, posName) {
   const nm = d.displayName || d.fullName || '–';
   const jersey = d.jersey || '–';
   const age = d.age || '–';
@@ -818,7 +826,6 @@ function playerDetailHtml(d) {
   const weight = d.displayWeight || '–';
   const nation = d.citizenship || '–';
   const flagImg = d.flag && d.flag.href ? `<img src="${esc(d.flag.href)}" alt="" class="player-flag" onerror="this.style.display='none'">` : '';
-  const posName = d.position && d.position.$ref ? '' : '';
   return `
     <div class="modal-head">
       <div class="player-head">
@@ -826,11 +833,13 @@ function playerDetailHtml(d) {
         <div>
           <div class="player-name">${esc(nm)}</div>
           <div class="player-nation">${flagImg}<span>${esc(nation)}</span></div>
+          <div class="player-pos">${esc(posName || '–')}</div>
         </div>
       </div>
       <button class="modal-close" onclick="closeModal()">✕ ပိတ်မယ်</button>
     </div>
     <div class="player-grid">
+      <div><span>⚽ ကစားတဲ့နေရာ</span><b>${esc(posName || '–')}</b></div>
       <div><span>🎂 အသက်</span><b>${esc(String(age))}</b></div>
       <div><span>📅 မွေးနေ့</span><b>${esc(dob)}</b></div>
       <div><span>📏 အရပ်</span><b>${esc(height)}</b></div>
