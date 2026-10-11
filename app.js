@@ -513,9 +513,12 @@ function teamDetailHtml(tid, mm, en, articles) {
       ${info.city ? `<div><span>📍 မြို့</span><b>${esc(info.city)}</b></div>` : ''}
     </div>`;
     if (info.trophies && info.trophies.length) {
-      infoHtml += `<h4>🏆 ဖလားများ</h4><div class="trophy-list">` +
-        info.trophies.map((t) => `<div class="trophy"><span>${esc(TROPHY_MM[t.t] || t.t)}</span><b>${esc(t.c)}</b></div>`).join('') +
-        `</div>`;
+      const nonZero = info.trophies.filter((t) => Number(t.c) > 0);
+      if (nonZero.length) {
+        infoHtml += `<h4>🏆 ဖလားများ</h4><div class="trophy-list">` +
+          nonZero.map((t) => `<div class="trophy"><span>${esc(TROPHY_MM[t.t] || t.t)}</span><b>${esc(t.c)}</b></div>`).join('') +
+          `</div>`;
+      }
     }
   }
   let squadHtml = '';
