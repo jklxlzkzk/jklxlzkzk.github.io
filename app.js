@@ -407,7 +407,11 @@ async function renderPredictions() {
   const confLabel = { high: 'ယုံကြည်မှုမြင့်', medium: 'အလယ်အလတ်', low: 'သတိထား' };
   const confClass = { high: 'conf-high', medium: 'conf-med', low: 'conf-low' };
   let html = `<h2 class="section-title">🔮 ပွဲကြို ခန့်မှန်းချက် — KZZ Football Analysis</h2>`;
-  if (data && data.updated) html += `<div class="refresh-line">နောက်ဆုံးခန့်မှန်းချက်: ${esc(data.updated)}</div>`;
+  if (data && data.updated) {
+    let upd = data.updated;
+    try { upd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(data.updated)); } catch (e) {}
+    html += `<div class="refresh-line">နောက်ဆုံးခန့်မှန်းချက်: ${esc(upd)}</div>`;
+  }
   if (!preds.length) {
     html += `<div class="empty">ခန့်မှန်းချက်တွေ မကြာမီ လာမယ်။<br>KZZ Facebook page မှာ တင်ထားတဲ့ ပွဲကြိုခန့်မှန်းချက်တွေ ဒီမှာ ပေါ်လာမယ်။</div>`;
   } else {
@@ -476,7 +480,11 @@ async function renderAnalyses() {
   try { data = await getJSON('analyses.json'); } catch (e) { data = null; }
   const items = (data && data.analyses) || [];
   let html = `<h2 class="section-title">📝 ပွဲပြီး သုံးသပ်ချက်များ</h2>`;
-  if (data && data.updated) html += `<div class="refresh-line">နောက်ဆုံးအပ်ဒိတ်: ${esc(data.updated)}</div>`;
+  if (data && data.updated) {
+    let upd = data.updated;
+    try { upd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(data.updated)); } catch (e) {}
+    html += `<div class="refresh-line">နောက်ဆုံးအပ်ဒိတ်: ${esc(upd)}</div>`;
+  }
   if (!items.length) {
     html += `<div class="empty">သုံးသပ်ချက်တွေ မကြာမီ လာမယ်။</div>`;
   } else {
