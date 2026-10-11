@@ -40,15 +40,27 @@ body {
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-ball { font-size: 40px; display: inline-block; animation: spin-ball 4s linear infinite; }
 @keyframes spin-ball { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.mm-flag { display: inline-block; margin-left: 4px; transform-origin: left center; animation: wave-flag 2.5s ease-in-out infinite; }
-.mm-flag svg { display: block; border-radius: 3px; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
-@keyframes wave-flag {
-  0%, 100% { transform: perspective(300px) rotateY(-14deg) skewY(2deg) scaleY(1); }
-  25% { transform: perspective(300px) rotateY(6deg) skewY(-3deg) scaleY(0.97); }
-  50% { transform: perspective(300px) rotateY(14deg) skewY(2deg) scaleY(1); }
-  75% { transform: perspective(300px) rotateY(-6deg) skewY(-3deg) scaleY(0.97); }
+.mm-flag { display: inline-flex; position: relative; overflow: hidden; margin-left: 8px; border-radius: 4px; transform-origin: left center; animation: flag-sway 3.4s ease-in-out infinite; filter: drop-shadow(0 2px 4px rgba(0,0,0,.35)); }
+.mm-flag .seg { width: 15px; height: 60px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect width='60' height='13.34' fill='%23FECB00'/%3E%3Crect y='13.33' width='60' height='13.34' fill='%2334B233'/%3E%3Crect y='26.66' width='60' height='13.34' fill='%23EA2839'/%3E%3Cpath d='M30 11l2.6 7.9h8.3l-6.7 4.9 2.6 7.9-6.8-4.9-6.8 4.9 2.6-7.9-6.7-4.9h8.3z' fill='%23fff'/%3E%3C/svg%3E"); background-size: 600% 100%; background-repeat: no-repeat; transform-origin: left center; animation: flag-ripple 1.5s ease-in-out infinite; }
+.mm-flag .seg:nth-child(1) { background-position: 0% 0; animation-delay: 0s; }
+.mm-flag .seg:nth-child(2) { background-position: 20% 0; animation-delay: .12s; }
+.mm-flag .seg:nth-child(3) { background-position: 40% 0; animation-delay: .24s; }
+.mm-flag .seg:nth-child(4) { background-position: 60% 0; animation-delay: .36s; }
+.mm-flag .seg:nth-child(5) { background-position: 80% 0; animation-delay: .48s; }
+.mm-flag .seg:nth-child(6) { background-position: 100% 0; animation-delay: .6s; }
+.mm-flag::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 32%, rgba(255,255,255,.30) 48%, transparent 64%); background-size: 260% 100%; animation: flag-sheen 2.6s linear infinite; pointer-events: none; }
+@keyframes flag-ripple {
+  0%, 100% { transform: skewY(0deg) scaleY(1); }
+  50% { transform: skewY(-8deg) scaleY(.93); }
 }
-.mm-flag { animation: wave-flag 1.8s ease-in-out infinite; }
+@keyframes flag-sway {
+  0%, 100% { transform: perspective(420px) rotateY(-11deg); }
+  50% { transform: perspective(420px) rotateY(9deg); }
+}
+@keyframes flag-sheen {
+  0% { background-position: 130% 0; }
+  100% { background-position: -130% 0; }
+}
 .brand h1 { font-size: 24px; letter-spacing: 0.5px; }
 .brand h1 span.kzz { color: var(--gold); }
 .tagline { color: var(--muted); font-size: 13px; margin-top: 2px; }
@@ -306,6 +318,17 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 /* ---------- lineups: two columns ---------- */
 .lu-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 520px) { .lu-cols { grid-template-columns: 1fr; } }
+
+/* ---------- head-to-head ---------- */
+.h2h-summary { text-align: center; font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; color: #ffd76a; }
+.h2h-list { display: flex; flex-direction: column; gap: 6px; }
+.h2h-row { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid #22314f; border-radius: 8px; padding: 8px 12px; font-size: 0.85rem; }
+.h2h-date { color: var(--muted); font-size: 0.78rem; min-width: 90px; }
+.h2h-match { flex: 1; }
+
+/* ---------- goal alert ---------- */
+.goal-alert { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #1b5e20, #2e7d32); color: #fff; font-size: 1.05rem; font-weight: 700; padding: 14px 24px; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,.5); z-index: 9999; cursor: pointer; animation: goal-pop 0.5s ease-out; border: 2px solid #7dff9a; }
+@keyframes goal-pop { 0% { transform: translateX(-50%) scale(0.5); opacity: 0; } 60% { transform: translateX(-50%) scale(1.1); } 100% { transform: translateX(-50%) scale(1); opacity: 1; } }
 
 /* ---------- favorite team notice ---------- */
 .fav-empty { background: #131b2e; border: 1px dashed #2a3658; border-radius: 10px; padding: 12px 14px; margin: 10px 0; color: #8a93a6; font-size: 0.88rem; text-align: center; }

@@ -232,6 +232,7 @@ function stamp() {
 async function renderLive() {
   const data = await getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/${state.league}/scoreboard`);
   const matches = sortFavFirst((data.events || []).map(parseMatch).filter((m) => m.state === 'in'));
+  checkFavGoals(matches);
   if (!matches.length) {
     content.innerHTML = `
       <h2 class="section-title">${leagueName()}</h2>
@@ -317,8 +318,10 @@ async function renderStandings() {
     <div class="sub-tabs">
       <button class="sub-tab${state.standView === 'table' ? ' active' : ''}" onclick="setStandView('table')">📊 အဆင့်ဇယား</button>
       <button class="sub-tab${state.standView === 'scorers' ? ' active' : ''}" onclick="setStandView('scorers')">🎯 ဂိုးသွင်းအများဆုံး</button>
+      <button class="sub-tab${state.standView === 'assists' ? ' active' : ''}" onclick="setStandView('assists')">🅰️ Assist အများဆုံး</button>
     </div>`;
   if (state.standView === 'scorers') { await renderScorers(sub); return; }
+  if (state.standView === 'assists') { await renderAssists(sub); return; }
   const data = await getJSON(`https://site.web.api.espn.com/apis/v2/sports/soccer/${state.league}/standings`);
   const child = data.children && data.children[0];
   const entries = (child && child.standings && child.standings.entries) || [];
@@ -352,6 +355,27 @@ async function renderStandings() {
   stamp();
 }
 function setStandView(v) { state.standView = v; loadTab(); }
+
+async function renderAssists(sub) {
+  showLoading('Assist စာရင်း ဆွဲနေသည်…');
+  try {
+    const data = await getJSON('scorers.json');
+    const leaders = ((data.assists || {})[state.league]) || [];
+    const rows = leaders.slice(0, 10).map((l, i) => {
+      const a = (l.assists != null && l.assists !== '–') ? l.assists : '–';
+      return `<tr><td>${i + 1}</td><td style="text-align:left">${esc(l.player || '–')}</td><td style="text-align:left">${esc(l.team || '–')}</td><td class="pts">🅰️ ${esc(a)}</td></tr>`;
+    });
+    content.innerHTML = `
+      <h2 class="section-title">${leagueName()} — Assist အများဆုံး</h2>${sub}
+      ${rows.length ? `<div class="table-wrap"><table class="standings">
+        <thead><tr><th>#</th><th style="text-align:left">ကစားသမား</th><th style="text-align:left">အသင်း</th><th>Assist</th></tr></thead>
+        <tbody>${rows.join('')}</tbody></table></div>`
+        : `<div class="empty">Assist စာရင်း မရသေးပါ။</div>`}`;
+  } catch (e) {
+    content.innerHTML = `<h2 class="section-title">${leagueName()}</h2>${sub}<div class="empty">Assist စာရင်း ဆွဲမရသေးပါ။</div>`;
+  }
+  stamp();
+}
 
 async function renderScorers(sub) {
   showLoading('ဂိုးသွင်းစာရင်း ဆွဲနေသည်…');
@@ -649,6 +673,57 @@ function detailHtml(d) {
   }).join('');
   const lineups = lineupHtml ? `<div class="lu-cols">${lineupHtml}</div>` : '<div class="empty">လူစာရင်း မရှိသေးပါ။</div>';
 
+  // head-to-head from lastFiveGames
+  let h2hHtml = '';
+  const lfg = d.lastFiveGames || [];
+  if (lfg.length >= 2) {
+    const tA = lfg[0].team || {}, tB = lfg[1].team || {};
+    const idA = tA.id, idB = tB.id;
+    const h2hGames = [];
+    for (const tg of lfg) {
+      for (const ev of (tg.events || [])) {
+        const opp = ev.opponent || {};
+        const myId = tg.team && tg.team.id;
+        const oppId = opp.id;
+        if ((myId === idA && oppId === idB) || (myId === idB && oppId === idA)) {
+          if (!h2hGames.find((g) => g.id === ev.id)) {
+            h2hGames.push({
+              id: ev.id,
+              date: (ev.gameDate || '').slice(0, 10),
+              score: ev.score || '',
+              comp: ev.competitionName || '',
+              homeId: ev.homeTeamId, awayId: ev.awayTeamId,
+              homeScore: ev.homeTeamScore, awayScore: ev.awayTeamScore,
+            });
+          }
+        }
+      }
+    }
+    h2hGames.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    const recent = h2hGames.slice(0, 5);
+    if (recent.length) {
+      let wA = 0, wB = 0, dr = 0;
+      const rows = recent.map((g) => {
+        const hs = parseInt(g.homeScore, 10), as = parseInt(g.awayScore, 10);
+        let res = '';
+        if (!isNaN(hs) && !isNaN(as)) {
+          if (hs === as) { dr++; res = '🤝'; }
+          else if ((g.homeId === idA && hs > as) || (g.awayId === idA && as > hs)) { wA++; res = '✅'; }
+          else { wB++; res = '❌'; }
+        }
+        const hn = g.homeId === idA ? nm(hm) : (g.homeId === idB ? nm(aw) : '');
+        const an = g.awayId === idA ? nm(hm) : (g.awayId === idB ? nm(aw) : '');
+        return `<div class="h2h-row"><span class="h2h-date">${esc(g.date)}</span><span class="h2h-match">${esc(hn)} ${esc(g.homeScore || '?')} - ${esc(g.awayScore || '?')} ${esc(an)}</span><span>${res}</span></div>`;
+      }).join('');
+      const nmA = nm(hm), nmB = nm(aw);
+      h2hHtml = `<div class="modal-sec-title">⚔️ ထိပ်တိုက်တွေ့ဆုံမှု (နောက်ဆုံး ${recent.length} ပွဲ)</div>
+      <div class="h2h-summary">${esc(nmA)} ${wA} နိုင်ပွဲ • သရေ ${dr} • ${esc(nmB)} ${wB} နိုင်ပွဲ</div>
+      <div class="h2h-list">${rows}</div>`;
+    } else {
+      h2hHtml = `<div class="modal-sec-title">⚔️ ထိပ်တိုက်တွေ့ဆုံမှု</div><div class="empty">နောက်ဆုံး ၅ ပွဲမှာ ထိပ်တိုက်မတွေ့ခဲ့ပါ။</div>`;
+    }
+  }
+
   return `
     <div class="modal-head">
       <div class="modal-teams">
@@ -664,7 +739,47 @@ function detailHtml(d) {
     <div class="modal-sec-title">📊 စာရင်းအနှိုင်း</div>
     <div class="stat-list">${statsHtml}</div>
     <div class="modal-sec-title">👥 လူစာရင်း</div>
-    ${lineups}`;
+    ${lineups}
+    ${h2hHtml}`;
+}
+
+/* ---------- goal alerts for favorite team ---------- */
+let prevScores = {};
+function checkFavGoals(matches) {
+  if (!favTeamId) return;
+  for (const m of matches) {
+    const isFav = String(m.home.id) === String(favTeamId) || String(m.away.id) === String(favTeamId);
+    if (!isFav) continue;
+    const key = m.id;
+    const cur = `${m.home.score}-${m.away.score}`;
+    const prev = prevScores[key];
+    if (prev && prev !== cur) {
+      const favIsHome = String(m.home.id) === String(favTeamId);
+      const favScored = favIsHome ? (m.home.score > parseInt(prev.split('-')[0] || 0)) : (m.away.score > parseInt(prev.split('-')[1] || 0));
+      if (favScored) showGoalAlert(m);
+    }
+    prevScores[key] = cur;
+  }
+}
+function showGoalAlert(m) {
+  const favName = (TEAMS_MM[favTeamId] && TEAMS_MM[favTeamId].mm) || '';
+  const banner = document.createElement('div');
+  banner.className = 'goal-alert';
+  banner.innerHTML = `⚽ <b>ဂိုးးးး!</b> ${esc(favName)} ဂိုးသွင်းပြီ! (${esc(m.home.score)} - ${esc(m.away.score)})`;
+  document.body.appendChild(banner);
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [523, 659, 784].forEach((f, i) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.value = f; o.type = 'sine';
+      g.gain.setValueAtTime(0.3, ctx.currentTime + i * 0.15);
+      g.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.15 + 0.4);
+      o.start(ctx.currentTime + i * 0.15); o.stop(ctx.currentTime + i * 0.15 + 0.45);
+    });
+  } catch (e) {}
+  setTimeout(() => banner.remove(), 8000);
+  banner.onclick = () => banner.remove();
 }
 
 /* ---------- favorites ---------- */

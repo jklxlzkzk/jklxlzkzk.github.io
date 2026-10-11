@@ -559,5 +559,565 @@
     "goals": 1
    }
   ]
+ },
+ "assists": {
+  "eng.1": [
+   {
+    "rank": 1,
+    "player": "Antoine Semenyo",
+    "team": "မန်စီးတီး",
+    "assists": 3
+   },
+   {
+    "rank": 2,
+    "player": "Pascal Gross",
+    "team": "ဘရိုက်တန်",
+    "assists": 3
+   },
+   {
+    "rank": 3,
+    "player": "Daichi Kamada",
+    "team": "ခရစ္စတယ်ပဲလေ့စ်",
+    "assists": 3
+   },
+   {
+    "rank": 4,
+    "player": "Evanilson",
+    "team": "ဘုန်းမောက်",
+    "assists": 3
+   },
+   {
+    "rank": 5,
+    "player": "Cody Gakpo",
+    "team": "လီဗာပူး",
+    "assists": 3
+   },
+   {
+    "rank": 6,
+    "player": "João Pedro",
+    "team": "ချယ်လ်ဆီး",
+    "assists": 3
+   },
+   {
+    "rank": 7,
+    "player": "Morgan Gibbs-White",
+    "team": "နော်တင်ဟမ်ဖောရက်စ်",
+    "assists": 2
+   },
+   {
+    "rank": 8,
+    "player": "Harvey Barnes",
+    "team": "နယူးကာဆယ်",
+    "assists": 2
+   },
+   {
+    "rank": 9,
+    "player": "Cole Palmer",
+    "team": "ချယ်လ်ဆီး",
+    "assists": 2
+   },
+   {
+    "rank": 10,
+    "player": "Diego Gómez",
+    "team": "ဘရိုက်တန်",
+    "assists": 2
+   }
+  ],
+  "esp.1": [
+   {
+    "rank": 1,
+    "player": "Javi Hernandez",
+    "team": "အက်စ်ပန်ညောလ်",
+    "assists": 5
+   },
+   {
+    "rank": 2,
+    "player": "Lamine Yamal",
+    "team": "ဘာစီလိုနာ",
+    "assists": 4
+   },
+   {
+    "rank": 3,
+    "player": "Anthony Gordon",
+    "team": "ဘာစီလိုနာ",
+    "assists": 4
+   },
+   {
+    "rank": 4,
+    "player": "Vinícius Júnior",
+    "team": "ရီးယဲလ်",
+    "assists": 3
+   },
+   {
+    "rank": 5,
+    "player": "Unai López",
+    "team": "ရာယိုဗယ်လီကာနို",
+    "assists": 3
+   },
+   {
+    "rank": 6,
+    "player": "Raphinha",
+    "team": "ဘာစီလိုနာ",
+    "assists": 3
+   },
+   {
+    "rank": 7,
+    "player": "Ángel Pérez",
+    "team": "အလာဗတ်စ်",
+    "assists": 3
+   },
+   {
+    "rank": 8,
+    "player": "Alberto Moleiro",
+    "team": "ဗီလာရီးရဲလ်",
+    "assists": 3
+   },
+   {
+    "rank": 9,
+    "player": "José Antonio Morente",
+    "team": "အဲလ်ချီ",
+    "assists": 3
+   },
+   {
+    "rank": 10,
+    "player": "Mariano Díaz",
+    "team": "အလာဗတ်စ်",
+    "assists": 3
+   }
+  ],
+  "ita.1": [
+   {
+    "rank": 1,
+    "player": "Paulo Dybala",
+    "team": "ရိုးမား",
+    "assists": 4
+   },
+   {
+    "rank": 2,
+    "player": "Romano Schmid",
+    "team": "ဖရိုစီနိုနီ",
+    "assists": 3
+   },
+   {
+    "rank": 3,
+    "player": "Andy Diouf",
+    "team": "အင်တာ",
+    "assists": 3
+   },
+   {
+    "rank": 4,
+    "player": "Michel Adopo",
+    "team": "ကာဂလီယာရီ",
+    "assists": 2
+   },
+   {
+    "rank": 5,
+    "player": "Mattia Zaccagni",
+    "team": "လာဇီယို",
+    "assists": 2
+   },
+   {
+    "rank": 6,
+    "player": "Samuele Birindelli",
+    "team": "မွန်ဇာ",
+    "assists": 2
+   },
+   {
+    "rank": 7,
+    "player": "Gianluca Mancini",
+    "team": "ရိုးမား",
+    "assists": 2
+   },
+   {
+    "rank": 8,
+    "player": "Samuel Chukwueze",
+    "team": "အေစီမီလန်",
+    "assists": 2
+   },
+   {
+    "rank": 9,
+    "player": "Ricardo Mangas",
+    "team": "မွန်ဇာ",
+    "assists": 2
+   },
+   {
+    "rank": 10,
+    "player": "Nuno Tavares",
+    "team": "လာဇီယို",
+    "assists": 2
+   }
+  ],
+  "ger.1": [
+   {
+    "rank": 1,
+    "player": "Marco Grüll",
+    "team": "ဝါဒါဘရီမင်",
+    "assists": 4
+   },
+   {
+    "rank": 2,
+    "player": "Matthias Ginter",
+    "team": "ဖရိုင်းဘတ်",
+    "assists": 3
+   },
+   {
+    "rank": 3,
+    "player": "Fabian Rieder",
+    "team": "အော့စ်ဘတ်",
+    "assists": 3
+   },
+   {
+    "rank": 4,
+    "player": "Miguel Gutiérrez",
+    "team": "လီဗာကူဆင်",
+    "assists": 3
+   },
+   {
+    "rank": 5,
+    "player": "Sheraldo Becker",
+    "team": "မိန့်ဇ်",
+    "assists": 3
+   },
+   {
+    "rank": 6,
+    "player": "Chuki",
+    "team": "ဝါဒါဘရီမင်",
+    "assists": 2
+   },
+   {
+    "rank": 7,
+    "player": "Serhou Guirassy",
+    "team": "ဒေါ့မန်",
+    "assists": 2
+   },
+   {
+    "rank": 8,
+    "player": "Jordy Makengo",
+    "team": "ဖရိုင်းဘတ်",
+    "assists": 2
+   },
+   {
+    "rank": 9,
+    "player": "Kaishu Sano",
+    "team": "မိန့်ဇ်",
+    "assists": 2
+   },
+   {
+    "rank": 10,
+    "player": "Adam Daghim",
+    "team": "ဟော့ဖန်ဟိမ်း",
+    "assists": 2
+   }
+  ],
+  "fra.1": [
+   {
+    "rank": 1,
+    "player": "Florian Thauvin",
+    "team": "လန့်စ်",
+    "assists": 4
+   },
+   {
+    "rank": 2,
+    "player": "Cristian Cásseres Jr.",
+    "team": "တူးလူး",
+    "assists": 4
+   },
+   {
+    "rank": 3,
+    "player": "Pavel Sulc",
+    "team": "လိုင်ယွန်",
+    "assists": 3
+   },
+   {
+    "rank": 4,
+    "player": "Panos Katseris",
+    "team": "လိုရီယန့်",
+    "assists": 3
+   },
+   {
+    "rank": 5,
+    "player": "Zachary Athekame",
+    "team": "လိုင်ယွန်",
+    "assists": 2
+   },
+   {
+    "rank": 6,
+    "player": "Corentin Tolisso",
+    "team": "လိုင်ယွန်",
+    "assists": 2
+   },
+   {
+    "rank": 7,
+    "player": "Aleksandr Golovin",
+    "team": "မိုနာကို",
+    "assists": 2
+   },
+   {
+    "rank": 8,
+    "player": "Adil Bourabaa",
+    "team": "လမန်း",
+    "assists": 2
+   },
+   {
+    "rank": 9,
+    "player": "Amine El Ouazzani",
+    "team": "အွန်ဂျေး",
+    "assists": 2
+   },
+   {
+    "rank": 10,
+    "player": "Sebastian Nanasi",
+    "team": "စထရာ့စ်ဘတ်",
+    "assists": 2
+   }
+  ],
+  "ned.1": [
+   {
+    "rank": 1,
+    "player": "Irakli Yegoian",
+    "team": "အက်ဆဲလ်ရှာ",
+    "assists": 5
+   },
+   {
+    "rank": 2,
+    "player": "Gjivai Zechiël",
+    "team": "ဖီယင်နော့",
+    "assists": 4
+   },
+   {
+    "rank": 3,
+    "player": "Givairo Read",
+    "team": "ဖီယင်နော့",
+    "assists": 4
+   },
+   {
+    "rank": 4,
+    "player": "Oscar Gloukh",
+    "team": "အေဂျက်စ်",
+    "assists": 4
+   },
+   {
+    "rank": 5,
+    "player": "Bas Kuipers",
+    "team": "စပါတာရော့တာဒမ်",
+    "assists": 3
+   },
+   {
+    "rank": 6,
+    "player": "David Van Der Werff",
+    "team": "ဂရိုနင်ဂန်",
+    "assists": 3
+   },
+   {
+    "rank": 7,
+    "player": "Mateo Chávez",
+    "team": "အဲဇက်အယ်လ်ခ်မား",
+    "assists": 3
+   },
+   {
+    "rank": 8,
+    "player": "Dylan Mbayo",
+    "team": "ဇဝူးလီ",
+    "assists": 3
+   },
+   {
+    "rank": 9,
+    "player": "Simon Janssen",
+    "team": "အက်ဆဲလ်ရှာ",
+    "assists": 3
+   },
+   {
+    "rank": 10,
+    "player": "Kasper Dolberg",
+    "team": "အေဂျက်စ်",
+    "assists": 3
+   }
+  ],
+  "por.1": [
+   {
+    "rank": 1,
+    "player": "Geny Catamo",
+    "team": "စပေါ်တင်း",
+    "assists": 4
+   },
+   {
+    "rank": 2,
+    "player": "Näis Djouahra",
+    "team": "အာရူကာ",
+    "assists": 4
+   },
+   {
+    "rank": 3,
+    "player": "Pepê",
+    "team": "ပေါ်တို",
+    "assists": 4
+   },
+   {
+    "rank": 4,
+    "player": "Cihan Kahraman",
+    "team": "ဗီဆူး",
+    "assists": 4
+   },
+   {
+    "rank": 5,
+    "player": "Mathias de Amorim",
+    "team": "ဖာမလီကောင်",
+    "assists": 3
+   },
+   {
+    "rank": 6,
+    "player": "Gianluca Prestianni",
+    "team": "ဘန်ဖီကာ",
+    "assists": 3
+   },
+   {
+    "rank": 7,
+    "player": "Eddy Doué",
+    "team": "အက်စ်ထရီလာ",
+    "assists": 3
+   },
+   {
+    "rank": 8,
+    "player": "Diogo Bezerra",
+    "team": "ရီယိုအဲဗီ",
+    "assists": 3
+   },
+   {
+    "rank": 9,
+    "player": "Gabri Veiga",
+    "team": "ပေါ်တို",
+    "assists": 3
+   },
+   {
+    "rank": 10,
+    "player": "Miguel Nogueira",
+    "team": "ဂီမာရေးရှ်",
+    "assists": 3
+   }
+  ],
+  "uefa.champions": [
+   {
+    "rank": 1,
+    "player": "Lamine Yamal",
+    "team": "ဘာစီလိုနာ",
+    "assists": 2
+   },
+   {
+    "rank": 2,
+    "player": "Nico Paz",
+    "team": "ကိုမို",
+    "assists": 2
+   },
+   {
+    "rank": 3,
+    "player": "Deniz Undav",
+    "team": "စတုဂတ်",
+    "assists": 2
+   },
+   {
+    "rank": 4,
+    "player": "Pau Torres",
+    "team": "အက်စတွန်ဗီလာ",
+    "assists": 2
+   },
+   {
+    "rank": 5,
+    "player": "Ousmane Dembélé",
+    "team": "ပီအက်စ်ဂျီ",
+    "assists": 2
+   },
+   {
+    "rank": 6,
+    "player": "Maghnes Akliouche",
+    "team": "ပီအက်စ်ဂျီ",
+    "assists": 1
+   },
+   {
+    "rank": 7,
+    "player": "João Gomes",
+    "team": "အက်စတွန်ဗီလာ",
+    "assists": 1
+   },
+   {
+    "rank": 8,
+    "player": "Georges Mikautadze",
+    "team": "ဗီလာရီးရဲလ်",
+    "assists": 1
+   },
+   {
+    "rank": 9,
+    "player": "Angelo Stiller",
+    "team": "စတုဂတ်",
+    "assists": 1
+   },
+   {
+    "rank": 10,
+    "player": "Michael Olise",
+    "team": "ဘိုင်ယန်",
+    "assists": 1
+   }
+  ],
+  "uefa.europa": [
+   {
+    "rank": 1,
+    "player": "Junior Olaitan",
+    "team": "ဘီရှစ်တပ်စ်",
+    "assists": 2
+   },
+   {
+    "rank": 2,
+    "player": "Orkun Kökçü",
+    "team": "ဘီရှစ်တပ်စ်",
+    "assists": 2
+   },
+   {
+    "rank": 3,
+    "player": "Bamidele Isa Yusuf",
+    "team": "ဖီရန်စဗာရို့စ်",
+    "assists": 2
+   },
+   {
+    "rank": 4,
+    "player": "Luken Beitia",
+    "team": "ရီးရဲလ်ဆိုစီဒက်",
+    "assists": 1
+   },
+   {
+    "rank": 5,
+    "player": "Ali Maamar",
+    "team": "အန်ဒါလက်ချ်",
+    "assists": 1
+   },
+   {
+    "rank": 6,
+    "player": "Massiré Sylla",
+    "team": "ယူနီယံစိန့်ဂီလွိုင်",
+    "assists": 1
+   },
+   {
+    "rank": 7,
+    "player": "Besfort Zeneli",
+    "team": "ယူနီယံစိန့်ဂီလွိုင်",
+    "assists": 1
+   },
+   {
+    "rank": 8,
+    "player": "Adam Wharton",
+    "team": "ခရစ္စတယ်ပဲလေ့စ်",
+    "assists": 1
+   },
+   {
+    "rank": 9,
+    "player": "Josimar Alcócer",
+    "team": "စပါတာပရက်",
+    "assists": 1
+   },
+   {
+    "rank": 10,
+    "player": "Alex Scott",
+    "team": "ဘုန်းမောက်",
+    "assists": 1
+   }
+  ]
  }
 }
