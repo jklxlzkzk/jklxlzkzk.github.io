@@ -23,7 +23,7 @@ import sys
 from datetime import date
 
 SITE = os.path.dirname(os.path.abspath(__file__))
-BASE = "https://luuzoe.github.io"
+BASE = "https://luuzoe.github.io/kzzfootballive"
 ADS_CLIENT = "ca-pub-4388974491023298"
 TODAY = date.today().isoformat()
 
@@ -108,7 +108,7 @@ PAGE = """<!DOCTYPE html>
 <meta property="og:title" content="__TITLE__">
 <meta property="og:description" content="__DESC__">
 <meta property="og:url" content="__CANON__">
-<meta property="og:image" content="https://luuzoe.github.io/og-image.png">
+<meta property="og:image" content="https://luuzoe.github.io/kzzfootballive/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=__ADS__" crossorigin="anonymous"></script>
