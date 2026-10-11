@@ -3,7 +3,7 @@
    Predictions: local predictions.json (edit the file, re-upload to update). */
 
 const LEAGUES = [
-  { id: 'eng.1',          name: 'Premier League',   mm: 'အင်္ဂလန် ပရီးမီးယားလိဂ်', icon: '🏴󐁧󐁢󐁥󐁮󐁧󐁿' },
+  { id: 'eng.1',          name: 'Premier League',   mm: 'အင်္ဂလန် ပရီးမီးယားလိဂ်', icon: '🇬🇧' },
   { id: 'esp.1',          name: 'La Liga',          mm: 'စပိန် လာလီဂါ',           icon: '🇪🇸' },
   { id: 'ita.1',          name: 'Serie A',          mm: 'အီတလီ စီးရီးအေ',          icon: '🇮🇹' },
   { id: 'ger.1',          name: 'Bundesliga',       mm: 'ဂျာမန် ဘွန်ဒက်စ်လီဂါ',    icon: '🇩🇪' },
@@ -443,7 +443,11 @@ async function renderNews() {
   try { data = await getJSON('news.json'); } catch (e) { data = null; }
   const items = (data && data.news) || [];
   let html = `<h2 class="section-title">📰 ဘောလုံးသတင်းများ</h2>`;
-  if (data && data.updated) html += `<div class="refresh-line">နောက်ဆုံးအပ်ဒိတ်: ${esc(data.updated)}</div>`;
+  if (data && data.updated) {
+    let upd = data.updated;
+    try { upd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(data.updated)); } catch (e) {}
+    html += `<div class="refresh-line">နောက်ဆုံးအပ်ဒိတ်: ${esc(upd)}</div>`;
+  }
   if (!items.length) {
     html += `<div class="empty">သတင်းတွေ မကြာမီ လာမယ်။</div>`;
   } else {
@@ -730,19 +734,21 @@ function detailHtml(d) {
         return `<div class="h2h-row"><span class="h2h-date">${esc(g.date)}</span><span class="h2h-match">${esc(hn)} ${esc(g.homeScore || '?')} - ${esc(g.awayScore || '?')} ${esc(an)}</span><span>${res}</span></div>`;
       }).join('');
       const nmA = nm(hm), nmB = nm(aw);
-      h2hHtml = `<div class="modal-sec-title">⚔️ ထိပ်တိုက်တွေ့ဆုံမှု (နောက်ဆုံး ${recent.length} ပွဲ)</div>
+      h2hHtml = `<div class="modal-sec-title">🆚 ထိပ်တိုက်တွေ့ဆုံမှု (နောက်ဆုံး ${recent.length} ပွဲ)</div>
       <div class="h2h-summary">${esc(nmA)} ${wA} နိုင်ပွဲ • သရေ ${dr} • ${esc(nmB)} ${wB} နိုင်ပွဲ</div>
       <div class="h2h-list">${rows}</div>`;
     } else {
-      h2hHtml = `<div class="modal-sec-title">⚔️ ထိပ်တိုက်တွေ့ဆုံမှု</div><div class="empty">နောက်ဆုံး ၅ ပွဲမှာ ထိပ်တိုက်မတွေ့ခဲ့ပါ။</div>`;
+      h2hHtml = `<div class="modal-sec-title">🆚 ထိပ်တိုက်တွေ့ဆုံမှု</div><div class="empty">နောက်ဆုံး ၅ ပွဲမှာ ထိပ်တိုက်မတွေ့ခဲ့ပါ။</div>`;
     }
   }
 
+  const matchDate = h.competitions && h.competitions[0] && h.competitions[0].date;
+  const modalWhen = matchDate ? fmtDateTime(matchDate) : ((st.type && st.type.shortDetail) || when || 'VS');
   return `
     <div class="modal-head">
       <div class="modal-teams">
         <div class="modal-team"><span>${esc(nm(hm))}</span><b>${esc(sc(hm))}</b></div>
-        <div class="modal-vs">${esc((st.type && st.type.shortDetail) || when || 'VS')}</div>
+        <div class="modal-vs">${esc(modalWhen)}</div>
         <div class="modal-team"><b>${esc(sc(aw))}</b><span>${esc(nm(aw))}</span></div>
       </div>
       ${venue ? `<div class="modal-venue">🏟 ${esc(venue)}${gi.attendance ? ' • 👥 ' + Number(gi.attendance).toLocaleString() : ''}</div>` : ''}
@@ -982,6 +988,14 @@ async function loadTab(quiet) {
 }
 
 try { const h = (location.hash || '').replace('#', ''); if (['live','fixtures','results','standings','predictions','news','analyses'].includes(h)) state.tab = h; } catch (e) {}
+window.addEventListener('hashchange', () => {
+  try {
+    const h = (location.hash || '').replace('#', '');
+    if (['live','fixtures','results','standings','predictions','news','analyses'].includes(h) && h !== state.tab) {
+      state.tab = h; buildTabs(); loadTab();
+    }
+  } catch (e) {}
+});
 buildLeagues();
 buildTabs();
 window.loadTab = loadTab;

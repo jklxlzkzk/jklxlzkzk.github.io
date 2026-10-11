@@ -372,7 +372,7 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .trophy { display: flex; justify-content: space-between; background: var(--card2); border-radius: 8px; padding: 7px 10px; font-size: .85rem; }
 .trophy b { color: var(--gold); }
 .squad-group { margin-bottom: 10px; }
-.squad-pos { font-weight: 700; color: var(--cyan); font-size: .85rem; margin-bottom: 4px; }
+.squad-pos { font-weight: 700; color: #7db4ff; font-size: .85rem; margin-bottom: 4px; }
 .squad-row { display: flex; align-items: center; gap: 10px; padding: 5px 8px; border-bottom: 1px solid var(--line); font-size: .88rem; }
 .squad-num { min-width: 28px; text-align: center; background: var(--card2); border-radius: 6px; padding: 2px 6px; font-weight: 700; color: var(--gold); }
 .squad-name { flex: 1; }
