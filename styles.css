@@ -40,7 +40,8 @@ body {
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand-ball { font-size: 40px; display: inline-block; animation: spin-ball 4s linear infinite; }
 @keyframes spin-ball { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.mm-flag { font-size: 32px; display: inline-block; margin-left: 4px; transform-origin: left center; animation: wave-flag 2.5s ease-in-out infinite; }
+.mm-flag { display: inline-block; margin-left: 4px; transform-origin: left center; animation: wave-flag 2.5s ease-in-out infinite; }
+.mm-flag svg { display: block; border-radius: 3px; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
 @keyframes wave-flag {
   0%, 100% { transform: perspective(200px) rotateY(-12deg) skewY(1deg); }
   50% { transform: perspective(200px) rotateY(12deg) skewY(-1deg); }
