@@ -1,0 +1,159 @@
+{
+ "predictions": [
+  {
+   "away": "Nottingham Forest",
+   "confidence": "low",
+   "date": "2026-10-11T19:30:00+06:30",
+   "home": "Crystal Palace",
+   "league": "Premier League",
+   "pick": "သရေကျမယ်",
+   "reason_mm": "နှစ်သင်းလုံး ခြေစွမ်းမကောင်း — Palace နောက်ဆုံး ၅ ပွဲမှာ ၁ ပွဲပဲနိုင်၊ Forest လည်း ၁ ပွဲပဲနိုင်။ အောက်ဆုံးတိုက်ပွဲမို့ သတိထားရမယ့်ပွဲ။"
+  },
+  {
+   "away": "Everton",
+   "confidence": "medium",
+   "date": "2026-10-11T19:30:00+06:30",
+   "home": "Hull",
+   "league": "Premier League",
+   "pick": "Everton မရှုံးဘူး (နိုင်/သရေ)",
+   "reason_mm": "Everton ဒီရာသီ ရှုံးပွဲမရှိသေး (၂ နိုင် ၃ သရေ)၊ အဆင့် ၈။ Hull အိမ်ကွင်းကောင်းပေမယ့် Everton အတွေ့အကြုံနဲ့ ခံစစ်က ပိုသာတယ်။"
+  },
+  {
+   "away": "Man City",
+   "confidence": "medium",
+   "date": "2026-10-11T22:00:00+06:30",
+   "home": "Liverpool",
+   "league": "Premier League",
+   "pick": "Man City နိုင်မယ်",
+   "reason_mm": "City ၅ ပွဲလုံးနိုင်၊ ဇယားထိပ်ဆုံး။ Liverpool တိုက်စစ်မှူး Isak (ပေါင်) နဲ့ Gakpo (ခြေကျင်း) ဒဏ်ရာနဲ့လွဲ — နှစ်ယောက်ပေါင်း အသင်းဂိုး ၁၂ ဂိုးမှာ ၈ ဂိုးပါဝင်ထားတယ်။"
+  },
+  {
+   "away": "Celta Vigo",
+   "confidence": "low",
+   "date": "2026-10-11T18:30:00+06:30",
+   "home": "Elche",
+   "league": "La Liga",
+   "pick": "သရေကျမယ်",
+   "reason_mm": "တန်းဆင်းဇုန်တိုက်ပွဲ — Elche အဆင့် ၁၈၊ Celta အဆင့် ၁၅၊ နှစ်သင်းလုံး နောက်ဆုံး ၅ ပွဲမှာ နိုင်ပွဲရှားတယ်။ အပြန်အလှန်သတိထားကစားမယ့်ပွဲ။"
+  },
+  {
+   "away": "Deportivo La Coruna",
+   "confidence": "medium",
+   "date": "2026-10-11T20:45:00+06:30",
+   "home": "Real Sociedad",
+   "league": "La Liga",
+   "pick": "Real Sociedad နိုင်မယ်",
+   "reason_mm": "Deportivo တိုက်စစ်မှူး Aubameyang ဒဏ်ရာနဲ့လွဲ (အသင်းဂိုး ၁၀ ဂိုးမှာ ၇ ဂိုးပါဝင်ထား)။ Sociedad နောက်ဆုံး ၃ ကြိမ်တွေ့ဆုံမှုလုံး အနိုင်ရထားပြီး အိမ်ကွင်းအားသာချက် ရှိတယ်။"
+  },
+  {
+   "away": "Osasuna",
+   "confidence": "high",
+   "date": "2026-10-11T23:00:00+06:30",
+   "home": "Real Betis",
+   "league": "La Liga",
+   "pick": "Real Betis နိုင်မယ်",
+   "reason_mm": "Betis အဆင့် ၃ (၅ နိုင် ၁ သရေ ၁ ရှုံး)၊ အိမ်ကွင်း ၃ ပွဲလုံးအနိုင်။ Osasuna ဒဏ်ရာများပြီး (Rosier, Herrando, Moro, Del Castillo လွဲ) နောက်ဆုံး ၅ ပွဲမှာ ၂ ပွဲပဲ အမှတ်ရထားတယ်။"
+  },
+  {
+   "away": "Valencia",
+   "confidence": "medium",
+   "date": "2026-10-12T01:30:00+06:30",
+   "home": "Racing Santander",
+   "league": "La Liga",
+   "pick": "Racing Santander နိုင်မယ်",
+   "reason_mm": "Valencia ၄ ပွဲဆက်ရှုံး၊ အဆင့် ၁၉ — နည်းပြသစ် Aguirre ပွဲဦးထွက်မှာ Danjuma, Sadiq, Rioja, Lopez တို့ ဒဏ်ရာသံသယရှိ။ Racing အိမ်ကွင်းမှာ အခွင့်အရေးပိုများတယ်။"
+  },
+  {
+   "away": "AS Roma",
+   "confidence": "medium",
+   "date": "2026-10-11T17:00:00+06:30",
+   "home": "Como",
+   "league": "Serie A",
+   "pick": "Como နိုင်မယ်",
+   "reason_mm": "ရိုးမား ဂိုးသမား Svilar ဒဏ်ရာရ၊ Cristante မပါ၊ အိမ်ကွင်းမှာ ကိုမို နောက်ဆုံး 2 ပွဲဆက် ရိုးမားကို နိုင်ထားတယ်။"
+  },
+  {
+   "away": "Monza",
+   "confidence": "high",
+   "date": "2026-10-11T19:30:00+06:30",
+   "home": "Lazio",
+   "league": "Serie A",
+   "pick": "Lazio နိုင်မယ်",
+   "reason_mm": "Lazio ရှုံးပွဲမရှိ (၄ နိုင် ၁ သရေ) အဆင့် ၃၊ Gattuso လက်ထက် ခြေစွမ်းကောင်း။ Monza အဆင့် ၁၆၊ အဝေးကွင်း ၃ ပွဲမှာ ၈ ဂိုးပေးထားပြီး အသင်းခေါင်းဆောင် Pessina လည်း လွဲမယ်။"
+  },
+  {
+   "away": "Bologna",
+   "confidence": "medium",
+   "date": "2026-10-11T19:30:00+06:30",
+   "home": "Lecce",
+   "league": "Serie A",
+   "pick": "Lecce နိုင်မယ်",
+   "reason_mm": "Bologna ဒီရာသီ နိုင်ပွဲမရှိသေး (၀ နိုင် ၂ သရေ ၃ ရှုံး) အဆင့် ၁၉။ Lecce အိမ်ကွင်းမှာ အမှတ်ရဖို့ အခွင့်အရေးကောင်းတယ်။"
+  },
+  {
+   "away": "AC Milan",
+   "confidence": "medium",
+   "date": "2026-10-11T22:30:00+06:30",
+   "home": "Sassuolo",
+   "league": "Serie A",
+   "pick": "AC Milan နိုင်မယ်",
+   "reason_mm": "Milan ရှုံးပွဲမရှိ (၃ နိုင် ၂ သရေ)၊ Saelemaekers တစ်ဦးတည်းလွဲပြီး ကျန်လူစုံတယ်။ Sassuolo ဒဏ်ရာစာရင်းရှည် (Idzes, Kone, Cande, Pieragnolo, Boloca, Volpato) နဲ့ ဂိုးသမား Muric လည်း သံသယရှိ။"
+  },
+  {
+   "away": "Juventus",
+   "confidence": "medium",
+   "date": "2026-10-12T01:15:00+06:30",
+   "home": "Cagliari",
+   "league": "Serie A",
+   "pick": "Cagliari မရှုံးဘူး (နိုင်/သရေ)",
+   "reason_mm": "Cagliari အဆင့် ၄၊ ၅ ပွဲမှာ ပေးဂိုး ၂ ဂိုးတည်းနဲ့ ခုခံကာကွယ်မှုအကောင်းဆုံး။ Juve အဓိကကစားသမားတွေ Yildiz, Locatelli, Thuram ဒဏ်ရာနဲ့လွဲပြီး နောက်ဆုံး ၅ ကြိမ်တွေ့ဆုံမှုမှာ ၂ ကြိမ်ပဲနိုင်ထားတယ်။"
+  },
+  {
+   "away": "Borussia M'gladbach",
+   "confidence": "low",
+   "date": "2026-10-11T20:00:00+06:30",
+   "home": "FC Koln",
+   "league": "Bundesliga",
+   "pick": "FC Koln နိုင်မယ်",
+   "reason_mm": "Gladbach အမှတ် ၀ နဲ့ ဇယားအောက်ဆုံး (၄ ပွဲလုံးရှုံး)၊ ဒဏ်ရာများပြီး နည်းပြသစ်ပွဲဦးထွက်။ Koln အိမ်ကွင်း ၂ ပွဲဆက် မရှုံးထားပေမယ့် တိုက်စစ်မှူး Ache, Dallinga လွဲတာကြောင့် သတိထားရမယ့် ဒါဘီပွဲ။"
+  },
+  {
+   "away": "Schalke 04",
+   "confidence": "high",
+   "date": "2026-10-11T22:00:00+06:30",
+   "home": "Freiburg",
+   "league": "Bundesliga",
+   "pick": "Freiburg နိုင်မယ်",
+   "reason_mm": "Freiburg အသင်းသမိုင်းမှာ အကောင်းဆုံးရာသီအစ (၁၂ မှတ်မှာ ၁၀ မှတ်)၊ ဒဏ်ရာတစ်ဦးတည်းနဲ့ လူစုံလူညီ။ Schalke နဲ့ နောက်ဆုံး ၈ ကြိမ်တွေ့ဆုံမှုမှာ မရှုံးဘူး (၆ နိုင်၊ ၇ ပွဲ clean sheet)။"
+  },
+  {
+   "away": "Strasbourg",
+   "confidence": "low",
+   "date": "2026-10-11T19:30:00+06:30",
+   "home": "Nice",
+   "league": "Ligue 1",
+   "pick": "Nice မရှုံးဘူး (နိုင်/သရေ)",
+   "reason_mm": "Nice အိမ်ကွင်း ၃ ပွဲဆက် မရှုံး၊ Lille ကို ၂-၁ နိုင်ထားတယ်။ Strasbourg အဝေးကွင်း ၃ ပွဲမှာ ၈ ဂိုးပေးထားပြီး အသင်းခေါင်းဆောင် Doukoure ဒဏ်ရာနဲ့လွဲမယ်။"
+  },
+  {
+   "away": "Auxerre",
+   "confidence": "high",
+   "date": "2026-10-11T21:45:00+06:30",
+   "home": "Rennes",
+   "league": "Ligue 1",
+   "pick": "Rennes နိုင်မယ်",
+   "reason_mm": "Rennes အဆင့် ၅၊ လူစုံလူညီနီးပါး (Cisse တစ်ဦးတည်းသံသယ)။ Auxerre ခံစစ် လိဂ်မှာ အဆိုးဆုံး (၅ ပွဲမှာ ၁၂ ဂိုးပေး)၊ အဓိကကစားသမား ၅ ဦး (Diousse, Okoh, Makosso အပါအဝင်) လွဲမယ်။"
+  },
+  {
+   "away": "Marseille",
+   "confidence": "low",
+   "date": "2026-10-12T01:15:00+06:30",
+   "home": "Troyes",
+   "league": "Ligue 1",
+   "pick": "Marseille နိုင်မယ်",
+   "reason_mm": "Marseille ၅ ပွဲဆက်ရှုံးနေပေမယ့် လူအင်အားက Troyes ထက်သာပြီး Troyes နဲ့တွေ့ဆုံမှု မှတ်တမ်းကောင်းတယ်။ Hojbjerg, Weah လွဲပေမယ့် Gouiri ပြန်ပါလာတယ်။ နှစ်သင်းလုံး ခြေမကောင်းလို့ သတိထားရမယ့်ပွဲ။"
+  }
+ ],
+ "source": "KZZ Football Analysis",
+ "updated": "2026-10-11"
+}
