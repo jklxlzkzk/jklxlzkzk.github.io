@@ -112,7 +112,7 @@ PAGE = """<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=__ADS__" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/styles.css?v=11">
+<link rel="stylesheet" href="/kzzfootballive/styles.css?v=27">
 <style>__CSS__</style>
 </head>
 <body>
@@ -132,14 +132,14 @@ __RELATED__
 </main>
 <footer class="site-footer">
 <p>__FOOTLINKS__</p>
-<p><a href="/about.html">About</a> • <a href="/privacy.html">Privacy Policy</a></p>
+<p><a href="/kzzfootballive/about.html">About</a> • <a href="/kzzfootballive/privacy.html">Privacy Policy</a></p>
 <p>KZZ Football Analysis • ဒေတာ — ESPN public API</p>
 </footer>
 </body></html>
 """
 
 FOOTLINKS = " • ".join(
-    '<a href="/leagues/%s.html">%s</a>' % (slug, mm) for slug, _en, mm, _ic, _d in LEAGUES
+    '<a href="/kzzfootballive/leagues/%s.html">%s</a>' % (slug, mm) for slug, _en, mm, _ic, _d in LEAGUES
 )
 
 
@@ -156,7 +156,7 @@ def render(title, desc, canon, crumbs, h1, meta, body, related=""):
 
 def crumbs(*parts):
     # parts: [(label, url|None)]
-    out = ['<a href="/">🏠 ပင်မ</a>']
+    out = ['<a href="/kzzfootballive/">🏠 ပင်မ</a>']
     for label, url in parts:
         if url:
             out.append("› " + '<a href="%s">%s</a>' % (url, esc(label)))
@@ -222,7 +222,7 @@ def main():
                  for x in news if x.get("id") != n.get("id")][:5]
         page = render(n.get("title_mm", "သတင်း"), desc_of(n.get("body_mm", "")),
                       "%s/news/%s.html" % (BASE, nid),
-                      crumbs(("သတင်း", "/#news"), (n.get("title_mm", "")[:40], None)),
+                      crumbs(("သတင်း", "/kzzfootballive/#news"), (n.get("title_mm", "")[:40], None)),
                       n.get("title_mm", ""), meta, body,
                       rel_block("📰 နောက်ထပ် သတင်းများ", other))
         urls.append((write("news/%s.html" % nid, page), TODAY, "daily", "0.8"))
