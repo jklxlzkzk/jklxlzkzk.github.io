@@ -1052,8 +1052,17 @@ function showUpdateBanner() {
   const flag = document.getElementById('anthemFlag');
   const audio = document.getElementById('anthemAudio');
   if (!flag || !audio) return;
+  // try autoplay on load (may be blocked until first interaction)
+  const tryPlay = () => audio.play().catch(() => {});
+  tryPlay();
+  document.addEventListener('pointerdown', tryPlay, { once: true });
+  // flag toggles: pause if playing, replay from start if paused
   flag.addEventListener('click', () => {
-    audio.currentTime = 0;
-    audio.play().catch(() => {});
+    if (audio.paused) {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    } else {
+      audio.pause();
+    }
   });
 })();
