@@ -326,6 +326,20 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .h2h-date { color: var(--muted); font-size: 0.78rem; min-width: 90px; }
 .h2h-match { flex: 1; }
 
+/* ---------- player detail ---------- */
+.player-link { color: #7db4ff; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.player-link:hover { color: #a8ccff; }
+.player-head { display: flex; align-items: center; gap: 14px; }
+.player-jersey { font-size: 2.2rem; font-weight: 800; color: #ffd76a; background: #1a2338; border: 2px solid #ffd76a; border-radius: 12px; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; }
+.player-name { font-size: 1.3rem; font-weight: 700; }
+.player-nation { display: flex; align-items: center; gap: 8px; color: var(--muted); margin-top: 4px; }
+.player-flag { width: 28px; height: 20px; border-radius: 3px; object-fit: cover; }
+.player-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.player-grid > div { background: var(--card); border: 1px solid #22314f; border-radius: 10px; padding: 10px 14px; display: flex; flex-direction: column; gap: 4px; }
+.player-grid span { color: var(--muted); font-size: 0.8rem; }
+.player-grid b { font-size: 1rem; }
+@media (max-width: 480px) { .player-grid { grid-template-columns: 1fr; } }
+
 /* ---------- goal alert ---------- */
 .goal-alert { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #1b5e20, #2e7d32); color: #fff; font-size: 1.05rem; font-weight: 700; padding: 14px 24px; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,.5); z-index: 9999; cursor: pointer; animation: goal-pop 0.5s ease-out; border: 2px solid #7dff9a; }
 @keyframes goal-pop { 0% { transform: translateX(-50%) scale(0.5); opacity: 0; } 60% { transform: translateX(-50%) scale(1.1); } 100% { transform: translateX(-50%) scale(1); opacity: 1; } }

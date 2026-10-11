@@ -363,7 +363,8 @@ async function renderAssists(sub) {
     const leaders = ((data.assists || {})[state.league]) || [];
     const rows = leaders.slice(0, 10).map((l, i) => {
       const a = (l.assists != null && l.assists !== '–') ? l.assists : '–';
-      return `<tr><td>${i + 1}</td><td style="text-align:left">${esc(l.player || '–')}</td><td style="text-align:left">${esc(l.team || '–')}</td><td class="pts">🅰️ ${esc(a)}</td></tr>`;
+      const nm = l.pid ? `<span class="player-link" onclick="openPlayerDetail('${esc(l.pid)}')">${esc(l.player || '–')}</span>` : esc(l.player || '–');
+      return `<tr><td>${i + 1}</td><td style="text-align:left">${nm}</td><td style="text-align:left">${esc(l.team || '–')}</td><td class="pts">🅰️ ${esc(a)}</td></tr>`;
     });
     content.innerHTML = `
       <h2 class="section-title">${leagueName()} — Assist အများဆုံး</h2>${sub}
@@ -384,7 +385,8 @@ async function renderScorers(sub) {
     const leaders = ((data.leagues || {})[state.league]) || [];
     const rows = leaders.slice(0, 10).map((l, i) => {
       const goals = (l.goals != null && l.goals !== '–') ? l.goals : '–';
-      return `<tr><td>${i + 1}</td><td style="text-align:left">${esc(l.player || '–')}</td><td style="text-align:left">${esc(l.team || '–')}</td><td class="pts">⚽ ${esc(goals)}</td></tr>`;
+      const nm = l.pid ? `<span class="player-link" onclick="openPlayerDetail('${esc(l.pid)}')">${esc(l.player || '–')}</span>` : esc(l.player || '–');
+      return `<tr><td>${i + 1}</td><td style="text-align:left">${nm}</td><td style="text-align:left">${esc(l.team || '–')}</td><td class="pts">⚽ ${esc(goals)}</td></tr>`;
     });
     content.innerHTML = `
       <h2 class="section-title">${leagueName()} — ဂိုးသွင်းအများဆုံး</h2>${sub}
@@ -665,7 +667,10 @@ function detailHtml(d) {
     const pRow = (p) => {
       const a = p.athlete || {};
       const pos = p.position ? ` <span class="pos">${esc(p.position.abbreviation || '')}</span>` : '';
-      return `<div class="lu-row"><span class="lu-j">${esc(p.jersey != null ? p.jersey : '')}</span><span>${esc(a.displayName || a.shortName || '')}</span>${pos}</div>`;
+      const pid = a.id || '';
+      const nm = esc(a.displayName || a.shortName || '');
+      const nmHtml = pid ? `<span class="player-link" onclick="event.stopPropagation();openPlayerDetail('${esc(pid)}')">${nm}</span>` : `<span>${nm}</span>`;
+      return `<div class="lu-row"><span class="lu-j">${esc(p.jersey != null ? p.jersey : '')}</span>${nmHtml}${pos}</div>`;
     };
     return `<div class="lu-team"><div class="lu-title">${esc(tnm)}${r.formation ? ` <span class="form">(${esc(r.formation)})</span>` : ''}</div>
       <div class="lu-sec">ပွဲထွက်လူစာရင်း</div>${starters.map(pRow).join('') || '<div class="empty">—</div>'}
@@ -781,6 +786,51 @@ function showGoalAlert(m) {
   setTimeout(() => banner.remove(), 8000);
   banner.onclick = () => banner.remove();
 }
+
+/* ---------- player detail ---------- */
+async function openPlayerDetail(pid) {
+  const bd = $('#modalBackdrop'), box = $('#modalBox');
+  box.innerHTML = `<div class="loading">ကစားသမားအချက်အလက် ဆွဲနေသည်…</div>`;
+  bd.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  try {
+    const d = await getJSON(`https://sports.core.api.espn.com/v2/sports/soccer/athletes/${encodeURIComponent(pid)}?lang=en`);
+    box.innerHTML = playerDetailHtml(d);
+  } catch (e) {
+    box.innerHTML = `<div class="error">အချက်အလက် ဆွဲမရသေးပါ။<br><button onclick="closeModal()">ပိတ်မယ်</button></div>`;
+  }
+}
+function playerDetailHtml(d) {
+  const nm = d.displayName || d.fullName || '–';
+  const jersey = d.jersey || '–';
+  const age = d.age || '–';
+  const dob = d.dateOfBirth ? d.dateOfBirth.slice(0, 10) : '–';
+  const height = d.displayHeight || '–';
+  const weight = d.displayWeight || '–';
+  const nation = d.citizenship || '–';
+  const flagImg = d.flag && d.flag.href ? `<img src="${esc(d.flag.href)}" alt="" class="player-flag" onerror="this.style.display='none'">` : '';
+  const posName = d.position && d.position.$ref ? '' : '';
+  return `
+    <div class="modal-head">
+      <div class="player-head">
+        <div class="player-jersey">${esc(String(jersey))}</div>
+        <div>
+          <div class="player-name">${esc(nm)}</div>
+          <div class="player-nation">${flagImg}<span>${esc(nation)}</span></div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕ ပိတ်မယ်</button>
+    </div>
+    <div class="player-grid">
+      <div><span>🎂 အသက်</span><b>${esc(String(age))}</b></div>
+      <div><span>📅 မွေးနေ့</span><b>${esc(dob)}</b></div>
+      <div><span>📏 အရပ်</span><b>${esc(height)}</b></div>
+      <div><span>⚖️ ကိုယ်အလေးချိန်</span><b>${esc(weight)}</b></div>
+      <div><span>👕 နံပါတ်</span><b>${esc(String(jersey))}</b></div>
+      <div><span>🌍 နိုင်ငံ</span><b>${esc(nation)}</b></div>
+    </div>`;
+}
+window.openPlayerDetail = openPlayerDetail;
 
 /* ---------- favorites ---------- */
 
