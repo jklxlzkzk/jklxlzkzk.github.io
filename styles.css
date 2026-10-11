@@ -193,7 +193,7 @@ body {
 .goal-col { flex: 1; min-width: 0; }
 .goal-col.right .goal-row { flex-direction: row-reverse; text-align: right; }
 .goal-row { display: flex; align-items: center; gap: 8px; font-size: 14px; padding: 3px 0; }
-.goal-min { color: var(--gold); font-weight: 700;
+.goal-min { color: var(--gold); font-weight: 700; }
 .goal-name { overflow: hidden; text-overflow: ellipsis; }
 
 .date-group { margin: 18px 0 8px; color: var(--gold); font-weight: 700; font-size: 15px; }
@@ -294,7 +294,7 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .modal-teams { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .modal-team { flex: 1; display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 10px; font-size: 0.95rem; }
 .modal-team b { font-size: 1.8rem; color: #ffd54a; }
-.modal-vs { color: #8a93a6; font-size: 0.8rem;
+.modal-vs { color: #8a93a6; font-size: 0.8rem; }
 .modal-venue { font-size: 0.8rem; color: #8a93a6; margin-top: 8px; }
 .modal-close { margin-top: 10px; background: #1d5c3a; color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 0.9rem; cursor: pointer; }
 .modal-sec-title { font-weight: 700; margin: 14px 0 8px; color: #ffd54a; font-size: 0.95rem; }
