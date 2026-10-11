@@ -1046,3 +1046,14 @@ function showUpdateBanner() {
     }).catch(() => {});
   }
 })();
+
+/* ---------- national anthem on flag click ---------- */
+(function() {
+  const flag = document.getElementById('anthemFlag');
+  const audio = document.getElementById('anthemAudio');
+  if (!flag || !audio) return;
+  flag.addEventListener('click', () => {
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+  });
+})();
