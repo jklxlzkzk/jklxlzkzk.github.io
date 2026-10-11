@@ -198,6 +198,12 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .pred-meta { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
 .pred-pick { font-size: 16px; color: var(--accent); font-weight: 700; margin-bottom: 6px; }
 .pred-reason { font-size: 14px; color: var(--text); line-height: 1.6; }
+.pred-prob { margin: 8px 0; }
+.prob-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: #1a2340; }
+.prob-home { background: #4caf50; }
+.prob-draw { background: #9e9e9e; }
+.prob-away { background: #2196f3; }
+.prob-labels { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
 .conf-high { color: var(--accent); } .conf-med { color: var(--gold); } .conf-low { color: var(--muted); }
 
 .site-footer {

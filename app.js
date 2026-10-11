@@ -385,13 +385,25 @@ async function renderPredictions() {
   if (!preds.length) {
     html += `<div class="empty">ခန့်မှန်းချက်တွေ မကြာမီ လာမယ်။<br>KZZ Facebook page မှာ တင်ထားတဲ့ ပွဲကြိုခန့်မှန်းချက်တွေ ဒီမှာ ပေါ်လာမယ်။</div>`;
   } else {
-    html += preds.map((p) => `
+    html += preds.map((p) => {
+      let probHtml = '';
+      if (p.prob_home != null && p.prob_draw != null && p.prob_away != null) {
+        probHtml = `<div class="pred-prob">
+          <div class="prob-bar">
+            <div class="prob-home" style="width:${p.prob_home}%"></div><div class="prob-draw" style="width:${p.prob_draw}%"></div><div class="prob-away" style="width:${p.prob_away}%"></div>
+          </div>
+          <div class="prob-labels"><span>🏠 ${p.prob_home}%</span><span>🤝 ${p.prob_draw}%</span><span>✈️ ${p.prob_away}%</span></div>
+        </div>`;
+      }
+      return `
       <div class="pred-card">
         <div class="pred-match">${esc(p.home)} vs ${esc(p.away)}</div>
         <div class="pred-meta">${esc(p.league || '')} ${p.date ? '• ' + esc(fmtDateTime(p.date)) : ''}</div>
         <div class="pred-pick">👉 ${esc(p.pick || '')} <span class="${confClass[p.confidence] || ''}">(${esc(confLabel[p.confidence] || '')})</span></div>
+        ${probHtml}
         ${p.reason_mm ? `<div class="pred-reason">${esc(p.reason_mm)}</div>` : ''}
-      </div>`).join('');
+      </div>`;
+    }).join('');
   }
   html += `<div class="refresh-line">⚠️ ခန့်မှန်းချက်များသည် အကြံပြုချက်သာဖြစ်ပြီး အာမခံချက် မဟုတ်ပါ။</div>`;
   content.innerHTML = html;
