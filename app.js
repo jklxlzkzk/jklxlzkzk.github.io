@@ -500,11 +500,20 @@ function mmTeamName(en) {
 /* Translate ESPN key-event text into Burmese (fallback: original English). */
 function mmEvent(k) {
   const txt = k.text || '';
+  const parts = k.participants || [];
+  const pidFor = (name) => {
+    const p = parts.find((x) => x.athlete && x.athlete.displayName && x.athlete.displayName.toLowerCase() === name.toLowerCase());
+    return p && p.athlete.id ? p.athlete.id : null;
+  };
+  const linkName = (name) => {
+    const pid = pidFor(name);
+    return pid ? `<button class="player-link" onclick="event.stopPropagation();openPlayerDetail('${esc(pid)}')">${esc(name)}</button>` : `<b>${esc(name)}</b>`;
+  };
   let m;
   // Substitution: "Substitution, FC Porto. Oskar Pietuszewski replaces Pepê."
   m = txt.match(/^Substitution,\s*([^.]+)\.\s*(.+?)\s+replaces\s+(.+?)\.?$/);
   if (m) {
-    return `<span class="ev-ic">🔄</span><span class="ev-txt">လူစားလဲခြင်း • ${esc(mmTeamName(m[1].trim()))}: <b>${esc(m[3].trim())}</b> အစား <b>${esc(m[2].trim())}</b> ဝင်လာသည်</span>`;
+    return `<span class="ev-ic">🔄</span><span class="ev-txt">လူစားလဲခြင်း • ${esc(mmTeamName(m[1].trim()))}: <b>${esc(m[3].trim())}</b> အစား ${linkName(m[2].trim())} ဝင်လာသည်</span>`;
   }
   // Goal: "Goal! Arsenal 0, Leeds United 1. James Justin (Leeds United) right footed shot ..."
   m = txt.match(/^Goal!\s*[^.]+\.\s*(.+?)\s+\(([^)]+)\)(.*)$/);
@@ -515,13 +524,13 @@ function mmEvent(k) {
     if (/own goal/i.test(txt)) method = ' · ကိုယ့်ဂိုးကိုယ်သွင်း (OG)';
     else if (/penalty/i.test(txt)) method = ' · ပင်နယ်တီ';
     else if (/header/i.test(txt)) method = ' · ခေါင်းတိုက်';
-    return `<span class="ev-ic">⚽</span><span class="ev-txt">ဂိုး — <b>${esc(scorer)}</b>${team ? ` (${esc(mmTeamName(team))})` : ''}${method}</span>`;
+    return `<span class="ev-ic">⚽</span><span class="ev-txt">ဂိုး — ${linkName(scorer)}${team ? ` (${esc(mmTeamName(team))})` : ''}${method}</span>`;
   }
   // Cards: "Bruno Fernandes (Manchester United) is shown the yellow card ..."
   m = txt.match(/^(.+?)\s+\(([^)]+)\)\s+is shown the (second yellow|yellow|red) card/i);
   if (m) {
     const red = /red|second yellow/i.test(m[3]);
-    return `<span class="ev-ic">${red ? '🟥' : '🟨'}</span><span class="ev-txt">${red ? 'အနီကတ်' : 'အဝါကတ်'} — <b>${esc(m[1].trim())}</b> (${esc(mmTeamName(m[2].trim()))})</span>`;
+    return `<span class="ev-ic">${red ? '🟥' : '🟨'}</span><span class="ev-txt">${red ? 'အနီကတ်' : 'အဝါကတ်'} — ${linkName(m[1].trim())} (${esc(mmTeamName(m[2].trim()))})</span>`;
   }
   const typeIcon = k.scoringPlay ? '⚽' : '•';
   return `<span class="ev-ic">${typeIcon}</span><span class="ev-txt">${esc(txt)}</span>`;
