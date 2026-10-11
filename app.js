@@ -826,12 +826,20 @@ async function openPlayerDetail(pid) {
         posName = POS_MM_FULL[en] || en || '–';
       } catch (e) {}
     }
-    box.innerHTML = playerDetailHtml(d, posName);
+    let photoUrl = '';
+    const wikiName = (d.displayName || d.fullName || '').replace(/ /g, '_');
+    if (wikiName) {
+      try {
+        const wd = await getJSON(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiName)}`);
+        photoUrl = (wd.originalimage && wd.originalimage.source) || (wd.thumbnail && wd.thumbnail.source) || '';
+      } catch (e) {}
+    }
+    box.innerHTML = playerDetailHtml(d, posName, photoUrl);
   } catch (e) {
     box.innerHTML = `<div class="error">အချက်အလက် ဆွဲမရသေးပါ။<br><button onclick="closeModal()">ပိတ်မယ်</button></div>`;
   }
 }
-function playerDetailHtml(d, posName) {
+function playerDetailHtml(d, posName, photoUrl) {
   const nm = d.displayName || d.fullName || '–';
   const jersey = d.jersey || '–';
   const age = d.age || '–';
@@ -840,10 +848,11 @@ function playerDetailHtml(d, posName) {
   const weight = d.displayWeight || '–';
   const nation = d.citizenship || '–';
   const flagImg = d.flag && d.flag.href ? `<img src="${esc(d.flag.href)}" alt="" class="player-flag" onerror="this.style.display='none'">` : '';
+  const photoHtml = photoUrl ? `<img src="${esc(photoUrl)}" alt="${esc(nm)}" class="player-photo" onerror="this.style.display='none'">` : `<div class="player-jersey">${esc(String(jersey))}</div>`;
   return `
     <div class="modal-head">
       <div class="player-head">
-        <div class="player-jersey">${esc(String(jersey))}</div>
+        ${photoHtml}
         <div>
           <div class="player-name">${esc(nm)}</div>
           <div class="player-nation">${flagImg}<span>${esc(nation)}</span></div>

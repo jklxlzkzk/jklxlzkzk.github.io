@@ -335,6 +335,7 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .player-nation { display: flex; align-items: center; gap: 8px; color: var(--muted); margin-top: 4px; }
 .player-flag { width: 28px; height: 20px; border-radius: 3px; object-fit: cover; }
 .player-pos { color: #ffd76a; font-size: 0.9rem; font-weight: 600; margin-top: 2px; }
+.player-photo { width: 84px; height: 84px; border-radius: 12px; object-fit: cover; border: 2px solid #ffd76a; background: #1a2338; }
 .player-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
 .player-grid > div { background: var(--card); border: 1px solid #22314f; border-radius: 10px; padding: 10px 14px; display: flex; flex-direction: column; gap: 4px; }
 .player-grid span { color: var(--muted); font-size: 0.8rem; }
