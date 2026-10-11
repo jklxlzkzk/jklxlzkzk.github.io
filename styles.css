@@ -327,7 +327,7 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .h2h-match { flex: 1; }
 
 /* ---------- player detail ---------- */
-.player-link { color: #7db4ff; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.player-link { color: #7db4ff; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; background: none; border: none; padding: 0; font: inherit; text-align: inherit; }
 .player-link:hover { color: #a8ccff; }
 .player-head { display: flex; align-items: center; gap: 14px; }
 .player-jersey { font-size: 2.2rem; font-weight: 800; color: #ffd76a; background: #1a2338; border: 2px solid #ffd76a; border-radius: 12px; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; }

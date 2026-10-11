@@ -363,7 +363,7 @@ async function renderAssists(sub) {
     const leaders = ((data.assists || {})[state.league]) || [];
     const rows = leaders.slice(0, 10).map((l, i) => {
       const a = (l.assists != null && l.assists !== '–') ? l.assists : '–';
-      const nm = l.pid ? `<span class="player-link" onclick="openPlayerDetail('${esc(l.pid)}')">${esc(l.player || '–')}</span>` : esc(l.player || '–');
+      const nm = l.pid ? `<button class="player-link" onclick="openPlayerDetail('${esc(l.pid)}')">${esc(l.player || '–')}</button>` : esc(l.player || '–');
       return `<tr><td>${i + 1}</td><td style="text-align:left">${nm}</td><td style="text-align:left">${esc(l.team || '–')}</td><td class="pts">🅰️ ${esc(a)}</td></tr>`;
     });
     content.innerHTML = `
@@ -385,7 +385,7 @@ async function renderScorers(sub) {
     const leaders = ((data.leagues || {})[state.league]) || [];
     const rows = leaders.slice(0, 10).map((l, i) => {
       const goals = (l.goals != null && l.goals !== '–') ? l.goals : '–';
-      const nm = l.pid ? `<span class="player-link" onclick="openPlayerDetail('${esc(l.pid)}')">${esc(l.player || '–')}</span>` : esc(l.player || '–');
+      const nm = l.pid ? `<button class="player-link" onclick="openPlayerDetail('${esc(l.pid)}')">${esc(l.player || '–')}</button>` : esc(l.player || '–');
       return `<tr><td>${i + 1}</td><td style="text-align:left">${nm}</td><td style="text-align:left">${esc(l.team || '–')}</td><td class="pts">⚽ ${esc(goals)}</td></tr>`;
     });
     content.innerHTML = `
@@ -669,7 +669,7 @@ function detailHtml(d) {
       const pos = p.position ? ` <span class="pos">${esc(p.position.abbreviation || '')}</span>` : '';
       const pid = a.id || '';
       const nm = esc(a.displayName || a.shortName || '');
-      const nmHtml = pid ? `<span class="player-link" onclick="event.stopPropagation();openPlayerDetail('${esc(pid)}')">${nm}</span>` : `<span>${nm}</span>`;
+      const nmHtml = pid ? `<button class="player-link" onclick="event.stopPropagation();openPlayerDetail('${esc(pid)}')">${nm}</button>` : `<span>${nm}</span>`;
       return `<div class="lu-row"><span class="lu-j">${esc(p.jersey != null ? p.jersey : '')}</span>${nmHtml}${pos}</div>`;
     };
     return `<div class="lu-team"><div class="lu-title">${esc(tnm)}${r.formation ? ` <span class="form">(${esc(r.formation)})</span>` : ''}</div>
