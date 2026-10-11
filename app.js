@@ -797,6 +797,19 @@ function showGoalAlert(m) {
 }
 
 /* ---------- player detail ---------- */
+const POS_MM_FULL = {
+  'Goalkeeper': 'ဂိုးသမား', 'Defender': 'နောက်တန်း',
+  'Left Back': 'ဘယ်နောက်တန်း', 'Right Back': 'ညာနောက်တန်း',
+  'Centre Back': 'နောက်တန်း', 'Center Back': 'နောက်တန်း',
+  'Midfielder': 'ကွင်းလယ်', 'Defensive Midfielder': 'ကွင်းလယ်ခံစစ်',
+  'Central Midfielder': 'ကွင်းလယ်', 'Attacking Midfielder': 'ကွင်းလယ်',
+  'Left Midfielder': 'ဘယ်တောင်ပံ', 'Right Midfielder': 'ညာတောင်ပံ',
+  'Left Wing': 'ဘယ်တောင်ပံ', 'Right Wing': 'ညာတောင်ပံ',
+  'Left Winger': 'ဘယ်တောင်ပံ', 'Right Winger': 'ညာတောင်ပံ',
+  'Forward': 'တိုက်စစ်မှူး', 'Striker': 'တိုက်စစ်မှူး',
+  'Centre Forward': 'တိုက်စစ်မှူး', 'Center Forward': 'တိုက်စစ်မှူး',
+  'Second Striker': 'တိုက်စစ်မှူး',
+};
 async function openPlayerDetail(pid) {
   const bd = $('#modalBackdrop'), box = $('#modalBox');
   box.innerHTML = `<div class="loading">ကစားသမားအချက်အလက် ဆွဲနေသည်…</div>`;
@@ -809,7 +822,8 @@ async function openPlayerDetail(pid) {
     if (posRef) {
       try {
         const pd = await getJSON(posRef.replace('http:', 'https:'));
-        posName = pd.displayName || pd.name || '–';
+        const en = pd.displayName || pd.name || '';
+        posName = POS_MM_FULL[en] || en || '–';
       } catch (e) {}
     }
     box.innerHTML = playerDetailHtml(d, posName);
