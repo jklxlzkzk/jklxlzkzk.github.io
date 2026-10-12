@@ -401,6 +401,31 @@ async function renderScorers(sub) {
 }
 
 
+
+const SB_URL = 'https://kdoxinvdysheifvaazfb.supabase.co';
+const SB_KEY = 'sb_publishable_3ONYUvbOWGsKIAqiz5ROWQ_4eNPLCWM';
+const sbHeaders = {
+  'apikey': SB_KEY,
+  'Authorization': 'Bearer ' + SB_KEY,
+  'Content-Type': 'application/json'
+};
+async function sbGet(path) {
+  try {
+    const r = await fetch(SB_URL + '/rest/v1/' + path, {headers: sbHeaders});
+    return await r.json();
+  } catch(e) { return null; }
+}
+async function sbPost(path, data) {
+  try {
+    await fetch(SB_URL + '/rest/v1/' + path, {method: 'POST', headers: sbHeaders, body: JSON.stringify(data)});
+  } catch(e) {}
+}
+async function sbPatch(path, data) {
+  try {
+    await fetch(SB_URL + '/rest/v1/' + path, {method: 'PATCH', headers: sbHeaders, body: JSON.stringify(data)});
+  } catch(e) {}
+}
+
 function parseFB() {
   if (window.FB) { try { FB.XFBML.parse(); } catch(e){} }
   else { setTimeout(parseFB, 1000); }
@@ -446,6 +471,7 @@ async function renderPredictions() {
   content.innerHTML = html;
   stamp();
   parseFB();
+  loadAllSocial();
 }
 
 /* ---------- news ---------- */
@@ -453,39 +479,69 @@ async function renderPredictions() {
 
 function socialButtons(id, title) {
   const safeId = String(id).replace(/[^a-zA-Z0-9-]/g, '-');
-  const likeKey = 'kzz-like-' + safeId;
-  const liked = localStorage.getItem(likeKey) ? 'liked' : '';
-  const likeCount = parseInt(localStorage.getItem(likeKey + '-count') || '0');
-  const comments = JSON.parse(localStorage.getItem('kzz-comments-' + safeId) || '[]');
+  const liked = localStorage.getItem('kzz-like-' + safeId) ? 'liked' : '';
   return `<div class="social-row">
-    <button class="share-btn like-btn ${liked}" onclick="event.stopPropagation();toggleLike(this,'${safeId}')">👍 Like <span>${likeCount}</span></button>
-    <button class="share-btn" onclick="event.stopPropagation();toggleCommentBox('${safeId}')">💬 Comment (${comments.length})</button>
+    <button class="share-btn like-btn ${liked}" onclick="event.stopPropagation();toggleLike(this,'${safeId}')">👍 Like <span id="like-${safeId}">0</span></button>
+    <button class="share-btn" onclick="event.stopPropagation();toggleCommentBox('${safeId}')">💬 Comment (<span id="ccount-${safeId}">0</span>)</button>
     <button class="share-btn" onclick="event.stopPropagation();sharePost('${safeId}')">🔗 Share</button>
   </div>
   <div class="comment-box" id="cbox-${safeId}" style="display:none">
-    <div class="comment-list" id="clist-${safeId}">${comments.map(c => `<div class="comment-item"><b>${esc(c.name)}</b>: ${esc(c.text)}<br><small>${esc(c.time)}</small></div>`).join('')}</div>
+    <div class="comment-list" id="clist-${safeId}"><div style="color:#888;font-size:12px">Loading...</div></div>
     <div class="comment-form-row">
       <textarea id="ctext-${safeId}" placeholder="Comment ရေးပါ..." rows="1" maxlength="500"></textarea>
       <button class="share-btn" onclick="event.stopPropagation();postComment('${safeId}')">ပို့မယ်</button>
     </div>
   </div>`;
 }
+async function loadSocial(safeId) {
+  // Load like count
+  const likes = await sbGet('likes?id=eq.' + encodeURIComponent(safeId));
+  const likeCount = (likes && likes[0]) ? likes[0].count : 0;
+  const likeEl = document.getElementById('like-' + safeId);
+  if (likeEl) likeEl.textContent = likeCount;
+  // Load comments
+  const comments = await sbGet('comments?post_id=eq.' + encodeURIComponent(safeId) + '&order=created_at');
+  const listEl = document.getElementById('clist-' + safeId);
+  const countEl = document.getElementById('ccount-' + safeId);
+  if (comments && listEl) {
+    if (!comments.length) {
+      listEl.innerHTML = '<div style="color:#888;font-size:12px">Comment မရှိသေးပါ</div>';
+    } else {
+      listEl.innerHTML = comments.map(c => {
+        const d = new Date(c.created_at);
+        const t = d.toLocaleString('en-GB', {timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'});
+        return `<div class="comment-item"><b>${esc(c.name || 'Anonymous')}</b>: ${esc(c.text)}<br><small>${esc(t)}</small></div>`;
+      }).join('');
+    }
+    if (countEl) countEl.textContent = comments.length;
+  }
+}
+function loadAllSocial() {
+  document.querySelectorAll('[id^="like-"]').forEach(el => {
+    const safeId = el.id.replace('like-', '');
+    loadSocial(safeId);
+  });
+}
 function toggleLike(btn, safeId) {
   const key = 'kzz-like-' + safeId;
-  const countKey = key + '-count';
   const span = btn.querySelector('span');
-  let count = parseInt(localStorage.getItem(countKey) || '0');
-  if (localStorage.getItem(key)) {
-    localStorage.removeItem(key);
-    count = Math.max(0, count - 1);
-    btn.classList.remove('liked');
-  } else {
-    localStorage.setItem(key, '1');
-    count++;
-    btn.classList.add('liked');
-  }
-  localStorage.setItem(countKey, String(count));
-  span.textContent = count;
+  const alreadyLiked = localStorage.getItem(key);
+  sbGet('likes?id=eq.' + encodeURIComponent(safeId)).then(likes => {
+    let count = (likes && likes[0]) ? likes[0].count : 0;
+    const exists = likes && likes[0];
+    if (alreadyLiked) {
+      localStorage.removeItem(key);
+      count = Math.max(0, count - 1);
+      btn.classList.remove('liked');
+    } else {
+      localStorage.setItem(key, '1');
+      count++;
+      btn.classList.add('liked');
+    }
+    span.textContent = count;
+    if (exists) sbPatch('likes?id=eq.' + encodeURIComponent(safeId), {count: count});
+    else sbPost('likes', {id: safeId, count: count});
+  });
 }
 function toggleCommentBox(safeId) {
   const box = document.getElementById('cbox-' + safeId);
@@ -493,16 +549,12 @@ function toggleCommentBox(safeId) {
 }
 function postComment(safeId) {
   const textEl = document.getElementById('ctext-' + safeId);
-  const name = 'Anonymous';
   const text = textEl.value.trim().slice(0, 500);
   if (!text) { alert('Comment ရေးပါ'); return; }
-  const key = 'kzz-comments-' + safeId;
-  const comments = JSON.parse(localStorage.getItem(key) || '[]');
-  const now = new Date().toLocaleString('en-GB', {timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'});
-  comments.push({name, text, time: now});
-  localStorage.setItem(key, JSON.stringify(comments));
-  // re-render the buttons for this card
-  location.reload();
+  sbPost('comments', {post_id: safeId, name: 'Anonymous', text: text}).then(() => {
+    textEl.value = '';
+    loadSocial(safeId);
+  });
 }
 function sharePost(safeId) {
   const url = 'https://luuzoe.github.io/kzzfootballive/';
@@ -540,6 +592,7 @@ async function renderNews() {
   content.innerHTML = html;
   stamp();
   parseFB();
+  loadAllSocial();
 }
 
 /* ---------- match detail ---------- */
@@ -573,6 +626,7 @@ async function renderAnalyses() {
   content.innerHTML = html;
   stamp();
   parseFB();
+  loadAllSocial();
 }
 
 function mmTeamName(en) {
