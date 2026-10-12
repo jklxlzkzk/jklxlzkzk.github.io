@@ -432,6 +432,7 @@ async function renderPredictions() {
         <div class="pred-pick">👉 ${esc(p.pick || '')} <span class="${confClass[p.confidence] || ''}">(${esc(confLabel[p.confidence] || '')})</span></div>
         ${probHtml}
         ${p.reason_mm ? `<div class="pred-reason">${esc(p.reason_mm)}</div>` : ''}
+        ${socialButtons(p.home + '-' + p.away + '-' + (p.date || ''), p.home + ' vs ' + p.away)}
       </div>`;
     }).join('');
   }
@@ -441,6 +442,31 @@ async function renderPredictions() {
 }
 
 /* ---------- news ---------- */
+
+
+function socialButtons(id, title) {
+  const url = location.origin + location.pathname + '#news';
+  return `<div class="social-row">
+    <button class="share-btn" onclick="event.stopPropagation();sharePost('${id}','${esc(title)}')">🔗 Share</button>
+    <button class="share-btn like-btn" onclick="event.stopPropagation();likePost(this,'${id}')">👍 <span>0</span></button>
+  </div>`;
+}
+function sharePost(id, title) {
+  const url = location.origin + location.pathname + '#news';
+  if (navigator.share) { navigator.share({title: title, url: url}).catch(()=>{}); }
+  else { navigator.clipboard.writeText(url).then(()=>alert('Link ကူးပြီးပြီ!')).catch(()=>prompt('Copy:', url)); }
+}
+function likePost(btn, id) {
+  const key = 'kzz-like-' + id;
+  const liked = localStorage.getItem(key);
+  const span = btn.querySelector('span');
+  let count = parseInt(span.textContent) || 0;
+  if (liked) { localStorage.removeItem(key); count = Math.max(0, count-1); btn.classList.remove('liked'); }
+  else { localStorage.setItem(key, '1'); count++; btn.classList.add('liked'); }
+  span.textContent = count;
+  // restore liked state on render
+  if (localStorage.getItem(key)) btn.classList.add('liked');
+}
 
 async function renderNews() {
   let data = null;
@@ -465,6 +491,7 @@ async function renderNews() {
           <h3 class="news-title">${esc(n.title_mm || '')}</h3>
           <div class="news-text">${body}</div>
           <div class="news-meta">📰 ${esc(n.source || '')}${when ? ' • ' + when : ''}${n.fb_url ? ` • <a href="${esc(n.fb_url)}" target="_blank" rel="noopener">Facebook မှာ ကြည့်ရန်</a>` : ''}</div>
+          ${socialButtons(n.id || '', n.title_mm || '')}
         </div>
       </article>`;
     }).join('');
@@ -497,6 +524,7 @@ async function renderAnalyses() {
         <div class="analysis-score">${esc(a.home_mm || a.home || '')} <b>${esc(score)}</b> ${esc(a.away_mm || a.away || '')}</div>
         <div class="analysis-meta">🏆 ${esc(a.league_mm || a.league || '')}${a.date ? ' • ' + esc(a.date) : ''}</div>
         <div class="analysis-text"><p>${body}</p></div>
+        ${socialButtons(a.id || '', a.title_mm || '')}
       </article>`;
     }).join('');
   }
