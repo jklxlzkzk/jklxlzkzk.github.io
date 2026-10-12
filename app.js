@@ -464,9 +464,8 @@ function socialButtons(id, title) {
   </div>
   <div class="comment-box" id="cbox-${safeId}" style="display:none">
     <div class="comment-list" id="clist-${safeId}">${comments.map(c => `<div class="comment-item"><b>${esc(c.name)}</b>: ${esc(c.text)}<br><small>${esc(c.time)}</small></div>`).join('')}</div>
-    <div class="comment-form">
-      <input type="text" id="cname-${safeId}" placeholder="နာမည်" maxlength="30">
-      <textarea id="ctext-${safeId}" placeholder="Comment ရေးပါ..." rows="2" maxlength="500"></textarea>
+    <div class="comment-form-row">
+      <textarea id="ctext-${safeId}" placeholder="Comment ရေးပါ..." rows="1" maxlength="500"></textarea>
       <button class="share-btn" onclick="event.stopPropagation();postComment('${safeId}')">ပို့မယ်</button>
     </div>
   </div>`;
@@ -493,9 +492,8 @@ function toggleCommentBox(safeId) {
   if (box) box.style.display = box.style.display === 'none' ? 'block' : 'none';
 }
 function postComment(safeId) {
-  const nameEl = document.getElementById('cname-' + safeId);
   const textEl = document.getElementById('ctext-' + safeId);
-  const name = (nameEl.value || 'Anonymous').trim().slice(0, 30);
+  const name = 'Anonymous';
   const text = textEl.value.trim().slice(0, 500);
   if (!text) { alert('Comment ရေးပါ'); return; }
   const key = 'kzz-comments-' + safeId;

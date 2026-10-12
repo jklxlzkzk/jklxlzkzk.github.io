@@ -395,6 +395,5 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .comment-list{margin-bottom:8px}
 .comment-item{padding:6px 0;border-bottom:1px solid #1a3a2a;font-size:13px}
 .comment-item small{color:#888;font-size:11px}
-.comment-form{display:flex;flex-direction:column;gap:6px}
-.comment-form input,.comment-form textarea{background:#1a2a20;border:1px solid #2d5a3d;color:#fff;padding:6px 8px;border-radius:6px;font-size:13px}
-.comment-form textarea{resize:vertical}
+.comment-form-row{display:flex;gap:6px;align-items:center}
+.comment-form-row textarea{flex:1;background:#1a2a20;border:1px solid #2d5a3d;color:#fff;padding:6px 8px;border-radius:6px;font-size:13px;resize:none}
