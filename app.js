@@ -445,29 +445,29 @@ async function renderPredictions() {
 
 
 function socialButtons(id, title) {
-  const url = location.origin + location.pathname + '#news';
+  const pageUrl = 'https://luuzoe.github.io/kzzfootballive/';
+  const safeId = String(id).replace(/[^a-zA-Z0-9-]/g, '-');
   return `<div class="social-row">
-    <button class="share-btn" onclick="event.stopPropagation();sharePost('${id}','${esc(title)}')">🔗 Share</button>
-    <button class="share-btn like-btn" onclick="event.stopPropagation();likePost(this,'${id}')">👍 <span>0</span></button>
+    <div class="fb-like" data-href="${pageUrl}" data-width="" data-layout="button_count" data-action="like" data-size="small"></div>
+    <button class="share-btn" onclick="event.stopPropagation();toggleComments('${safeId}')">💬 Comment</button>
+    <button class="share-btn" onclick="event.stopPropagation();sharePost('${safeId}','${esc(title)}')">🔗 Share</button>
+  </div>
+  <div class="comment-box" id="comments-${safeId}" style="display:none">
+    <div class="fb-comments" data-href="${pageUrl}#${safeId}" data-width="100%" data-numposts="5"></div>
   </div>`;
+}
+function toggleComments(safeId) {
+  const box = document.getElementById('comments-' + safeId);
+  if (!box) return;
+  const showing = box.style.display !== 'none';
+  box.style.display = showing ? 'none' : 'block';
+  if (!showing && window.FB) { try { FB.XFBML.parse(box); } catch(e){} }
 }
 function sharePost(id, title) {
   const url = location.origin + location.pathname + '#news';
   if (navigator.share) { navigator.share({title: title, url: url}).catch(()=>{}); }
   else { navigator.clipboard.writeText(url).then(()=>alert('Link ကူးပြီးပြီ!')).catch(()=>prompt('Copy:', url)); }
 }
-function likePost(btn, id) {
-  const key = 'kzz-like-' + id;
-  const liked = localStorage.getItem(key);
-  const span = btn.querySelector('span');
-  let count = parseInt(span.textContent) || 0;
-  if (liked) { localStorage.removeItem(key); count = Math.max(0, count-1); btn.classList.remove('liked'); }
-  else { localStorage.setItem(key, '1'); count++; btn.classList.add('liked'); }
-  span.textContent = count;
-  // restore liked state on render
-  if (localStorage.getItem(key)) btn.classList.add('liked');
-}
-
 async function renderNews() {
   let data = null;
   try { data = await getJSON('news.json'); } catch (e) { data = null; }
