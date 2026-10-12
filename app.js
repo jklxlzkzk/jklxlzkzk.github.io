@@ -452,26 +452,63 @@ async function renderPredictions() {
 
 
 function socialButtons(id, title) {
-  const pageUrl = 'https://luuzoe.github.io/kzzfootballive/';
   const safeId = String(id).replace(/[^a-zA-Z0-9-]/g, '-');
+  const likeKey = 'kzz-like-' + safeId;
+  const liked = localStorage.getItem(likeKey) ? 'liked' : '';
+  const likeCount = parseInt(localStorage.getItem(likeKey + '-count') || '0');
+  const comments = JSON.parse(localStorage.getItem('kzz-comments-' + safeId) || '[]');
   return `<div class="social-row">
-    <div class="fb-like" data-href="${pageUrl}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
-    <button class="share-btn" onclick="event.stopPropagation();toggleComments('${safeId}')">💬 Comments</button>
+    <button class="share-btn like-btn ${liked}" onclick="event.stopPropagation();toggleLike(this,'${safeId}')">👍 Like <span>${likeCount}</span></button>
+    <button class="share-btn" onclick="event.stopPropagation();toggleCommentBox('${safeId}')">💬 Comment (${comments.length})</button>
+    <button class="share-btn" onclick="event.stopPropagation();sharePost('${safeId}')">🔗 Share</button>
   </div>
-  <div class="comment-box" id="comments-${safeId}" style="display:none">
-    <div class="fb-comments" data-href="${pageUrl}#${safeId}" data-width="100%" data-numposts="5"></div>
+  <div class="comment-box" id="cbox-${safeId}" style="display:none">
+    <div class="comment-list" id="clist-${safeId}">${comments.map(c => `<div class="comment-item"><b>${esc(c.name)}</b>: ${esc(c.text)}<br><small>${esc(c.time)}</small></div>`).join('')}</div>
+    <div class="comment-form">
+      <input type="text" id="cname-${safeId}" placeholder="နာမည်" maxlength="30">
+      <textarea id="ctext-${safeId}" placeholder="Comment ရေးပါ..." rows="2" maxlength="500"></textarea>
+      <button class="share-btn" onclick="event.stopPropagation();postComment('${safeId}')">ပို့မယ်</button>
+    </div>
   </div>`;
 }
-function toggleComments(safeId) {
-  const box = document.getElementById('comments-' + safeId);
-  if (!box) return;
-  const showing = box.style.display !== 'none';
-  box.style.display = showing ? 'none' : 'block';
-  if (!showing && window.FB) { try { FB.XFBML.parse(box); } catch(e){} }
+function toggleLike(btn, safeId) {
+  const key = 'kzz-like-' + safeId;
+  const countKey = key + '-count';
+  const span = btn.querySelector('span');
+  let count = parseInt(localStorage.getItem(countKey) || '0');
+  if (localStorage.getItem(key)) {
+    localStorage.removeItem(key);
+    count = Math.max(0, count - 1);
+    btn.classList.remove('liked');
+  } else {
+    localStorage.setItem(key, '1');
+    count++;
+    btn.classList.add('liked');
+  }
+  localStorage.setItem(countKey, String(count));
+  span.textContent = count;
 }
-function sharePost(id, title) {
-  const url = location.origin + location.pathname + '#news';
-  if (navigator.share) { navigator.share({title: title, url: url}).catch(()=>{}); }
+function toggleCommentBox(safeId) {
+  const box = document.getElementById('cbox-' + safeId);
+  if (box) box.style.display = box.style.display === 'none' ? 'block' : 'none';
+}
+function postComment(safeId) {
+  const nameEl = document.getElementById('cname-' + safeId);
+  const textEl = document.getElementById('ctext-' + safeId);
+  const name = (nameEl.value || 'Anonymous').trim().slice(0, 30);
+  const text = textEl.value.trim().slice(0, 500);
+  if (!text) { alert('Comment ရေးပါ'); return; }
+  const key = 'kzz-comments-' + safeId;
+  const comments = JSON.parse(localStorage.getItem(key) || '[]');
+  const now = new Date().toLocaleString('en-GB', {timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'});
+  comments.push({name, text, time: now});
+  localStorage.setItem(key, JSON.stringify(comments));
+  // re-render the buttons for this card
+  location.reload();
+}
+function sharePost(safeId) {
+  const url = 'https://luuzoe.github.io/kzzfootballive/';
+  if (navigator.share) { navigator.share({title: 'KZZ Football Live', url: url}).catch(()=>{}); }
   else { navigator.clipboard.writeText(url).then(()=>alert('Link ကူးပြီးပြီ!')).catch(()=>prompt('Copy:', url)); }
 }
 async function renderNews() {
