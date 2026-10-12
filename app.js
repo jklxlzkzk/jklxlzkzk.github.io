@@ -448,9 +448,8 @@ function socialButtons(id, title) {
   const pageUrl = 'https://luuzoe.github.io/kzzfootballive/';
   const safeId = String(id).replace(/[^a-zA-Z0-9-]/g, '-');
   return `<div class="social-row">
-    <div class="fb-like" data-href="${pageUrl}" data-width="" data-layout="button_count" data-action="like" data-size="small"></div>
-    <button class="share-btn" onclick="event.stopPropagation();toggleComments('${safeId}')">💬 Comment</button>
-    <button class="share-btn" onclick="event.stopPropagation();sharePost('${safeId}','${esc(title)}')">🔗 Share</button>
+    <div class="fb-like" data-href="${pageUrl}" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+    <button class="share-btn" onclick="event.stopPropagation();toggleComments('${safeId}')">💬 Comments</button>
   </div>
   <div class="comment-box" id="comments-${safeId}" style="display:none">
     <div class="fb-comments" data-href="${pageUrl}#${safeId}" data-width="100%" data-numposts="5"></div>
