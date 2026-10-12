@@ -112,8 +112,24 @@ PAGE = """<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=__ADS__" crossorigin="anonymous"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/my_MM/sdk.js#xfbml=1&version=v18.0"></script>
 <link rel="stylesheet" href="/kzzfootballive/styles.css?v=27">
-<style>__CSS__</style>
+<style>__CSS__
+.social-row{display:flex;gap:10px;align-items:center;margin:16px 0;flex-wrap:wrap}
+.share-btn{background:#1a3a2a;border:1px solid #2d5a3d;color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px}
+.share-btn:active{transform:scale(.97)}
+.fb-comments{margin:12px 0}
+</style>
+<script>
+function shareArticle(url, title){
+  if(navigator.share){ navigator.share({title:title, url:url}).catch(()=>{}); }
+  else { copyArticleLink(url); }
+}
+function copyArticleLink(url){
+  navigator.clipboard.writeText(url).then(()=>alert('Link ကူးပြီးပြီ!')).catch(()=>prompt('Copy this link:', url));
+}
+</script>
 </head>
 <body>
 <header class="site-header"><div class="header-inner"><div class="brand">
@@ -126,6 +142,12 @@ PAGE = """<!DOCTYPE html>
 <h1>__H1__</h1>
 <div class="meta">__META__</div>
 __BODY__
+<div class="social-row">
+  <div class="fb-like" data-href="__CANON__" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+  <button class="share-btn" onclick="shareArticle('__CANON__', document.title)">🔗 Share</button>
+  <button class="share-btn" onclick="copyArticleLink('__CANON__')">📋 Copy Link</button>
+</div>
+<div class="fb-comments" data-href="__CANON__" data-width="100%" data-numposts="5"></div>
 <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="__ADS__" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 __RELATED__

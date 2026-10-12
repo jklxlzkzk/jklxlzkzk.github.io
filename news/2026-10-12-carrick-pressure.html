@@ -15,6 +15,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4388974491023298" crossorigin="anonymous"></script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/my_MM/sdk.js#xfbml=1&version=v18.0"></script>
 <link rel="stylesheet" href="/kzzfootballive/styles.css?v=27">
 <style>
 .article{max-width:760px;margin:0 auto;padding:16px}
@@ -35,7 +37,21 @@
 .prob .bar{height:8px;border-radius:4px;background:linear-gradient(90deg,#22c55e,#4ade80)}
 .match{border:1px solid #1e3a28;border-radius:10px;padding:12px;margin:12px 0;background:#0f1f16}
 .match h3{margin:0 0 6px;font-size:1.05rem}
+
+.social-row{display:flex;gap:10px;align-items:center;margin:16px 0;flex-wrap:wrap}
+.share-btn{background:#1a3a2a;border:1px solid #2d5a3d;color:#fff;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:13px}
+.share-btn:active{transform:scale(.97)}
+.fb-comments{margin:12px 0}
 </style>
+<script>
+function shareArticle(url, title){
+  if(navigator.share){ navigator.share({title:title, url:url}).catch(()=>{}); }
+  else { copyArticleLink(url); }
+}
+function copyArticleLink(url){
+  navigator.clipboard.writeText(url).then(()=>alert('Link ကူးပြီးပြီ!')).catch(()=>prompt('Copy this link:', url));
+}
+</script>
 </head>
 <body>
 <header class="site-header"><div class="header-inner"><div class="brand">
@@ -49,6 +65,12 @@
 <div class="meta">📰 2026-10-12 • ရင်းမြစ်: BBC Sport</div>
 <p>မန်ချက်စတာယူနိုက်တက်ဟာ အိုးလ်ထရက်ဖို့ဒ်မှာ တော့တင်ဟမ်ဟော့စပါးနဲ့ ၂-၂ သရေကျခဲ့ပြီး နည်းပြ မိုက်ကယ် ကာရစ်ခ်အပေါ် ဖိအားတွေ ပိုတိုးလာပါတယ်။ ဒိုမနစ် ဆိုလန်ကီရဲ့ နာကျင်အချိန်ပိုသွင်းဂိုးက လူတစ်ယောက်လျော့နေတဲ့ စပါးကို သရေတစ်မှတ်ရစေခဲ့တာဖြစ်ပါတယ်။</p>
 <p>BBC Sport ရဲ့ သုံးသပ်ချက်အရ ပွဲအပြီးပရိသတ်တွေရဲ့ ဘူးသံတွေနဲ့အတူ ကာရစ်ခ်အတွက် &quot;စိုးရိမ်စရာကောင်းတဲ့နေ့&quot; ဖြစ်ခဲ့တယ်လို့ ဆိုပါတယ်။ ကာရစ်ခ်ကိုယ်တိုင်ကလည်း &quot;အရမ်းနာကျင်ရပါတယ်၊ ပရိသတ်တွေရဲ့ဘူးသံကို ကျွန်တော်နားလည်ပါတယ်&quot; လို့ ပြောကြားခဲ့ပါတယ်။</p>
+<div class="social-row">
+  <div class="fb-like" data-href="https://luuzoe.github.io/kzzfootballive/news/2026-10-12-carrick-pressure.html" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+  <button class="share-btn" onclick="shareArticle('https://luuzoe.github.io/kzzfootballive/news/2026-10-12-carrick-pressure.html', document.title)">🔗 Share</button>
+  <button class="share-btn" onclick="copyArticleLink('https://luuzoe.github.io/kzzfootballive/news/2026-10-12-carrick-pressure.html')">📋 Copy Link</button>
+</div>
+<div class="fb-comments" data-href="https://luuzoe.github.io/kzzfootballive/news/2026-10-12-carrick-pressure.html" data-width="100%" data-numposts="5"></div>
 <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4388974491023298" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 <div class="rel"><h2>📰 နောက်ထပ် သတင်းများ</h2><ul>
