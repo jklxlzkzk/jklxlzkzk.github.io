@@ -400,6 +400,12 @@ async function renderScorers(sub) {
   stamp();
 }
 
+
+function parseFB() {
+  if (window.FB) { try { FB.XFBML.parse(); } catch(e){} }
+  else { setTimeout(parseFB, 1000); }
+}
+
 async function renderPredictions() {
   let data = null;
   try { data = await getJSON('predictions.json'); } catch (e) { data = null; }
@@ -439,6 +445,7 @@ async function renderPredictions() {
   html += `<div class="refresh-line">⚠️ ခန့်မှန်းချက်များသည် အကြံပြုချက်သာဖြစ်ပြီး အာမခံချက် မဟုတ်ပါ။</div>`;
   content.innerHTML = html;
   stamp();
+  parseFB();
 }
 
 /* ---------- news ---------- */
@@ -497,6 +504,7 @@ async function renderNews() {
   }
   content.innerHTML = html;
   stamp();
+  parseFB();
 }
 
 /* ---------- match detail ---------- */
@@ -529,6 +537,7 @@ async function renderAnalyses() {
   }
   content.innerHTML = html;
   stamp();
+  parseFB();
 }
 
 function mmTeamName(en) {
