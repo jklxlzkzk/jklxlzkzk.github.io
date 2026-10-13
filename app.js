@@ -558,8 +558,16 @@ function postComment(safeId) {
 }
 function sharePost(safeId) {
   const url = 'https://luuzoe.github.io/kzzfootballive/';
-  if (navigator.share) { navigator.share({title: 'KZZ Football Live', url: url}).catch(()=>{}); }
-  else { navigator.clipboard.writeText(url).then(()=>alert('Link ကူးပြီးပြီ!')).catch(()=>prompt('Copy:', url)); }
+  const doCopy = () => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(()=>alert('Link ကူးပြီးပြီ! 📋')).catch(()=>prompt('ဒီ link ကို copy လုပ်ပါ:', url));
+    } else { prompt('ဒီ link ကို copy လုပ်ပါ:', url); }
+  };
+  try {
+    if (navigator.share && /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent)) {
+      navigator.share({title: 'KZZ Football Live', url: url}).catch(doCopy);
+    } else { doCopy(); }
+  } catch (e) { doCopy(); }
 }
 async function renderNews() {
   let data = null;
