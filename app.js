@@ -1149,12 +1149,88 @@ function buildTabs() {
 
 function armAutoRefresh() {
   if (state.timer) { clearInterval(state.timer); state.timer = null; }
+  if (state.chatTimer) { clearInterval(state.chatTimer); state.chatTimer = null; }
   armClockTicker(false);
   if (state.tab === 'live') {
     armClockTicker(true);
     state.timer = setInterval(() => { if (state.tab === 'live') loadTab(true); }, 60000);
   }
 }
+
+/* ---------- poll ---------- */
+async function renderPoll() {
+  const content = document.getElementById('content');
+  // Get active poll (latest)
+  const polls = await sbGet('polls?order=created_at.desc&limit=1');
+  const poll = (polls && polls[0]) || null;
+  if (!poll) {
+    content.innerHTML = `<h2 class="section-title">🏆 မဲ</h2><div class="empty">မဲ မရှိသေးပါ။</div>`;
+    return;
+  }
+  const votes = await sbGet('poll_votes?poll_id=eq.' + poll.id);
+  const counts = {};
+  (votes || []).forEach(v => { counts[v.option] = (counts[v.option] || 0) + 1; });
+  const total = (votes || []).length;
+  const myVote = localStorage.getItem('kzz-poll-' + poll.id);
+  const options = poll.options || [];
+  let html = `<h2 class="section-title">🏆 ${esc(poll.question)}</h2>`;
+  html += `<div class="poll-box">`;
+  options.forEach((opt, i) => {
+    const c = counts[i] || 0;
+    const pct = total ? Math.round(c / total * 100) : 0;
+    html += `<div class="poll-opt" onclick="votePoll('${poll.id}',${i})">
+      <div class="poll-opt-top"><span>${esc(opt)} ${myVote == String(i) ? '✅' : ''}</span><span>${pct}% (${c})</span></div>
+      <div class="poll-bar"><div class="poll-fill" style="width:${pct}%"></div></div>
+    </div>`;
+  });
+  html += `<div class="poll-total">စုစုပေါင်း မဲ: ${total}</div></div>`;
+  content.innerHTML = html;
+}
+async function votePoll(pollId, option) {
+  if (localStorage.getItem('kzz-poll-' + pollId)) { alert('မဲ ပေးပြီးသားပါ!'); return; }
+  await sbPost('poll_votes', {poll_id: pollId, option: option});
+  localStorage.setItem('kzz-poll-' + pollId, String(option));
+  renderPoll();
+}
+window.votePoll = votePoll;
+
+/* ---------- chat ---------- */
+async function renderChat() {
+  const content = document.getElementById('content');
+  const msgs = await sbGet('chat_messages?order=created_at.desc&limit=50');
+  const list = (msgs || []).reverse();
+  let html = `<h2 class="section-title">💬 စကားဝိုင်း</h2>
+  <div class="chat-box"><div class="chat-list" id="chatList">`;
+  if (!list.length) html += `<div style="color:#888">စကား မရှိသေးပါ — ပထမဆုံး ပြောလိုက်ပါ!</div>`;
+  else html += list.map(m => {
+    const d = new Date(m.created_at);
+    const t = d.toLocaleString('en-GB', {timeZone: 'Asia/Yangon', hour: '2-digit', minute: '2-digit'});
+    return `<div class="chat-msg"><b>${esc(m.name || 'Anonymous')}</b> <small>${t}</small><br>${esc(m.text)}</div>`;
+  }).join('');
+  html += `</div><div class="chat-form">
+    <input type="text" id="chatName" placeholder="နာမည်" maxlength="30" style="width:100px">
+    <input type="text" id="chatText" placeholder="စကားပြောမယ်..." maxlength="300">
+    <button class="share-btn" onclick="sendChat()">ပို့မယ်</button>
+  </div></div>`;
+  content.innerHTML = html;
+  const cl = document.getElementById('chatList');
+  if (cl) cl.scrollTop = cl.scrollHeight;
+  // Auto-refresh chat every 10s
+  if (state.chatTimer) clearInterval(state.chatTimer);
+  state.chatTimer = setInterval(() => { if (state.tab === 'chat') renderChat(); }, 10000);
+}
+async function sendChat() {
+  const nameEl = document.getElementById('chatName');
+  const textEl = document.getElementById('chatText');
+  const text = (textEl.value || '').trim();
+  if (!text) return;
+  const name = (nameEl.value || '').trim() || 'Anonymous';
+  localStorage.setItem('kzz-chat-name', name);
+  await sbPost('chat_messages', {name: name, text: text});
+  textEl.value = '';
+  renderChat();
+}
+window.sendChat = sendChat;
 
 async function loadTab(quiet) {
   if (!quiet) showLoading();
@@ -1167,16 +1243,18 @@ async function loadTab(quiet) {
     else if (state.tab === 'predictions') await renderPredictions();
     else if (state.tab === 'news') await renderNews();
     else if (state.tab === 'analyses') await renderAnalyses();
+    else if (state.tab === 'poll') await renderPoll();
+    else if (state.tab === 'chat') await renderChat();
   } catch (e) {
     if (!quiet) showError();
   }
 }
 
-try { const h = (location.hash || '').replace('#', ''); if (['live','fixtures','results','standings','predictions','news','analyses'].includes(h)) state.tab = h; } catch (e) {}
+try { const h = (location.hash || '').replace('#', ''); if (['live','fixtures','results','standings','predictions','news','analyses','poll','chat'].includes(h)) state.tab = h; } catch (e) {}
 window.addEventListener('hashchange', () => {
   try {
     const h = (location.hash || '').replace('#', '');
-    if (['live','fixtures','results','standings','predictions','news','analyses'].includes(h) && h !== state.tab) {
+    if (['live','fixtures','results','standings','predictions','news','analyses','poll','chat'].includes(h) && h !== state.tab) {
       state.tab = h; buildTabs(); loadTab();
     }
   } catch (e) {}
