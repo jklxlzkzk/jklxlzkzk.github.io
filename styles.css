@@ -452,3 +452,14 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .h2h-result { margin-top: 12px; }
 .h2h-match { padding: 8px; border-bottom: 1px solid var(--line); font-size: 14px; display: flex; justify-content: space-between; }
 .h2h-score { font-weight: bold; color: var(--accent); }
+
+/* ---------- poll redesign ---------- */
+.poll-box { background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%); border-radius: 16px; padding: 20px; margin: 12px 0; border: 1px solid var(--line); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.poll-opt { margin: 12px 0; cursor: pointer; padding: 12px 14px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); transition: all 0.2s; }
+.poll-opt:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: 0 2px 8px rgba(34,197,94,0.2); }
+.poll-opt-top { display: flex; justify-content: space-between; font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.poll-bar { background: rgba(0,0,0,0.2); border-radius: 8px; height: 12px; overflow: hidden; }
+[data-theme="light"] .poll-bar { background: rgba(0,0,0,0.08); }
+.poll-fill { background: linear-gradient(90deg, var(--accent-dim), var(--accent)); height: 100%; border-radius: 8px; transition: width 0.8s ease; box-shadow: 0 0 8px rgba(34,197,94,0.4); }
+.poll-total { margin-top: 16px; color: var(--muted); font-size: 14px; text-align: center; padding-top: 12px; border-top: 1px solid var(--line); }
+.section-title { font-size: 22px; margin: 16px 0 8px; }
