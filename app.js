@@ -200,7 +200,7 @@ function matchCard(m) {
   }
   return `
   <div class="match-card${isLive ? ' live-now' : ''}${isFavMatch(m) ? ' fav-match' : ''}" onclick="openMatchDetail('${esc(m.id)}')" style="cursor:pointer" title="အသေးစိတ်ကြည့်ရန် နှိပ်ပါ">
-    <div class="match-top">${badge}<span>${esc(fmtDate(m.date))}</span></div>
+    <div class="match-top">${badge}<span>${esc(fmtDate(m.date))}</span>${!isLive && !isPost ? `<button class="remind-btn" onclick="event.stopPropagation();toggleReminder('${esc(m.id)}','${esc(teamMm(m.home))} vs ${esc(teamMm(m.away))}','${esc(m.date)}')" title="သတိပေးချက်">🔔</button>` : ''}</div>
     <div class="match-teams">
       <div class="team home">${logo(m.home)}<span>${teamMm(m.home)}${favBadge(m.home)}</span></div>
       ${score}
@@ -1157,6 +1157,51 @@ function armAutoRefresh() {
   }
 }
 
+/* ---------- reminders ---------- */
+function toggleReminder(matchId, title, dateStr) {
+  if (!('Notification' in window)) { alert('ဒီ browser က notification မရဘူး'); return; }
+  const key = 'kzz-remind-' + matchId;
+  if (localStorage.getItem(key)) {
+    localStorage.removeItem(key);
+    alert('သတိပေးချက် ပိတ်လိုက်ပြီ');
+    return;
+  }
+  const go = () => {
+    localStorage.setItem(key, JSON.stringify({title: title, date: dateStr}));
+    alert('🔔 ပွဲစခါနီး ၁၅ မိနစ် သတိပေးမယ်!');
+    scheduleReminders();
+  };
+  if (Notification.permission === 'granted') go();
+  else Notification.requestPermission().then(p => { if (p === 'granted') go(); else alert('Notification ခွင့်မပြုလို့ သတိပေးလို့မရဘူး'); });
+}
+function scheduleReminders() {
+  // Check every minute for upcoming matches
+  setInterval(() => {
+    if (Notification.permission !== 'granted') return;
+    const now = Date.now();
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k || !k.startsWith('kzz-remind-')) continue;
+      try {
+        const r = JSON.parse(localStorage.getItem(k));
+        const matchTime = new Date(r.date).getTime();
+        const diff = matchTime - now;
+        // 15 min before AND not yet notified
+        if (diff > 0 && diff < 15 * 60 * 1000 && !r.notified) {
+          new Notification('⚽ ပွဲ စတော့မယ်!', {body: r.title + ' — ၁၅ မိနစ် အလို'});
+          r.notified = true;
+          localStorage.setItem(k, JSON.stringify(r));
+        }
+        // Clean up old reminders (2h after match)
+        if (diff < -2 * 60 * 60 * 1000) localStorage.removeItem(k);
+      } catch (e) {}
+    }
+  }, 60000);
+}
+window.toggleReminder = toggleReminder;
+// Start reminder checker on load
+setTimeout(scheduleReminders, 5000);
+
 /* ---------- poll ---------- */
 async function renderPoll() {
   const content = document.getElementById('content');
@@ -1193,6 +1238,88 @@ async function votePoll(pollId, option) {
   renderPoll();
 }
 window.votePoll = votePoll;
+
+/* ---------- head-to-head ---------- */
+async function renderH2H() {
+  const content = document.getElementById('content');
+  // Get teams from standings
+  let teams = [];
+  try {
+    const data = await getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/${state.league}/standings`);
+    const entries = data?.children?.[0]?.standings?.entries || [];
+    teams = entries.map(e => ({id: e.team.id, name: e.team.displayName})).sort((a,b) => a.name.localeCompare(b.name));
+  } catch (e) {}
+  let html = `<h2 class="section-title">⚔️ Head-to-Head ယှဉ်ပြ</h2>
+  <div class="h2h-box">
+    <div class="h2h-select">
+      <select id="h2hTeam1"><option value="">အသင်း ၁ ရွေး</option>${teams.map(t => `<option value="${t.id}">${esc(t.name)}</option>`).join('')}</select>
+      <select id="h2hTeam2"><option value="">အသင်း ၂ ရွေး</option>${teams.map(t => `<option value="${t.id}">${esc(t.name)}</option>`).join('')}</select>
+      <button class="share-btn" onclick="loadH2H()">ယှဉ်မယ်</button>
+    </div>
+    <div class="h2h-result" id="h2hResult"><div style="color:#888">အသင်း ၂ သင်း ရွေးပြီး "ယှဉ်မယ်" နှိပ်ပါ</div></div>
+  </div>`;
+  content.innerHTML = html;
+}
+async function loadH2H() {
+  const t1 = document.getElementById('h2hTeam1').value;
+  const t2 = document.getElementById('h2hTeam2').value;
+  const resEl = document.getElementById('h2hResult');
+  if (!t1 || !t2) { resEl.innerHTML = `<div style="color:#f66">အသင်း ၂ သင်း လုံး ရွေးပါ</div>`; return; }
+  if (t1 === t2) { resEl.innerHTML = `<div style="color:#f66">မတူတဲ့ အသင်း ၂ သင်း ရွေးပါ</div>`; return; }
+  resEl.innerHTML = `<div style="color:#888">ရှာနေတယ်...</div>`;
+  try {
+    // Get recent matches for both teams and find head-to-head
+    const [d1, d2] = await Promise.all([
+      getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/${state.league}/teams/${t1}/schedule`).catch(() => null),
+      getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/${state.league}/teams/${t2}/schedule`).catch(() => null)
+    ]);
+    const name1 = document.getElementById('h2hTeam1').selectedOptions[0].text;
+    const name2 = document.getElementById('h2hTeam2').selectedOptions[0].text;
+    // Find matches between these two teams from team 1's schedule
+    const h2h = [];
+    (d1?.events || []).forEach(e => {
+      const comp = e.competitions?.[0];
+      if (!comp) return;
+      const teams = comp.competitors || [];
+      const ids = teams.map(t => t.id);
+      if (ids.includes(t1) && ids.includes(t2) && comp.status?.type?.completed) {
+        const home = teams.find(t => t.homeAway === 'home');
+        const away = teams.find(t => t.homeAway === 'away');
+        h2h.push({
+          date: e.date,
+          home: home?.team?.displayName || '?',
+          away: away?.team?.displayName || '?',
+          hs: home?.score ?? '?',
+          as: away?.score ?? '?'
+        });
+      }
+    });
+    h2h.sort((a,b) => new Date(b.date) - new Date(a.date));
+    if (!h2h.length) {
+      resEl.innerHTML = `<div style="color:#888">${esc(name1)} vs ${esc(name2)} — တွေ့ဆုံမှု မရှိပါ (ဒီရာသီ)</div>`;
+    } else {
+      let w1 = 0, w2 = 0, d = 0;
+      h2h.forEach(m => {
+        const t1IsHome = m.home === name1;
+        const s1 = t1IsHome ? parseInt(m.hs) : parseInt(m.as);
+        const s2 = t1IsHome ? parseInt(m.as) : parseInt(m.hs);
+        if (s1 > s2) w1++; else if (s2 > s1) w2++; else d++;
+      });
+      resEl.innerHTML = `
+        <div style="text-align:center;margin-bottom:12px;font-size:16px">
+          <b>${esc(name1)}</b> ${w1} - ${d} - ${w2} <b>${esc(name2)}</b><br>
+          <small style="color:var(--muted)">နိုင် - သရေ - နိုင်</small>
+        </div>
+        ${h2h.slice(0, 10).map(m => {
+          const dt = new Date(m.date).toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'});
+          return `<div class="h2h-match"><span>${esc(m.home)} vs ${esc(m.away)}</span><span class="h2h-score">${m.hs} - ${m.as}</span><small>${dt}</small></div>`;
+        }).join('')}`;
+    }
+  } catch (e) {
+    resEl.innerHTML = `<div style="color:#f66">ဒေတာ ဆွဲမရဘူး</div>`;
+  }
+}
+window.loadH2H = loadH2H;
 
 /* ---------- chat ---------- */
 async function renderChat() {
@@ -1245,16 +1372,17 @@ async function loadTab(quiet) {
     else if (state.tab === 'analyses') await renderAnalyses();
     else if (state.tab === 'poll') await renderPoll();
     else if (state.tab === 'chat') await renderChat();
+    else if (state.tab === 'h2h') await renderH2H();
   } catch (e) {
     if (!quiet) showError();
   }
 }
 
-try { const h = (location.hash || '').replace('#', ''); if (['live','fixtures','results','standings','predictions','news','analyses','poll','chat'].includes(h)) state.tab = h; } catch (e) {}
+try { const h = (location.hash || '').replace('#', ''); if (['live','fixtures','results','standings','predictions','news','analyses','poll','chat','h2h'].includes(h)) state.tab = h; } catch (e) {}
 window.addEventListener('hashchange', () => {
   try {
     const h = (location.hash || '').replace('#', '');
-    if (['live','fixtures','results','standings','predictions','news','analyses','poll','chat'].includes(h) && h !== state.tab) {
+    if (['live','fixtures','results','standings','predictions','news','analyses','poll','chat','h2h'].includes(h) && h !== state.tab) {
       state.tab = h; buildTabs(); loadTab();
     }
   } catch (e) {}
