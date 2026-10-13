@@ -483,7 +483,7 @@ function socialButtons(id, title) {
   return `<div class="social-row">
     <button class="share-btn like-btn ${liked}" onclick="event.stopPropagation();toggleLike(this,'${safeId}')">👍 Like <span id="like-${safeId}">0</span></button>
     <button class="share-btn" onclick="event.stopPropagation();toggleCommentBox('${safeId}')">💬 Comment (<span id="ccount-${safeId}">0</span>)</button>
-    <button class="share-btn" onclick="event.stopPropagation();sharePost('${safeId}')">🔗 Share</button>
+    <button class="share-btn" onclick="event.stopPropagation();sharePost('${safeId}')">🔗 Share (<span id="share-${safeId}">0</span>)</button>
   </div>
   <div class="comment-box" id="cbox-${safeId}" style="display:none">
     <div class="comment-list" id="clist-${safeId}"><div style="color:#888;font-size:12px">Loading...</div></div>
@@ -499,6 +499,11 @@ async function loadSocial(safeId) {
   const likeCount = (likes && likes[0]) ? likes[0].count : 0;
   const likeEl = document.getElementById('like-' + safeId);
   if (likeEl) likeEl.textContent = likeCount;
+  // Load share count
+  const shares = await sbGet('shares?id=eq.' + encodeURIComponent(safeId));
+  const shareCount = (shares && shares[0]) ? shares[0].count : 0;
+  const shareEl = document.getElementById('share-' + safeId);
+  if (shareEl) shareEl.textContent = shareCount;
   // Load comments
   const comments = await sbGet('comments?post_id=eq.' + encodeURIComponent(safeId) + '&order=created_at');
   const listEl = document.getElementById('clist-' + safeId);
@@ -558,6 +563,14 @@ function postComment(safeId) {
 }
 function sharePost(safeId) {
   const url = 'https://luuzoe.github.io/kzzfootballive/';
+  // Increment global share count
+  sbGet('shares?id=eq.' + encodeURIComponent(safeId)).then(rows => {
+    const c = (rows && rows[0]) ? rows[0].count + 1 : 1;
+    if (rows && rows[0]) sbPatch('shares?id=eq.' + encodeURIComponent(safeId), {count: c});
+    else sbPost('shares', {id: safeId, count: 1});
+    const el = document.getElementById('share-' + safeId);
+    if (el) el.textContent = c;
+  });
   const doCopy = () => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(()=>alert('Link ကူးပြီးပြီ! 📋')).catch(()=>prompt('ဒီ link ကို copy လုပ်ပါ:', url));
@@ -573,7 +586,8 @@ async function renderNews() {
   let data = null;
   try { data = await getJSON('news.json'); } catch (e) { data = null; }
   const items = (data && data.news) || [];
-  let html = `<h2 class="section-title">📰 ဘောလုံးသတင်းများ</h2>`;
+  let html = `<h2 class="section-title">📰 ဘောလုံးသတင်းများ</h2>
+  <div class="search-row"><input type="text" id="news-search" placeholder="🔍 သတင်း ရှာမယ်..." oninput="filterNews(this.value)"></div>`;
   if (data && data.updated) {
     let upd = data.updated;
     try { upd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(data.updated)); } catch (e) {}
@@ -586,7 +600,7 @@ async function renderNews() {
       const body = esc(n.body_mm || '').replace(/\n/g, '<br>');
       const when = n.published ? esc(new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(n.published))) : '';
       return `
-      <article class="news-card">
+      <article class="news-card" data-search="${esc((n.title_mm || '') + ' ' + (n.body_mm || '')).toLowerCase()}">
         ${n.image ? `<img class="news-img" src="${esc(n.image)}" alt="" loading="lazy" onerror="this.style.display='none'">` : ''}
         <div class="news-body">
           <h3 class="news-title">${esc(n.title_mm || '')}</h3>
@@ -601,6 +615,36 @@ async function renderNews() {
   stamp();
   parseFB();
   loadAllSocial();
+}
+
+/* ---------- theme ---------- */
+function toggleTheme() {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'light' ? '' : 'light';
+  if (next) document.documentElement.setAttribute('data-theme', next);
+  else document.documentElement.removeAttribute('data-theme');
+  localStorage.setItem('kzz-theme', next || 'dark');
+  const btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = next === 'light' ? '☀️' : '🌙';
+}
+(function initTheme() {
+  const saved = localStorage.getItem('kzz-theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('themeBtn');
+      if (btn) btn.textContent = '☀️';
+    });
+  }
+})();
+
+/* ---------- news search ---------- */
+function filterNews(q) {
+  q = (q || '').toLowerCase().trim();
+  document.querySelectorAll('.news-card').forEach(card => {
+    const text = card.getAttribute('data-search') || '';
+    card.style.display = (!q || text.includes(q)) ? '' : 'none';
+  });
 }
 
 /* ---------- match detail ---------- */
