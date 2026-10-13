@@ -1224,8 +1224,8 @@ async function renderPoll() {
     const c = counts[i] || 0;
     const pct = total ? Math.round(c / total * 100) : 0;
     html += `<div class="poll-opt" onclick="votePoll('${poll.id}',${i})">
-      <div class="poll-opt-top"><span>${esc(opt)} ${myVote == String(i) ? '✅' : ''}</span><span>${pct}% (${c})</span></div>
       <div class="poll-bar"><div class="poll-fill" style="width:${pct}%"></div></div>
+      <div class="poll-opt-top"><span>${esc(opt)} ${myVote == String(i) ? '✅' : ''}</span><span>${pct}% (${c})</span></div>
     </div>`;
   });
   html += `<div class="poll-total">စုစုပေါင်း မဲ: ${total}</div></div>`;
