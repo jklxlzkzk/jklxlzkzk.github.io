@@ -1218,17 +1218,21 @@ async function renderPoll() {
   const total = (votes || []).length;
   const myVote = localStorage.getItem('kzz-poll-' + poll.id);
   const options = poll.options || [];
+  const emojis = ['🔴', '🔵', '🟢', '🟡', '🟠', '🟣'];
   let html = `<h2 class="section-title">🏆 ${esc(poll.question)}</h2>`;
-  html += `<div class="poll-box">`;
+  html += `<div class="poll-cards">`;
   options.forEach((opt, i) => {
     const c = counts[i] || 0;
     const pct = total ? Math.round(c / total * 100) : 0;
-    html += `<div class="poll-opt" onclick="votePoll('${poll.id}',${i})">
-      <div class="poll-bar"><div class="poll-fill" style="width:${pct}%"></div></div>
-      <div class="poll-opt-top"><span>${esc(opt)} ${myVote == String(i) ? '✅' : ''}</span><span>${pct}% (${c})</span></div>
+    const voted = myVote == String(i);
+    html += `<div class="poll-card${voted ? ' voted' : ''}" onclick="votePoll('${poll.id}',${i})">
+      <div class="poll-card-emoji">${emojis[i % emojis.length]}</div>
+      <div class="poll-card-name">${esc(opt)}</div>
+      ${total ? `<div class="poll-card-pct">${pct}%</div><div class="poll-card-votes">${c} မဲ</div>` : `<div class="poll-card-vote-btn">မဲပေး</div>`}
+      ${voted ? `<div class="poll-card-check">✅</div>` : ''}
     </div>`;
   });
-  html += `<div class="poll-total">စုစုပေါင်း မဲ: ${total}</div></div>`;
+  html += `</div><div class="poll-total">စုစုပေါင်း မဲ: ${total}</div>`;
   content.innerHTML = html;
 }
 async function votePoll(pollId, option) {
