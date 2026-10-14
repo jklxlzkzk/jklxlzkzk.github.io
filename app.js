@@ -431,6 +431,13 @@ function parseFB() {
   else { setTimeout(parseFB, 1000); }
 }
 
+function filterPreds() {
+  const q = (document.getElementById('pred-search').value || '').toLowerCase().trim();
+  document.querySelectorAll('.pred-card').forEach(card => {
+    const text = card.getAttribute('data-search') || '';
+    card.style.display = (!q || text.includes(q)) ? '' : 'none';
+  });
+}
 async function renderPredictions() {
   let data = null;
   try { data = await getJSON('predictions.json'); } catch (e) { data = null; }
@@ -442,6 +449,7 @@ async function renderPredictions() {
     let upd = data.updated;
     try { upd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(data.updated)); } catch (e) {}
     html += `<div class="refresh-line">နောက်ဆုံးခန့်မှန်းချက်: ${esc(upd)}</div>`;
+  html += `<input type="search" id="pred-search" placeholder="🔍 ခန့်မှန်းချက် ရှာပါ..." oninput="filterPreds()" style="width:100%;padding:10px;margin:10px 0;border:1px solid #ddd;border-radius:8px;font-size:15px;">`;
   }
   if (!preds.length) {
     html += `<div class="empty">ခန့်မှန်းချက်တွေ မကြာမီ လာမယ်။<br>KZZ Facebook page မှာ တင်ထားတဲ့ ပွဲကြိုခန့်မှန်းချက်တွေ ဒီမှာ ပေါ်လာမယ်။</div>`;
@@ -456,8 +464,9 @@ async function renderPredictions() {
           <div class="prob-labels"><span>🏠 ${p.prob_home}%</span><span>🤝 ${p.prob_draw}%</span><span>✈️ ${p.prob_away}%</span></div>
         </div>`;
       }
+      const searchText = ((p.home || "") + " " + (p.away || "") + " " + (p.league || "") + " " + (p.reason_mm || "")).toLowerCase();
       return `
-      <div class="pred-card">
+      <div class="pred-card" data-search="${esc(searchText)}">
         <div class="pred-match">${esc(p.home)} vs ${esc(p.away)}</div>
         <div class="pred-meta">${esc(p.league || '')} ${p.date ? '• ' + esc(fmtDateTime(p.date)) : ''}</div>
         <div class="pred-pick">👉 ${esc(p.pick || '')} <span class="${confClass[p.confidence] || ''}">(${esc(confLabel[p.confidence] || '')})</span></div>
@@ -649,6 +658,13 @@ function filterNews(q) {
 
 /* ---------- match detail ---------- */
 
+function filterAnalyses() {
+  const q = (document.getElementById('analysis-search').value || '').toLowerCase().trim();
+  document.querySelectorAll('.analysis-card').forEach(card => {
+    const text = card.getAttribute('data-search') || '';
+    card.style.display = (!q || text.includes(q)) ? '' : 'none';
+  });
+}
 async function renderAnalyses() {
   let data = null;
   try { data = await getJSON('analyses.json'); } catch (e) { data = null; }
@@ -659,14 +675,16 @@ async function renderAnalyses() {
     try { upd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(data.updated)); } catch (e) {}
     html += `<div class="refresh-line">နောက်ဆုံးအပ်ဒိတ်: ${esc(upd)}</div>`;
   }
+  html += `<input type="search" id="analysis-search" placeholder="🔍 သုံးသပ်ချက် ရှာပါ..." oninput="filterAnalyses()" style="width:100%;padding:10px;margin:10px 0;border:1px solid #ddd;border-radius:8px;font-size:15px;">`;
   if (!items.length) {
     html += `<div class="empty">သုံးသပ်ချက်တွေ မကြာမီ လာမယ်။</div>`;
   } else {
     html += items.map((a) => {
       const body = esc(a.body_mm || '').replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
       const score = (a.home_score != null && a.away_score != null) ? `${a.home_score} - ${a.away_score}` : '';
+      const searchText = ((a.title_mm || "") + " " + (a.home_mm || a.home || "") + " " + (a.away_mm || a.away || "") + " " + (a.league_mm || a.league || "") + " " + (a.body_mm || "")).toLowerCase();
       return `
-      <article class="analysis-card">
+      <article class="analysis-card" data-search="${esc(searchText)}">
         <h3 class="analysis-title">${esc(a.title_mm || '')}</h3>
         <div class="analysis-score">${esc(a.home_mm || a.home || '')} <b>${esc(score)}</b> ${esc(a.away_mm || a.away || '')}</div>
         <div class="analysis-meta">🏆 ${esc(a.league_mm || a.league || '')}${a.date ? ' • ' + esc(a.date) : ''}</div>
