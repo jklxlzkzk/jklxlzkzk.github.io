@@ -684,15 +684,11 @@ function filterAnalyses() {
 }
 async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlights — တရားဝင် Video များ</h2>`;
-  html += `<p style="color:#888;font-size:13px;margin-bottom:15px;">Premier League / Champions League တရားဝင် YouTube channel က video များ — site ထဲမှာ တိုက်ရိုက် ကြည့်လို့ရတယ်</p>`;
+  html += `<p style="color:#888;font-size:13px;margin-bottom:15px;">ကလပ် တရားဝင် YouTube channel က video များ — မြန်မာမှာ ကြည့်လို့ရတယ်</p>`;
   html += `<div class="highlights-grid" style="display:grid;gap:20px;">`;
   const videos = [
-    { id: "eBNeQHQznNE", title: "Coventry City v Newcastle United | PREMIER LEAGUE HIGHLIGHTS | 10/12/2026", channel: "NBC Sports", date: "Oct 12, 2026" },
-    { id: "3uoy7oVLriY", title: "Liverpool v Manchester City | PREMIER LEAGUE HIGHLIGHTS | 10/11/2026", channel: "NBC Sports", date: "Oct 11, 2026" },
-    { id: "B-TtJxQ9W10", title: "Hull City v Everton | PREMIER LEAGUE HIGHLIGHTS | 10/11/2026", channel: "NBC Sports", date: "Oct 11, 2026" },
-    { id: "0Lgb42Yr1Ck", title: "Man Utd v Tottenham | PREMIER LEAGUE HIGHLIGHTS | 10/10/2026", channel: "NBC Sports", date: "Oct 10, 2026" },
-    { id: "_eUyYvYsGao", title: "Arsenal v Leeds United | PREMIER LEAGUE HIGHLIGHTS | 10/10/2026", channel: "NBC Sports", date: "Oct 10, 2026" },
-    { id: "Z6TmNyKHtuU", title: "Chelsea v Bournemouth | PREMIER LEAGUE HIGHLIGHTS | 10/10/2026", channel: "NBC Sports", date: "Oct 10, 2026" },
+    { id: "06dvvp2ORLM", title: "Chelsea 5-1 Bournemouth | HIGHLIGHTS - Extended | Premier League 2026/27", channel: "Chelsea FC", date: "Oct 10, 2026" },
+    { id: "7rjYwH4YiUA", title: "Man Utd 1-1 Spurs | Extended Premier League Highlights", channel: "Tottenham Hotspur", date: "Oct 10, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" style="border:1px solid #ddd;border-radius:12px;padding:12px;">
