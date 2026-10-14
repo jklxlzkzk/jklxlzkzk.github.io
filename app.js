@@ -756,9 +756,9 @@ async function renderHighlights() {
     { id: "pbGHHKXoGI4", title: "Real Madrid vs Roma 4-3 Highlights | Champions League 2026", channel: "Footballia", date: "Oct 14, 2026" },
     { id: "gBn2NobEfI4", title: "Liverpool vs LASK 6-3 Highlights | UEFA Champions League", channel: "Fan Highlights", date: "Oct 14, 2026" },
     { id: "2oO3dqaDGKw", title: "Feyenoord 3-2 Como Highlights | UCL Thriller | Champions League 2026", channel: "Halotub", date: "Oct 14, 2026" },
+    { id: "NwcIMtLWs3o", title: "Arsenal vs Lille 3-0 EXTENDED HIGHLIGHTS (UEFA Champions League) 2026", channel: "Footballia", date: "Oct 13, 2026" },
     { id: "GHmKpNz0Grc", title: "Galatasaray vs Barcelona 1-4 Highlights & All Goals | UCL 2026/27", channel: "DJ Highlights", date: "Oct 13, 2026" },
     { id: "ZnAyNQG3gRg", title: "Atletico de Madrid 2-0 Man Utd | Highlights", channel: "Manchester United", date: "Oct 13, 2026" },
-    { id: "06dvvp2ORLM", title: "Chelsea 5-1 Bournemouth | HIGHLIGHTS - Extended | Premier League 2026/27", channel: "Chelsea FC", date: "Oct 10, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
