@@ -580,14 +580,31 @@ function sharePost(safeId) {
     const el = document.getElementById('share-' + safeId);
     if (el) el.textContent = c;
   });
+  // Show subtle toast instead of alert popup
+  const showToast = (msg) => {
+    let toast = document.getElementById('share-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'share-toast';
+      toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 20px;border-radius:20px;font-size:14px;z-index:9999;opacity:0;transition:opacity 0.3s;';
+      document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    setTimeout(() => { toast.style.opacity = '0'; }, 2000);
+  };
   const doCopy = () => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(url).then(()=>alert('Link ကူးပြီးပြီ! 📋')).catch(()=>prompt('ဒီ link ကို copy လုပ်ပါ:', url));
-    } else { prompt('ဒီ link ကို copy လုပ်ပါ:', url); }
+      navigator.clipboard.writeText(url).then(() => showToast('Link ကူးပြီးပြီ! 📋')).catch(() => showToast('Link: ' + url));
+    } else { showToast('Link: ' + url); }
   };
+  // Try native share first (mobile + modern desktop browsers)
   try {
-    if (navigator.share && /Android|iPhone|iPad|Mobile/i.test(navigator.userAgent)) {
-      navigator.share({title: 'KZZ Football Live', url: url}).catch(doCopy);
+    if (navigator.share) {
+      navigator.share({title: 'KZZ Football Live', text: 'KZZ Football Live — ဘောလုံးတိုက်ရိုက်', url: url}).catch((err) => {
+        // User cancelled = do nothing. Other error = silent copy.
+        if (err && err.name !== 'AbortError') doCopy();
+      });
     } else { doCopy(); }
   } catch (e) { doCopy(); }
 }
