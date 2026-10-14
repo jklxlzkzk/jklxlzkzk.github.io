@@ -649,47 +649,6 @@ function filterNews(q) {
 
 /* ---------- match detail ---------- */
 
-async function renderPreviews() {
-  let data = null;
-  try { data = await getJSON('previews.json'); } catch (e) { data = null; }
-  const items = (data && data.previews) || [];
-  let html = `<h2 class="section-title">⚽ ပွဲကြို သုံးသပ်ချက်များ</h2>`;
-  if (data && data.updated) {
-    let upd = data.updated;
-    try { upd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(data.updated)); } catch (e) {}
-    html += `<div class="refresh-line">နောက်ဆုံးအပ်ဒိတ်: ${esc(upd)}</div>`;
-  }
-  if (!items.length) {
-    html += `<div class="empty">ပွဲကြို သုံးသပ်ချက်တွေ မကြာမီ လာမယ်။</div>`;
-  } else {
-    html += items.map((p) => {
-      const body = esc(p.body_mm || '').replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
-      let probHtml = '';
-      if (p.prob_home != null && p.prob_draw != null && p.prob_away != null) {
-        probHtml = `<div class="pred-prob">
-          <div class="prob-bar">
-            <div class="prob-home" style="width:${p.prob_home}%"></div><div class="prob-draw" style="width:${p.prob_draw}%"></div><div class="prob-away" style="width:${p.prob_away}%"></div>
-          </div>
-          <div class="prob-labels"><span>🏠 ${p.prob_home}%</span><span>🤝 ${p.prob_draw}%</span><span>✈️ ${p.prob_away}%</span></div>
-        </div>`;
-      }
-      return `
-      <article class="analysis-card">
-        <h3 class="analysis-title">${esc(p.title_mm || '')}</h3>
-        <div class="analysis-meta">🏆 ${esc(p.league_mm || p.league || '')}${p.date ? ' • ' + esc(p.date) : ''}${p.time ? ' • ' + esc(p.time) : ''}${p.venue ? ' • ' + esc(p.venue) : ''}</div>
-        <div class="analysis-text"><p>${body}</p></div>
-        ${p.pick ? `<div class="pred-pick">👉 ${esc(p.pick)}</div>` : ''}
-        ${probHtml}
-        ${socialButtons(p.id || '', p.title_mm || '')}
-      </article>`;
-    }).join('');
-  }
-  html += `<div class="refresh-line">⚠️ သုံးသပ်ချက်များသည် အကြံပြုချက်သာဖြစ်ပြီး အာမခံချက် မဟုတ်ပါ။</div>`;
-  content.innerHTML = html;
-  stamp();
-  parseFB();
-  loadAllSocial();
-}
 async function renderAnalyses() {
   let data = null;
   try { data = await getJSON('analyses.json'); } catch (e) { data = null; }
@@ -1415,7 +1374,6 @@ async function loadTab(quiet) {
     else if (state.tab === 'predictions') await renderPredictions();
     else if (state.tab === 'news') await renderNews();
     else if (state.tab === 'analyses') await renderAnalyses();
-    else if (state.tab === 'previews') await renderPreviews();
   } catch (e) {
     if (!quiet) showError();
   }
