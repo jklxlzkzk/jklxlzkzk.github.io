@@ -328,7 +328,7 @@ def main():
     # ---------- league hub pages ----------
     os.makedirs(os.path.join(SITE, "leagues"), exist_ok=True)
     for slug, en, mm, icon, blurb in LEAGUES:
-        lp = [t for t, u in pred_pages if en in t]
+        lp = [(t, u) for t, u in pred_pages if en in t]
         ln = []
         for n in news:
             blob = (n.get("title_mm", "") + " " + n.get("body_mm", "")).lower()
