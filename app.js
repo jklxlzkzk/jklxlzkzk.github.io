@@ -25,7 +25,7 @@ const TABS = {
   news:        '📰 သတင်း',
 };
 
-let state = { league: 'eng.1', tab: 'live', timer: null, standView: 'table' };
+let state = { league: 'all', tab: 'live', timer: null, standView: 'table' };
 let TEAMS_MM = {};                       // ESPN team id -> {en, abbr, mm}
 let SQUADS = {};                           // ESPN team id -> {updated, team, players:[{n,pos,name,nat}]}
 let TEAM_INFO = {};                        // ESPN team id -> {founded, stadium, city, trophies:[{t,c}]}
