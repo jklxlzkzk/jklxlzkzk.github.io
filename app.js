@@ -687,15 +687,17 @@ async function renderHighlights() {
   html += `<p style="color:#888;font-size:13px;margin-bottom:15px;">Premier League / Champions League တရားဝင် YouTube channel က video များ — site ထဲမှာ တိုက်ရိုက် ကြည့်လို့ရတယ်</p>`;
   html += `<div class="highlights-grid" style="display:grid;gap:20px;">`;
   const videos = [
-    { id: "06dvvp2ORLM", title: "Chelsea 5-1 Bournemouth | HIGHLIGHTS - Extended | Premier League 2026/27", channel: "Chelsea FC" },
-    { id: "7rjYwH4YiUA", title: "Man Utd 1-1 Spurs | Extended Premier League Highlights", channel: "Tottenham Hotspur" },
-    { id: "eBNeQHQznNE", title: "Coventry City v Newcastle United | PREMIER LEAGUE HIGHLIGHTS", channel: "NBC Sports" },
-    { id: "JuC_ECCMG4s", title: "EVERY Weekend Goal | Matchweek 28 | 2025/26 Premier League Highlights", channel: "Premier League" },
+    { id: "eBNeQHQznNE", title: "Coventry City v Newcastle United | PREMIER LEAGUE HIGHLIGHTS | 10/12/2026", channel: "NBC Sports", date: "Oct 12, 2026" },
+    { id: "3uoy7oVLriY", title: "Liverpool v Manchester City | PREMIER LEAGUE HIGHLIGHTS | 10/11/2026", channel: "NBC Sports", date: "Oct 11, 2026" },
+    { id: "B-TtJxQ9W10", title: "Hull City v Everton | PREMIER LEAGUE HIGHLIGHTS | 10/11/2026", channel: "NBC Sports", date: "Oct 11, 2026" },
+    { id: "0Lgb42Yr1Ck", title: "Man Utd v Tottenham | PREMIER LEAGUE HIGHLIGHTS | 10/10/2026", channel: "NBC Sports", date: "Oct 10, 2026" },
+    { id: "_eUyYvYsGao", title: "Arsenal v Leeds United | PREMIER LEAGUE HIGHLIGHTS | 10/10/2026", channel: "NBC Sports", date: "Oct 10, 2026" },
+    { id: "Z6TmNyKHtuU", title: "Chelsea v Bournemouth | PREMIER LEAGUE HIGHLIGHTS | 10/10/2026", channel: "NBC Sports", date: "Oct 10, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" style="border:1px solid #ddd;border-radius:12px;padding:12px;">
       <h3 style="margin:0 0 8px;font-size:16px;">${esc(v.title)}</h3>
-      <p style="color:#888;font-size:13px;margin:0 0 10px;">📺 ${esc(v.channel)}</p>
+      <p style="color:#888;font-size:13px;margin:0 0 10px;">📺 ${esc(v.channel)}${v.date ? " • " + esc(v.date) : ""}</p>
       <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
         <iframe src="https://www.youtube.com/embed/${v.id}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
