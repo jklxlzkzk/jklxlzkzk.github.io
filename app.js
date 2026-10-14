@@ -1282,6 +1282,7 @@ function buildLeagues() {
   ).join('');
   document.querySelectorAll('.league-chip').forEach((b) => b.addEventListener('click', () => {
     state.league = b.dataset.league;
+    state.standView = 'table';
     buildLeagues();
     populateFavSelect();
     loadTab();
