@@ -136,6 +136,7 @@ function parseMatch(e) {
     state: st.type ? st.type.state : 'pre',           // pre | in | post
     clock: st.displayClock || '',
     clockSec: (typeof st.clock === 'number' ? st.clock : 0),
+    period: (typeof st.period === 'number' ? st.period : 0),
     statusName: (st.type && st.type.name) || '',
     detail: (st.type && st.type.shortDetail) || '',
     venue: (c.venue && c.venue.fullName) || '',
@@ -157,9 +158,13 @@ function goalsHtml(m) {
   return `<div class="goals"><div class="goals-title">ဂိုးသွင်းသူများ</div><div class="goals-split">${col(hg, 'left')}${col(ag, 'right')}</div></div>`;
 }
 
-function fmtClock(totalSec) {
+function fmtClock(totalSec, period) {
   totalSec = Math.max(0, Math.floor(totalSec));
-  return `${Math.floor(totalSec / 60)}' ${String(totalSec % 60).padStart(2, '0')}"`;
+  const mins = Math.floor(totalSec / 60);
+  // Added time: 1st half beyond 45', 2nd half beyond 90'
+  if (period === 1 && mins > 45) return `45+${mins - 45}'`;
+  if (period === 2 && mins > 90) return `90+${mins - 90}'`;
+  return `${mins}' ${String(totalSec % 60).padStart(2, '0')}"`;
 }
 function clockMode(m) {
   if (m.state !== 'in') return 'none';
@@ -196,7 +201,7 @@ function matchCard(m) {
   if (isLive) {
     const mode = clockMode(m);
     if (mode === 'static') liveClock = `<div class="match-clock">⏱ ${esc(m.clock || 'HT')}</div>`;
-    else if (mode === 'tick') liveClock = `<div class="match-clock" data-sec="${m.clockSec}" data-t0="${Date.now()}">⏱ ${fmtClock(m.clockSec)}</div>`;
+    else if (mode === 'tick') liveClock = `<div class="match-clock" data-sec="${m.clockSec}" data-period="${m.period || 0}" data-t0="${Date.now()}">⏱ ${fmtClock(m.clockSec, m.period)}</div>`;
   }
   return `
   <div class="match-card${isLive ? ' live-now' : ''}${isFavMatch(m) ? ' fav-match' : ''}" onclick="openMatchDetail('${esc(m.id)}')" style="cursor:pointer" title="အသေးစိတ်ကြည့်ရန် နှိပ်ပါ">
