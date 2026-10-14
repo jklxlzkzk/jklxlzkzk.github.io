@@ -723,7 +723,7 @@ function filterAnalyses() {
     card.style.display = (!q || text.includes(q)) ? '' : 'none';
   });
 }
-async function renderScorers() {
+async function renderScorersTab() {
   let data = null;
   try { data = await getJSON('scorers.json'); } catch (e) { data = null; }
   const leagues = (data && data.leagues) || {};
@@ -1524,7 +1524,7 @@ async function loadTab(quiet) {
     else if (state.tab === 'news') await renderNews();
     else if (state.tab === 'analyses') await renderAnalyses();
     else if (state.tab === 'highlights') await renderHighlights();
-    else if (state.tab === 'scorers') await renderScorers();
+    else if (state.tab === 'scorers') await renderScorersTab();
   } catch (e) {
     if (!quiet) showError();
   }
