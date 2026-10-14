@@ -753,12 +753,12 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "pbGHHKXoGI4", title: "Real Madrid vs Roma 4-3 Highlights | Champions League 2026", channel: "Footballia", date: "Oct 14, 2026" },
     { id: "gBn2NobEfI4", title: "Liverpool vs LASK 6-3 Highlights | UEFA Champions League", channel: "Fan Highlights", date: "Oct 14, 2026" },
-    { id: "YJAVOsJw5jo", title: "AS Roma vs Real Madrid 3-1 - Highlights | Champions League 2026", channel: "Fan Highlights", date: "Oct 14, 2026" },
+    { id: "2oO3dqaDGKw", title: "Feyenoord 3-2 Como Highlights | UCL Thriller | Champions League 2026", channel: "Halotub", date: "Oct 14, 2026" },
     { id: "GHmKpNz0Grc", title: "Galatasaray vs Barcelona 1-4 Highlights & All Goals | UCL 2026/27", channel: "DJ Highlights", date: "Oct 13, 2026" },
     { id: "ZnAyNQG3gRg", title: "Atletico de Madrid 2-0 Man Utd | Highlights", channel: "Manchester United", date: "Oct 13, 2026" },
     { id: "06dvvp2ORLM", title: "Chelsea 5-1 Bournemouth | HIGHLIGHTS - Extended | Premier League 2026/27", channel: "Chelsea FC", date: "Oct 10, 2026" },
-    { id: "7rjYwH4YiUA", title: "Man Utd 1-1 Spurs | Extended Premier League Highlights", channel: "Tottenham Hotspur", date: "Oct 10, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
