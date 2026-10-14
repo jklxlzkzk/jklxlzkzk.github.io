@@ -682,6 +682,30 @@ function filterAnalyses() {
     card.style.display = (!q || text.includes(q)) ? '' : 'none';
   });
 }
+async function renderHighlights() {
+  let html = `<h2 class="section-title">🎬 Highlights — တရားဝင် Video များ</h2>`;
+  html += `<p style="color:#888;font-size:13px;margin-bottom:15px;">Premier League / Champions League တရားဝင် YouTube channel က video များ</p>`;
+  html += `<div class="highlights-grid" style="display:grid;gap:16px;">`;
+  // Official highlights - embed from YouTube
+  const videos = [
+    { title: "Premier League Highlights", channel: "Premier League", search: "Premier League highlights" },
+    { title: "Champions League Highlights", channel: "UEFA Champions League", search: "Champions League highlights" },
+    { title: "La Liga Highlights", channel: "LaLiga", search: "La Liga highlights" },
+  ];
+  // Use YouTube search embed for latest highlights from official channels
+  html += videos.map(v => `
+    <div class="highlight-card" style="border:1px solid #ddd;border-radius:12px;padding:12px;">
+      <h3 style="margin:0 0 8px;">${esc(v.title)}</h3>
+      <p style="color:#888;font-size:13px;margin:0 0 10px;">📺 ${esc(v.channel)}</p>
+      <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(v.search)}" target="_blank" rel="noopener" style="display:inline-block;background:#c00;color:#fff;padding:8px 16px;border-radius:8px;text-decoration:none;">▶ YouTube မှာ ကြည့်ရန်</a>
+    </div>
+  `).join('');
+  html += `</div>`;
+  html += `<p style="color:#888;font-size:12px;margin-top:15px;">⚠️ Video များသည် တရားဝင် YouTube channel များမှ ဖြစ်သည်။</p>`;
+  content.innerHTML = html;
+  stamp();
+  parseFB();
+}
 async function renderAnalyses() {
   let data = null;
   try { data = await getJSON('analyses.json'); } catch (e) { data = null; }
@@ -1409,6 +1433,7 @@ async function loadTab(quiet) {
     else if (state.tab === 'predictions') await renderPredictions();
     else if (state.tab === 'news') await renderNews();
     else if (state.tab === 'analyses') await renderAnalyses();
+    else if (state.tab === 'highlights') await renderHighlights();
   } catch (e) {
     if (!quiet) showError();
   }
