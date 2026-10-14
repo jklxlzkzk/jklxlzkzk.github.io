@@ -219,7 +219,22 @@ function showLoading(msg) {
 function showError(msg) {
   content.innerHTML = `<div class="error">${esc(msg || 'ဒေတာဆွဲမရသေးပါ။')}<br><button onclick="loadTab()">🔄 ပြန်ကြိုးစားမယ်</button></div>`;
 }
+
+// Fetch scoreboard: if state.league is 'all', fetch all leagues and merge events
+async function fetchScoreboard(dates) {
+  if (state.league !== 'all') {
+    const url = `https://site.api.espn.com/apis/site/v2/sports/soccer/${state.league}/scoreboard` + (dates ? `?dates=${dates}` : '');
+    return getJSON(url);
+  }
+  const results = await Promise.all(LEAGUES.map(l =>
+    getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/${l.id}/scoreboard` + (dates ? `?dates=${dates}` : '')).catch(() => null)
+  ));
+  const events = [];
+  results.forEach(r => { if (r && r.events) events.push(...r.events); });
+  return { events };
+}
 function leagueName() {
+  if (state.league === 'all') return '🌍 အားလုံး';
   const l = LEAGUES.find((x) => x.id === state.league);
   return l ? `${l.icon} ${l.mm}` : '';
 }
@@ -230,7 +245,7 @@ function stamp() {
 /* ---------- tabs ---------- */
 
 async function renderLive() {
-  const data = await getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/${state.league}/scoreboard`);
+  const data = await fetchScoreboard();
   const matches = sortFavFirst((data.events || []).map(parseMatch).filter((m) => m.state === 'in'));
   checkFavGoals(matches);
   if (!matches.length) {
@@ -254,7 +269,7 @@ async function renderFixtures() {
     days.push(yyyymmdd(d));
   }
   const boards = await Promise.all(days.map((ds) =>
-    getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/${state.league}/scoreboard?dates=${ds}`).catch(() => null)
+    fetchScoreboard(ds).catch(() => null)
   ));
   const seen = new Set();
   const matches = [];
@@ -287,7 +302,7 @@ async function renderResults() {
     days.push(yyyymmdd(d));
   }
   const boards = await Promise.all(days.map((ds) =>
-    getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/${state.league}/scoreboard?dates=${ds}`).catch(() => null)
+    fetchScoreboard(ds).catch(() => null)
   ));
   const seen = new Set();
   const matches = [];
@@ -322,6 +337,32 @@ async function renderStandings() {
     </div>`;
   if (state.standView === 'scorers') { await renderScorers(sub); return; }
   if (state.standView === 'assists') { await renderAssists(sub); return; }
+  if (state.league === 'all') {
+    const majors = LEAGUES.filter(l => ['eng.1','esp.1','ita.1','ger.1','fra.1'].includes(l.id));
+    const allData = await Promise.all(majors.map(async (l) => {
+      try {
+        const d = await getJSON(`https://site.web.api.espn.com/apis/v2/sports/soccer/${l.id}/standings`);
+        const ch = d.children && d.children[0];
+        return { league: l, entries: (ch && ch.standings && ch.standings.entries) || [] };
+      } catch (e) { return { league: l, entries: [] }; }
+    }));
+    let html = `<h2 class="section-title">🌍 အားလုံး — အဆင့်ဇယား (Top 5)</h2>${sub}`;
+    allData.forEach(({ league, entries }) => {
+      if (!entries.length) return;
+      html += `<h3 style="margin:20px 0 8px;">${league.icon} ${esc(league.mm)}</h3><table style="width:100%;border-collapse:collapse;">`;
+      html += `<tr style="background:#f0f0f0;"><th style="padding:6px;text-align:left;">#</th><th style="padding:6px;text-align:left;">အသင်း</th><th style="padding:6px;">ပွဲ</th><th style="padding:6px;">နိုင်</th><th style="padding:6px;">သရေ</th><th style="padding:6px;">ရှုံး</th><th style="padding:6px;">ရမှတ်</th></tr>`;
+      const stat = (en, n) => { const s = (en.stats || []).find(x => x.name === n); return s ? s.displayValue : '–'; };
+      entries.slice(0, 5).forEach(en => {
+        const tm = en.team || {};
+        const mm = tm.id && TEAMS_MM[tm.id] && TEAMS_MM[tm.id].mm ? esc(TEAMS_MM[tm.id].mm) : esc(tm.shortDisplayName || tm.displayName || '');
+        html += `<tr style="border-bottom:1px solid #eee;"><td style="padding:6px;">${esc(stat(en,'rank'))}</td><td style="padding:6px;">${mm}</td><td style="padding:6px;text-align:center;">${esc(stat(en,'gamesPlayed'))}</td><td style="padding:6px;text-align:center;">${esc(stat(en,'wins'))}</td><td style="padding:6px;text-align:center;">${esc(stat(en,'ties'))}</td><td style="padding:6px;text-align:center;">${esc(stat(en,'losses'))}</td><td style="padding:6px;text-align:center;font-weight:bold;">${esc(stat(en,'points'))}</td></tr>`;
+      });
+      html += `</table>`;
+    });
+    content.innerHTML = html;
+    stamp();
+    return;
+  }
   const data = await getJSON(`https://site.web.api.espn.com/apis/v2/sports/soccer/${state.league}/standings`);
   const child = data.children && data.children[0];
   const entries = (child && child.standings && child.standings.entries) || [];
@@ -1235,7 +1276,8 @@ function bindFav() {
 /* ---------- navigation ---------- */
 
 function buildLeagues() {
-  $('#leagueBar').innerHTML = LEAGUES.map((l) =>
+  const allBtn = `<button class="league-chip${state.league === 'all' ? ' active' : ''}" data-league="all">🌍 အားလုံး</button>`;
+  $('#leagueBar').innerHTML = allBtn + LEAGUES.map((l) =>
     `<button class="league-chip${l.id === state.league ? ' active' : ''}" data-league="${l.id}">${l.icon} ${esc(l.mm)}</button>`
   ).join('');
   document.querySelectorAll('.league-chip').forEach((b) => b.addEventListener('click', () => {
