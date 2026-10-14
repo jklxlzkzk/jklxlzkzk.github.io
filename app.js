@@ -685,7 +685,7 @@ function filterAnalyses() {
 async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlights — တရားဝင် Video များ</h2>`;
   html += `<p style="color:#888;font-size:13px;margin-bottom:15px;">ကလပ် တရားဝင် YouTube channel က video များ — မြန်မာမှာ ကြည့်လို့ရတယ်</p>`;
-  html += `<div class="highlights-grid" style="display:grid;gap:20px;">`;
+  html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
     { id: "DUuwUrQFo3Q", title: "ALL GOALS in MD2 of the UEFA Champions League | Oct 13, 2026", channel: "UEFA Champions League", date: "Oct 13, 2026" },
     { id: "xioWLrYrit8", title: "Barcelona vs Galatasaray 4-1 | All Goals & Extended Highlights | UCL 2026/27", channel: "UEFA Champions League", date: "Oct 13, 2026" },
@@ -694,14 +694,25 @@ async function renderHighlights() {
     { id: "7rjYwH4YiUA", title: "Man Utd 1-1 Spurs | Extended Premier League Highlights", channel: "Tottenham Hotspur", date: "Oct 10, 2026" },
   ];
   html += videos.map(v => `
-    <div class="highlight-card" style="border:1px solid #ddd;border-radius:12px;padding:12px;">
-      <h3 style="margin:0 0 8px;font-size:16px;">${esc(v.title)}</h3>
-      <p style="color:#888;font-size:13px;margin:0 0 10px;">📺 ${esc(v.channel)}${v.date ? " • " + esc(v.date) : ""}</p>
+    <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
       <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
-        <iframe src="https://www.youtube.com/embed/${v.id}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" loading="lazy" alt="${esc(v.title)}">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.6);border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;">▶</div>
       </div>
+      <h3 style="margin:8px 0 4px;font-size:13px;line-height:1.3;">${esc(v.title)}</h3>
+      <p style="color:#888;font-size:11px;margin:0;">📺 ${esc(v.channel)}${v.date ? " • " + esc(v.date) : ""}</p>
     </div>
   `).join('');
+  html += `</div><div id="highlight-player" style="display:none;margin-top:20px;"></div>`;
+  window.openHighlight = function(id, title) {
+    const el = document.getElementById('highlight-player');
+    el.style.display = 'block';
+    el.innerHTML = '<h3 style="margin:0 0 10px;font-size:16px;">' + title + '</h3>' +
+      '<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">' +
+      '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>' +
+      '<button onclick="document.getElementById(\'highlight-player\').style.display=\'none\';document.getElementById(\'highlight-player\').innerHTML=\'\'" style="margin-top:10px;padding:8px 16px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;">✕ ပိတ်မယ်</button>';
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
   html += `</div>`;
   html += `<p style="color:#888;font-size:12px;margin-top:15px;">⚠️ Video များသည် တရားဝင် YouTube channel များမှ ဖြစ်သည်။</p>`;
   content.innerHTML = html;
