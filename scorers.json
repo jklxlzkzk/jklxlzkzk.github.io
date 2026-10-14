@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14",
+ "updated": "2026-10-15",
  "leagues": {
   "eng.1": [
    {
@@ -508,73 +508,73 @@
   "uefa.champions": [
    {
     "rank": 1,
+    "player": "Nicolo Tresoldi",
+    "team": "ကလပ်ဘရုဂေး",
+    "goals": 4,
+    "pid": "335201"
+   },
+   {
+    "rank": 2,
+    "player": "Harry Kane",
+    "team": "ဘိုင်ယန်",
+    "goals": 3,
+    "pid": "142200"
+   },
+   {
+    "rank": 3,
     "player": "Ferran Torres",
     "team": "ပီအက်စ်ဂျီ",
     "goals": 3,
     "pid": "265869"
    },
    {
-    "rank": 2,
+    "rank": 4,
     "player": "Ermedin Demirovic",
     "team": "စတုဂတ်",
     "goals": 3,
     "pid": "269136"
    },
    {
-    "rank": 3,
+    "rank": 5,
     "player": "Danijel Sturm",
     "team": "ဆလာဗီယာပရက်",
     "goals": 2,
     "pid": "322169"
    },
    {
-    "rank": 4,
+    "rank": 6,
+    "player": "Santiago Mouriño",
+    "team": "ဗီလာရီးရဲလ်",
+    "goals": 2,
+    "pid": "318098"
+   },
+   {
+    "rank": 7,
+    "player": "Lautaro Martínez",
+    "team": "အင်တာ",
+    "goals": 2,
+    "pid": "219713"
+   },
+   {
+    "rank": 8,
     "player": "Michael Olise",
     "team": "ဘိုင်ယန်",
     "goals": 2,
     "pid": "286831"
    },
    {
-    "rank": 5,
-    "player": "Erling Haaland",
-    "team": "မန်စီးတီး",
-    "goals": 2,
-    "pid": "253989"
-   },
-   {
-    "rank": 6,
-    "player": "Serhou Guirassy",
-    "team": "ဒေါ့မန်",
-    "goals": 2,
-    "pid": "186381"
-   },
-   {
-    "rank": 7,
-    "player": "Marc Bartra",
-    "team": "ရီးရဲလ်ဘက်တစ်",
-    "goals": 2,
-    "pid": "145078"
-   },
-   {
-    "rank": 8,
-    "player": "Raphinha",
-    "team": "ဘာစီလိုနာ",
-    "goals": 2,
-    "pid": "231050"
-   },
-   {
     "rank": 9,
-    "player": "Ousmane Dembélé",
-    "team": "ပီအက်စ်ဂျီ",
+    "player": "Luis Suárez",
+    "team": "စပေါ်တင်း",
     "goals": 2,
-    "pid": "229744"
+    "pid": "272722"
    },
    {
     "rank": 10,
-    "player": "Lamine Yamal",
+    "player": "Karim Adeyemi",
     "team": "ဘာစီလိုနာ",
-    "goals": 1,
-    "pid": "362150"
+    "goals": 2,
+    "pid": "274913"
    }
   ],
   "uefa.europa": [
@@ -1160,71 +1160,71 @@
     "rank": 1,
     "player": "Lamine Yamal",
     "team": "ဘာစီလိုနာ",
-    "assists": 2,
+    "assists": 4,
     "pid": "362150"
    },
    {
     "rank": 2,
+    "player": "Zlatko Tripic",
+    "team": "ဗိုက်ကင်းအက်ဖ်ကေ",
+    "assists": 2,
+    "pid": "164279"
+   },
+   {
+    "rank": 3,
+    "player": "Carlos Forbs",
+    "team": "ကလပ်ဘရုဂေး",
+    "assists": 2,
+    "pid": "78836"
+   },
+   {
+    "rank": 4,
     "player": "Nico Paz",
     "team": "ကိုမို",
     "assists": 2,
     "pid": "337970"
    },
    {
-    "rank": 3,
+    "rank": 5,
     "player": "Deniz Undav",
     "team": "စတုဂတ်",
     "assists": 2,
     "pid": "273300"
    },
    {
-    "rank": 4,
+    "rank": 6,
     "player": "Pau Torres",
     "team": "အက်စတွန်ဗီလာ",
     "assists": 2,
     "pid": "251100"
    },
    {
-    "rank": 5,
+    "rank": 7,
     "player": "Ousmane Dembélé",
     "team": "ပီအက်စ်ဂျီ",
     "assists": 2,
     "pid": "229744"
    },
    {
-    "rank": 6,
-    "player": "Maghnes Akliouche",
-    "team": "ပီအက်စ်ဂျီ",
-    "assists": 1,
-    "pid": "329690"
-   },
-   {
-    "rank": 7,
-    "player": "João Gomes",
-    "team": "အက်စတွန်ဗီလာ",
-    "assists": 1,
-    "pid": "301524"
-   },
-   {
     "rank": 8,
-    "player": "Georges Mikautadze",
-    "team": "ဗီလာရီးရဲလ်",
+    "player": "Ivan Lepinjica",
+    "team": "ဆာဘာ့ခ်",
     "assists": 1,
-    "pid": "300002"
+    "pid": "260848"
    },
    {
     "rank": 9,
-    "player": "Angelo Stiller",
-    "team": "စတုဂတ်",
+    "player": "Armando Obispo",
+    "team": "ပီအက်စ်ဗီ",
     "assists": 1,
-    "pid": "290232"
+    "pid": "245918"
    },
    {
     "rank": 10,
-    "player": "Michael Olise",
-    "team": "ဘိုင်ယန်",
+    "player": "Lautaro Martínez",
+    "team": "အင်တာ",
     "assists": 1,
-    "pid": "286831"
+    "pid": "219713"
    }
   ],
   "uefa.europa": [
