@@ -753,6 +753,8 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "gBn2NobEfI4", title: "Liverpool vs LASK 6-3 Highlights | Barcola Hat-Trick | UEFA Champions League", channel: "Imran News Network", date: "Oct 14, 2026" },
+    { id: "zh3s7-pNDpM", title: "HIGHLIGHTS - Aston Villa vs Fenerbahçe 6-0 | UEFA Champions League | TUDN", channel: "TUDN USA", date: "Oct 14, 2026" },
     { id: "XAtUUfkXwOc", title: "Manchester City 2-4 PSG | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "pbGHHKXoGI4", title: "Real Madrid vs Roma Highlights 4-3 champions league 2026", channel: "Footballia", date: "Oct 14, 2026" },
     { id: "tJwGbRuAwus", title: "Real Betis Vs FC Porto (3-2) All Goals Results & Extended Highlights", channel: "DJsportHD", date: "Oct 14, 2026" },
