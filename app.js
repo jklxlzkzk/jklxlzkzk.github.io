@@ -1374,18 +1374,16 @@ async function loadTab(quiet) {
     else if (state.tab === 'predictions') await renderPredictions();
     else if (state.tab === 'news') await renderNews();
     else if (state.tab === 'analyses') await renderAnalyses();
-    else if (state.tab === 'chat') await renderChat();
-    else if (state.tab === 'h2h') await renderH2H();
   } catch (e) {
     if (!quiet) showError();
   }
 }
 
-try { const h = (location.hash || '').replace('#', ''); if (['live','fixtures','results','standings','predictions','news','analyses','chat','h2h'].includes(h)) state.tab = h; } catch (e) {}
+try { const h = (location.hash || '').replace('#', ''); if (['live','fixtures','results','standings','predictions','news','analyses'].includes(h)) state.tab = h; } catch (e) {}
 window.addEventListener('hashchange', () => {
   try {
     const h = (location.hash || '').replace('#', '');
-    if (['live','fixtures','results','standings','predictions','news','analyses','chat','h2h'].includes(h) && h !== state.tab) {
+    if (['live','fixtures','results','standings','predictions','news','analyses'].includes(h) && h !== state.tab) {
       state.tab = h; buildTabs(); loadTab();
     }
   } catch (e) {}
