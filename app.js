@@ -14,7 +14,7 @@ const LEAGUES = [
   { id: 'uefa.europa',   name: 'Europa League',    mm: 'ယူရိုပါလိဂ်',             icon: '🟠' },
 ];
 
-const APP_VERSION = 9; // bump on every deploy
+const APP_VERSION = 10; // bump on every deploy
 
 const TABS = {
   live:        '🔴 တိုက်ရိုက်',
@@ -753,12 +753,12 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
-    { id: "7GBjtGMm1EU", title: "LASK 3-6 Liverpool Highlights | Barcola Hat-Trick | UEFA Champions League", channel: "TNT Sports Football", date: "Oct 14, 2026" },
-    { id: "llNX75FhGgg", title: "Aston Villa 6-0 Fenerbahce Highlights | UEFA Champions League", channel: "TNT Sports Football", date: "Oct 14, 2026" },
-    { id: "mFJ9yhdvge4", title: "Bodo/Glimt 1-0 Borussia Dortmund Highlights | Champions League 2026", channel: "TNT Sports México", date: "Oct 14, 2026" },
-    { id: "p-EW5_Ki1QY", title: "Real Betis 3-2 FC Porto Highlights | UEFA Champions League 2026/27", channel: "CHEFON FF", date: "Oct 14, 2026" },
-    { id: "TBe1ZvG4gCA", title: "Man City vs PSG 2-4 Highlights | All Goals & Extended Highlights | Champions League 2026", channel: "La2ta Tv", date: "Oct 14, 2026" },
-    { id: "pbGHHKXoGI4", title: "Real Madrid vs Roma 4-3 Highlights | Champions League 2026", channel: "Footballia", date: "Oct 14, 2026" },
+    { id: "7GBjtGMm1EU", title: "Brilliant Barcola Nets Hat-Trick | LASK 3-6 Liverpool | UEFA Champions League Highlights", channel: "TNT Sports Football", date: "Oct 14, 2026" },
+    { id: "llNX75FhGgg", title: "Villa Deliver a Thrashing! | Aston Villa 6-0 Fenerbahce | UEFA Champions League Highlights", channel: "TNT Sports Football", date: "Oct 14, 2026" },
+    { id: "mFJ9yhdvge4", title: "RESUMEN: BODO/GLIMT 1-0 BORUSSIA DORTMUND | UEFA Champions League", channel: "TNT Sports México", date: "Oct 14, 2026" },
+    { id: "pbGHHKXoGI4", title: "Real Madrid vs Roma Highlights 4-3 champions league 2026", channel: "Footballia", date: "Oct 14, 2026" },
+    { id: "t1eAl5hqxdQ", title: "HIGHLIGHTS | GALATASARAY 1 vs 4 FC BARCELONA | UEFA CHAMPIONS LEAGUE 26/27", channel: "FC Barcelona", date: "Oct 13, 2026" },
+    { id: "RSodWh8pnOc", title: "EXTENDED HIGHLIGHTS | Liverpool 0-3 Man City | Haaland, Doku & Cherki goals in Anfield win!", channel: "Man City", date: "Oct 13, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
