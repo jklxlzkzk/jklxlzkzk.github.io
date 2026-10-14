@@ -703,15 +703,28 @@ async function renderHighlights() {
       <p style="color:#888;font-size:11px;margin:0;">📺 ${esc(v.channel)}${v.date ? " • " + esc(v.date) : ""}</p>
     </div>
   `).join('');
-  html += `</div><div id="highlight-player" style="display:none;margin-top:20px;"></div>`;
+  html += `</div>`;
   window.openHighlight = function(id, title) {
-    const el = document.getElementById('highlight-player');
-    el.style.display = 'block';
-    el.innerHTML = '<h3 style="margin:0 0 10px;font-size:16px;">' + title + '</h3>' +
-      '<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;">' +
-      '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>' +
-      '<button onclick="document.getElementById(\'highlight-player\').style.display=\'none\';document.getElementById(\'highlight-player\').innerHTML=\'\'" style="margin-top:10px;padding:8px 16px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;">✕ ပိတ်မယ်</button>';
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    let modal = document.getElementById('highlight-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'highlight-modal';
+      modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;';
+      modal.onclick = function(e) { if (e.target === modal) closeHighlight(); };
+      document.body.appendChild(modal);
+    }
+    modal.innerHTML = '<div style="width:100%;max-width:900px;background:#111;border-radius:12px;padding:12px;">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><h3 style="margin:0;font-size:15px;color:#fff;">' + title + '</h3>' +
+      '<button onclick="closeHighlight()" style="background:#fff;border:0;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;flex-shrink:0;margin-left:10px;">✕</button></div>' +
+      '<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">' +
+      '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div></div>';
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeHighlight = function() {
+    const m = document.getElementById('highlight-modal');
+    if (m) { m.style.display = 'none'; m.innerHTML = ''; }
+    document.body.style.overflow = '';
   };
   html += `</div>`;
   html += `<p style="color:#888;font-size:12px;margin-top:15px;">⚠️ Video များသည် တရားဝင် YouTube channel များမှ ဖြစ်သည်။</p>`;
