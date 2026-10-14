@@ -750,8 +750,7 @@ async function renderScorersTab() {
   parseFB();
 }
 async function renderHighlights() {
-  let html = `<h2 class="section-title">🎬 Highlights — တရားဝင် Video များ</h2>`;
-  html += `<p style="color:#888;font-size:13px;margin-bottom:15px;">ကလပ် တရားဝင် YouTube channel က video များ — မြန်မာမှာ ကြည့်လို့ရတယ်</p>`;
+  let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
     { id: "gBn2NobEfI4", title: "Liverpool vs LASK 6-3 Highlights | UEFA Champions League", channel: "Fan Highlights", date: "Oct 14, 2026" },
