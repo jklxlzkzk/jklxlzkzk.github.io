@@ -1474,16 +1474,12 @@ function showUpdateBanner() {
   }
 })();
 
-/* ---------- national anthem on flag click ---------- */
+/* ---------- national anthem on flag click ONLY (no autoplay) ---------- */
 (function() {
   const flag = document.getElementById('anthemFlag');
   const audio = document.getElementById('anthemAudio');
   if (!flag || !audio) return;
-  // try autoplay on load (may be blocked until first interaction)
-  const tryPlay = () => audio.play().catch(() => {});
-  tryPlay();
-  document.addEventListener('pointerdown', tryPlay, { once: true });
-  // flag toggles: pause if playing, replay from start if paused
+  // flag toggles: play from start if paused, pause if playing
   flag.addEventListener('click', () => {
     if (audio.paused) {
       audio.currentTime = 0;
