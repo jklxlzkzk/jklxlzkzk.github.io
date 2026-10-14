@@ -754,6 +754,7 @@ async function renderHighlights() {
   html += `<p style="color:#888;font-size:13px;margin-bottom:15px;">ကလပ် တရားဝင် YouTube channel က video များ — မြန်မာမှာ ကြည့်လို့ရတယ်</p>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "knCTgEnf7JY", title: "Barcola Hattrick 😱 Liverpool vs LASK 6-3 Extended Highlights & All Goals 2026", channel: "Fan Highlights", date: "Oct 14, 2026" },
     { id: "DUuwUrQFo3Q", title: "ALL GOALS in MD2 of the UEFA Champions League | Oct 13, 2026", channel: "UEFA Champions League", date: "Oct 13, 2026" },
     { id: "xioWLrYrit8", title: "Barcelona vs Galatasaray 4-1 | All Goals & Extended Highlights | UCL 2026/27", channel: "UEFA Champions League", date: "Oct 13, 2026" },
     { id: "SbIITiki1fE", title: "Atleti PUNISH 10-man Man United | Atleti vs Man United | UCL Highlights", channel: "Amazon Prime Video Sport", date: "Oct 13, 2026" },
