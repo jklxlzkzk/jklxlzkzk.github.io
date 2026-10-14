@@ -753,12 +753,12 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "llNX75FhGgg", title: "Aston Villa 6-0 Fenerbahce Highlights | UEFA Champions League", channel: "TNT Sports Football", date: "Oct 14, 2026" },
+    { id: "mFJ9yhdvge4", title: "Bodo/Glimt 1-0 Borussia Dortmund Highlights | Champions League 2026", channel: "TNT Sports México", date: "Oct 14, 2026" },
+    { id: "p-EW5_Ki1QY", title: "Real Betis 3-2 FC Porto Highlights | UEFA Champions League 2026/27", channel: "CHEFON FF", date: "Oct 14, 2026" },
     { id: "TBe1ZvG4gCA", title: "Man City vs PSG 2-4 Highlights | All Goals & Extended Highlights | Champions League 2026", channel: "La2ta Tv", date: "Oct 14, 2026" },
-    { id: "YqqmJHqsIzc", title: "Kashiwa Reysol 5-1 Port FC Highlights | AFC Champions League Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
     { id: "pbGHHKXoGI4", title: "Real Madrid vs Roma 4-3 Highlights | Champions League 2026", channel: "Footballia", date: "Oct 14, 2026" },
-    { id: "gBn2NobEfI4", title: "Liverpool vs LASK 6-3 Highlights | UEFA Champions League", channel: "Fan Highlights", date: "Oct 14, 2026" },
-    { id: "2oO3dqaDGKw", title: "Feyenoord 3-2 Como Highlights | UCL Thriller | Champions League 2026", channel: "Halotub", date: "Oct 14, 2026" },
-    { id: "jsxUEGttbog", title: "Bayern Munich vs Viking FK 3-3 Highlights | Champions League 2026/27", channel: "PVXFC", date: "Oct 13, 2026" },
+    { id: "t1eAl5hqxdQ", title: "Galatasaray 1-4 FC Barcelona Highlights | UEFA Champions League 26/27", channel: "FC Barcelona", date: "Oct 13, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
