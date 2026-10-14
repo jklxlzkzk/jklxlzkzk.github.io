@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-13",
+ "updated": "2026-10-14",
  "leagues": {
   "eng.1": [
    {
@@ -190,31 +190,31 @@
    },
    {
     "rank": 7,
+    "player": "Jurgen Ekkelenkamp",
+    "team": "အူဒီနီဆီ",
+    "goals": 3,
+    "pid": "270817"
+   },
+   {
+    "rank": 8,
     "player": "Franco Mastantuono",
     "team": "ဖီအိုရင်တီးနား",
     "goals": 3,
     "pid": "376473"
    },
    {
-    "rank": 8,
+    "rank": 9,
     "player": "Davide Frattesi",
     "team": "လာဇီယို",
     "goals": 3,
     "pid": "250850"
    },
    {
-    "rank": 9,
+    "rank": 10,
     "player": "Adrien Rabiot",
     "team": "အေစီမီလန်",
     "goals": 3,
     "pid": "176203"
-   },
-   {
-    "rank": 10,
-    "player": "Kevin De Bruyne",
-    "team": "နာပိုလီ",
-    "goals": 3,
-    "pid": "134947"
    }
   ],
   "ger.1": [
@@ -457,24 +457,24 @@
    },
    {
     "rank": 4,
+    "player": "Georgios Koutsias",
+    "team": "ဖာမလီကောင်",
+    "goals": 5,
+    "pid": "304317"
+   },
+   {
+    "rank": 5,
     "player": "Gonçalo Paciência",
     "team": "ဆန်တာကလာရာ",
     "goals": 5,
     "pid": "215726"
    },
    {
-    "rank": 5,
+    "rank": 6,
     "player": "Barbero",
     "team": "အာရူကာ",
     "goals": 5,
     "pid": "178579"
-   },
-   {
-    "rank": 6,
-    "player": "Georgios Koutsias",
-    "team": "ဖာမလီကောင်",
-    "goals": 5,
-    "pid": "304317"
    },
    {
     "rank": 7,
@@ -1114,45 +1114,45 @@
    },
    {
     "rank": 5,
+    "player": "Mathias de Amorim",
+    "team": "ဖာမလီကောင်",
+    "assists": 3,
+    "pid": "368008"
+   },
+   {
+    "rank": 6,
     "player": "Gianluca Prestianni",
     "team": "ဘန်ဖီကာ",
     "assists": 3,
     "pid": "339191"
    },
    {
-    "rank": 6,
+    "rank": 7,
     "player": "Eddy Doué",
     "team": "အက်စ်ထရီလာ",
     "assists": 3,
     "pid": "418107"
    },
    {
-    "rank": 7,
+    "rank": 8,
     "player": "Vangelis Pavlidis",
     "team": "ဘန်ဖီကာ",
     "assists": 3,
     "pid": "220819"
    },
    {
-    "rank": 8,
+    "rank": 9,
     "player": "Diogo Bezerra",
     "team": "ရီယိုအဲဗီ",
     "assists": 3,
     "pid": "335153"
    },
    {
-    "rank": 9,
+    "rank": 10,
     "player": "Gabri Veiga",
     "team": "ပေါ်တို",
     "assists": 3,
     "pid": "307381"
-   },
-   {
-    "rank": 10,
-    "player": "Miguel Nogueira",
-    "team": "ဂီမာရေးရှ်",
-    "assists": 3,
-    "pid": "409828"
    }
   ],
   "uefa.champions": [
