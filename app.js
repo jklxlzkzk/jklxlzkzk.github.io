@@ -682,6 +682,27 @@ function filterAnalyses() {
     card.style.display = (!q || text.includes(q)) ? '' : 'none';
   });
 }
+async function renderScorers() {
+  let data = null;
+  try { data = await getJSON('scorers.json'); } catch (e) { data = null; }
+  const leagues = (data && data.leagues) || {};
+  const names = { 'eng.1': '🏴󐁧󐁢󐁥󐁮󐁧󐁿 ပရီးမီးယားလိဂ်', 'esp.1': '🇪🇸 လာလီဂါ', 'ita.1': '🇮🇹 စီးရီးအေ', 'ger.1': '🇩🇪 ဘွန်ဒက်စ်လီဂါ', 'fra.1': '🇫🇷 လီဂူး ၁' };
+  let html = `<h2 class="section-title">🥇 ဂိုးသွင်းအများဆုံး</h2>`;
+  if (data && data.updated) html += `<div class="refresh-line">နောက်ဆုံးအပ်ဒိတ်: ${esc(data.updated)}</div>`;
+  for (const [key, name] of Object.entries(names)) {
+    const players = leagues[key] || [];
+    if (!players.length) continue;
+    html += `<h3 style="margin:20px 0 10px;">${name}</h3><table style="width:100%;border-collapse:collapse;">`;
+    html += `<tr style="background:#f0f0f0;"><th style="padding:8px;text-align:left;">#</th><th style="padding:8px;text-align:left;">ကစားသမား</th><th style="padding:8px;text-align:left;">အသင်း</th><th style="padding:8px;text-align:right;">ဂိုး</th></tr>`;
+    players.slice(0, 10).forEach(p => {
+      html += `<tr style="border-bottom:1px solid #eee;"><td style="padding:8px;">${p.rank}</td><td style="padding:8px;">${esc(p.player)}</td><td style="padding:8px;">${esc(p.team)}</td><td style="padding:8px;text-align:right;font-weight:bold;">${p.goals}</td></tr>`;
+    });
+    html += `</table>`;
+  }
+  content.innerHTML = html;
+  stamp();
+  parseFB();
+}
 async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlights — တရားဝင် Video များ</h2>`;
   html += `<p style="color:#888;font-size:13px;margin-bottom:15px;">ကလပ် တရားဝင် YouTube channel က video များ — မြန်မာမှာ ကြည့်လို့ရတယ်</p>`;
@@ -1460,6 +1481,7 @@ async function loadTab(quiet) {
     else if (state.tab === 'news') await renderNews();
     else if (state.tab === 'analyses') await renderAnalyses();
     else if (state.tab === 'highlights') await renderHighlights();
+    else if (state.tab === 'scorers') await renderScorers();
   } catch (e) {
     if (!quiet) showError();
   }
