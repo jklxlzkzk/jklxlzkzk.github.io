@@ -437,7 +437,7 @@ async function renderPredictions() {
   const preds = (data && data.predictions) || [];
   const confLabel = { high: 'ယုံကြည်မှုမြင့်', medium: 'အလယ်အလတ်', low: 'သတိထား' };
   const confClass = { high: 'conf-high', medium: 'conf-med', low: 'conf-low' };
-  let html = `<h2 class="section-title">🔮 ပွဲကြို ခန့်မှန်းချက် — KZZ Football Analysis</h2>`;
+  let html = `<h2 class="section-title">🔮 ပွဲကြို ခန့်မှန်း သုံးသပ်ချက် — KZZ Football Analysis</h2>`;
   if (data && data.updated) {
     let upd = data.updated;
     try { upd = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Yangon', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(data.updated)); } catch (e) {}
