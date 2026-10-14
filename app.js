@@ -756,9 +756,8 @@ async function renderHighlights() {
   const videos = [
     { id: "gBn2NobEfI4", title: "Liverpool vs LASK 6-3 Highlights | UEFA Champions League", channel: "Fan Highlights", date: "Oct 14, 2026" },
     { id: "YJAVOsJw5jo", title: "AS Roma vs Real Madrid 3-1 - Highlights | Champions League 2026", channel: "Fan Highlights", date: "Oct 14, 2026" },
-    { id: "DUuwUrQFo3Q", title: "ALL GOALS in MD2 of the UEFA Champions League | Oct 13, 2026", channel: "UEFA Champions League", date: "Oct 13, 2026" },
-    { id: "xioWLrYrit8", title: "Barcelona vs Galatasaray 4-1 | All Goals & Extended Highlights | UCL 2026/27", channel: "UEFA Champions League", date: "Oct 13, 2026" },
-    { id: "SbIITiki1fE", title: "Atleti PUNISH 10-man Man United | Atleti vs Man United | UCL Highlights", channel: "Amazon Prime Video Sport", date: "Oct 13, 2026" },
+    { id: "GHmKpNz0Grc", title: "Galatasaray vs Barcelona 1-4 Highlights & All Goals | UCL 2026/27", channel: "DJ Highlights", date: "Oct 13, 2026" },
+    { id: "ZnAyNQG3gRg", title: "Atletico de Madrid 2-0 Man Utd | Highlights", channel: "Manchester United", date: "Oct 13, 2026" },
     { id: "06dvvp2ORLM", title: "Chelsea 5-1 Bournemouth | HIGHLIGHTS - Extended | Premier League 2026/27", channel: "Chelsea FC", date: "Oct 10, 2026" },
     { id: "7rjYwH4YiUA", title: "Man Utd 1-1 Spurs | Extended Premier League Highlights", channel: "Tottenham Hotspur", date: "Oct 10, 2026" },
   ];
