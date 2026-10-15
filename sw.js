@@ -1,8 +1,8 @@
 /* KZZ Football Live service worker — offline shell, fresh data.
    Same-origin GETs: stale-while-revalidate (assets + JSON). Navigation: network-first.
    ESPN API calls go straight to the network (cross-origin, untouched). */
-const CACHE = 'kzz-v131';
-const STATICS = ['./', './index.html', './app.js?v=131', './styles.css?v=131', './manifest.json',
+const CACHE = 'kzz-v132';
+const STATICS = ['./', './index.html', './app.js?v=132', './styles.css?v=132', './manifest.json',
   './icon-192.png', './icon-512.png', './og-image.png', './analyses.json'];
 
 self.addEventListener('install', (e) => {
