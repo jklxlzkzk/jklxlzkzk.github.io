@@ -753,6 +753,7 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "dJoJorwSGOM", title: "Vissel Kobe 2-0 Jeonbuk Hyundai Motors | Highlights | AFC Champions League Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
     { id: "9rongD4CfE8", title: "FLUMINENSE X PALMEIRAS | MELHORES MOMENTOS | CONMEBOL LIBERTADORES 2026", channel: "CONMEBOL Libertadores", date: "Oct 14, 2026" },
     { id: "YqqmJHqsIzc", title: "FIVE goals before the break! | Kashiwa Reysol vs Port FC | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
     { id: "lfEnsErFD8o", title: "Best of: Mo Salah 2019/20 | Premier League Champion", channel: "Liverpool FC", date: "Classic" },
