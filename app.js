@@ -14,7 +14,7 @@ const LEAGUES = [
   { id: 'uefa.europa',   name: 'Europa League',    mm: 'ယူရိုပါလိဂ်',             icon: '🟠' },
 ];
 
-const APP_VERSION = 10; // bump on every deploy
+const APP_VERSION = 11; // bump on every deploy
 
 const TABS = {
   live:        '🔴 တိုက်ရိုက်',
@@ -753,6 +753,7 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "kbThokCccLE", title: "Feyenoord vs. Como: Extended Highlights | UCL League Phase MD 2 | CBS Sports Golazo", channel: "CBS Sports Golazo", date: "Oct 14, 2026" },
     { id: "crCnOb2Vpvc", title: "LASK 3-6 Liverpool | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
     { id: "p-EW5_Ki1QY", title: "Real Betis - FC Porto | 3-2 | Highlights | UEFA Champions League 2026/27", channel: "CHEFON FF", date: "Oct 14, 2026" },
     { id: "icXeChfKyGY", title: "Defeat in Norway | Bodø/Glimt - BVB 1-0 | Highlights", channel: "Borussia Dortmund", date: "Oct 14, 2026" },
