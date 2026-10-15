@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15",
+ "updated": "2026-10-16",
  "leagues": {
   "eng.1": [
    {
@@ -717,10 +717,10 @@
    },
    {
     "rank": 10,
-    "player": "Morgan Gibbs-White",
+    "player": "–",
     "team": "နော်တင်ဟမ်ဖောရက်စ်",
     "assists": 2,
-    "pid": "243396"
+    "pid": ""
    }
   ],
   "esp.1": [
@@ -1258,10 +1258,10 @@
    },
    {
     "rank": 5,
-    "player": "–",
+    "player": "Ali Maamar",
     "team": "အန်ဒါလက်ချ်",
     "assists": 1,
-    "pid": ""
+    "pid": "395942"
    },
    {
     "rank": 6,
