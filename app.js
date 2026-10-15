@@ -753,6 +753,11 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "8O6LtoHNOlg", title: "1 HOUR of the Premier League's BEST Derby Goals", channel: "Premier League", date: "Classic" },
+    { id: "wz1r_VJaJZw", title: "1 HOUR of the Premier League's BEST Goals in the Last 10 Years!", channel: "Premier League", date: "Classic" },
+    { id: "sZRvZaeCNNg", title: "Highest-scoring Premier League Matches", channel: "Premier League", date: "Classic" },
+    { id: "TrPCZvEixlA", title: "Cristiano Ronaldo: TOP 20 GOALS!", channel: "Manchester United", date: "Classic" },
+    { id: "VMqeFyAqNBo", title: "Cristiano Ronaldo Top 100 Goals | Best Goals of All Time", channel: "Richard Mattos", date: "Classic" },
     { id: "TBe1ZvG4gCA", title: "Manchester City vs PSG 2-4 Highlights | All Goals & Extended Highlights | Champions League 2026", channel: "La2ta Tv", date: "Oct 14, 2026" },
     { id: "P62qYZ3JP2s", title: "Aston Villa 6-0 Fenerbahçe | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "ZDPrO926qlY", title: "Feyenoord 3-2 Como | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
