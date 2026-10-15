@@ -753,11 +753,12 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "IDm7jNuOMig", title: "Man City 2-4 PSG | UEFA Champions League Highlights", channel: "TNT Sports Football", date: "Oct 14, 2026" },
     { id: "18hOut1J0gY", title: "Real Madrid vs Roma 4-3 Highlights | UEFA Champions League", channel: "Imran News Network", date: "Oct 14, 2026" },
     { id: "0u6aMjZ4bh4", title: "Liverpool vs LASK Highlights 6-3 | UEFA Champions League 2026 | Barcola Hat-Trick, Frimpong Goals", channel: "The Quick News", date: "Oct 14, 2026" },
-    { id: "eeVr7rqrUdc", title: "Bundesliga 26/27 | ALL GOALS from GameWeek 5 | Full Highlights", channel: "SportyTV", date: "Oct 13, 2026" },
-    { id: "jM7ezxk1sio", title: "LaLiga 26/27 | ALL GOALS GameWeek 8 | Full Highlights | SportyTV", channel: "SportyTV", date: "Oct 13, 2026" },
-    { id: "ko6Oqj289tg", title: "SASSUOLO-MILAN 1-1 | EXTENDED HIGHLIGHTS | SERIE A 2026/27", channel: "Serie A", date: "Oct 12, 2026" },
+    { id: "llNX75FhGgg", title: "Aston Villa 6-0 Fenerbahce | UEFA Champions League Highlights", channel: "TNT Sports Football", date: "Oct 14, 2026" },
+    { id: "ZDPrO926qlY", title: "Feyenoord 3-2 Como | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
+    { id: "4rWFAEXs1Fc", title: "Real Betis 3-2 FC Porto | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
