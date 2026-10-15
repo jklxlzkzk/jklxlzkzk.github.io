@@ -756,7 +756,6 @@ async function renderHighlights() {
     { id: "XAtUUfkXwOc", title: "Manchester City 2-4 PSG | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "pbGHHKXoGI4", title: "Real Madrid vs Roma Highlights 4-3 champions league 2026", channel: "Footballia", date: "Oct 14, 2026" },
     { id: "dZN42_J-uBo", title: "Liverpool Vs LASK 6-3 | Bradley Barcola Hat-Trick | All Goals & Highlights | Champions League 2026", channel: "FootLovia", date: "Oct 14, 2026" },
-    { id: "llNX75FhGgg", title: "Villa Deliver a Thrashing! | Aston Villa 6-0 Fenerbahce | UEFA Champions League Highlights", channel: "TNT Sports Football", date: "Oct 14, 2026" },
     { id: "Uyr5_QWkaTk", title: "Feyenoord 3-2 Como | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "icXeChfKyGY", title: "Defeat in Norway | Bodø/Glimt - BVB 1-0 | Highlights", channel: "Borussia Dortmund", date: "Oct 14, 2026" },
   ];
