@@ -14,7 +14,7 @@ const LEAGUES = [
   { id: 'uefa.europa',   name: 'Europa League',    mm: 'ယူရိုပါလိဂ်',             icon: '🟠' },
 ];
 
-const APP_VERSION = 13; // bump on every deploy
+const APP_VERSION = 14; // bump on every deploy
 
 const TABS = {
   live:        '🔴 တိုက်ရိုက်',
@@ -753,6 +753,12 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "PttSrZ0aONY", title: "2026 Match Highlights | Orlando City at Toronto FC | October 14, 2026", channel: "Orlando City SC", date: "Oct 14, 2026" },
+    { id: "BeeicKydHE4", title: "Charlotte FC vs. Columbus Crew | Full Match Highlights | GOAL IN FIRST 30 SECONDS!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "3PSwfgiktrM", title: "San Diego FC vs. Houston Dynamo FC | Full Match Highlights | WILD 5-GOAL FIRST HALF!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "PszrO5TDv24", title: "LA Galaxy vs. Portland Timbers | Full Match Highlights | Marco Reus GOAL AND ASSIST!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "hK3YQ6Ilqws", title: "Chicago Fire FC vs. Philadelphia Union | Full Match Highlights | Damiani BRACE!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "jM7ezxk1sio", title: "LaLiga 26/27 | ALL GOALS GameWeek 8 | Full Highlights | SportyTV", channel: "SportyTV", date: "Oct 13, 2026" },
     { id: "xCwTnWIYGlo", title: "Inter Miami CF vs. New York City FC | Full Match Highlights | Miami Mayhem!", channel: "Major League Soccer", date: "Oct 14, 2026" },
     { id: "Y5bnjRuMEo0", title: "LAFC vs. Austin FC | Full Match Highlights | the Son & Bouanga Show BACK IN ACTION!", channel: "Major League Soccer", date: "Oct 14, 2026" },
     { id: "ai5wjB_NI5E", title: "FC Dallas vs. Seattle Sounders | Full Match Highlights | Kaick Banger!", channel: "Major League Soccer", date: "Oct 14, 2026" },
@@ -780,10 +786,6 @@ async function renderHighlights() {
     { id: "CxEBtJGKPdo", title: "LAUTARO'S BRACE AND BONNY'S GOAL NOT ENOUGH | INTER 3-4 CLUB BRUGGE | UEFA CHAMPIONS LEAGUE", channel: "Inter", date: "Oct 13, 2026" },
     { id: "yTN2FzYMSac", title: "Atlético Madrid 2-0 Manchester United | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 13, 2026" },
     { id: "t1eAl5hqxdQ", title: "HIGHLIGHTS | GALATASARAY 1 vs 4 FC BARCELONA | UEFA CHAMPIONS LEAGUE 26/27", channel: "FC Barcelona", date: "Oct 13, 2026" },
-    { id: "doGDbxm_Gjk", title: "Villarreal 3-1 Napoli | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 13, 2026" },
-    { id: "35lpkFOYQ_w", title: "Gruda magic seals the deal! | RB Leipzig - PSV Eindhoven | Highlights | UEFA Champions League", channel: "RB Leipzig", date: "Oct 13, 2026" },
-    { id: "xUW-DuDF_EU", title: "Highlights | UEFA Champions League: RC Lens 0-2 Sporting CP", channel: "Sporting Clube de Portugal", date: "Oct 13, 2026" },
-    { id: "q2yU-8oBBW4", title: "HIGHLIGHTS - Sabah vs Slavia Praga | UEFA Champions League - Jornada 2 2026-27 | TUDN", channel: "TUDN USA", date: "Oct 13, 2026" },
     { id: "TBe1ZvG4gCA", title: "Manchester City vs PSG 2-4 Highlights | All Goals & Extended Highlights | Champions League 2026", channel: "La2ta Tv", date: "Oct 14, 2026" },
     { id: "P62qYZ3JP2s", title: "Aston Villa 6-0 Fenerbahçe | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "ZDPrO926qlY", title: "Feyenoord 3-2 Como | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
@@ -791,8 +793,6 @@ async function renderHighlights() {
     { id: "dZN42_J-uBo", title: "Liverpool Vs LASK 6-3 | Bradley Barcola Hat-Trick | All Goals & Highlights | Champions League 2026", channel: "FootLovia", date: "Oct 14, 2026" },
     { id: "18hOut1J0gY", title: "Real Madrid vs Roma 4-3 Highlights | UEFA Champions League", channel: "Imran News Network", date: "Oct 14, 2026" },
     { id: "4rWFAEXs1Fc", title: "Real Betis 3-2 FC Porto | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
-    { id: "NwcIMtLWs3o", title: "Arsenal vs Lille 3-0 EXTENDED HIGHLIGHTS (UEFA Champions League) 2026 Arsenal - LOSC Lille", channel: "Footballia", date: "Oct 13, 2026" },
-    { id: "kouIO_sL4EY", title: "FC Bayern Munich vs Viking Highlights (3-3) | OLISE RED CARD • UEFA CHAMPIONS LEAGUE!", channel: "Footballia", date: "Oct 13, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
