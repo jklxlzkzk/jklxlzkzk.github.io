@@ -762,6 +762,18 @@ async function renderHighlights() {
     { id: "DlceSLFU7co", title: "Every Steven Gerrard Goal | Cup Final screamers, Istanbul", channel: "Liverpool FC", date: "Classic" },
     { id: "i1p5PAgNvR0", title: "All 200 Mo Salah Goals For Liverpool", channel: "Liverpool FC", date: "Classic" },
     { id: "t5PtlOA0Ksc", title: "ALL 57 Mo Salah Goals and Assist from 2024/25", channel: "Liverpool FC", date: "Classic" },
+    { id: "N6cj7Ex5rb4", title: "Shakhtar Donetsk 3-1 AEK Athens | Highlights | UEFA Champions League", channel: "TUDN USA", date: "Oct 14, 2026" },
+    { id: "1s71oitDH9M", title: "Slovan Bratislava 0-3 Stuttgart | Highlights | UEFA Champions League", channel: "TUDN USA", date: "Oct 14, 2026" },
+    { id: "CxEBtJGKPdo", title: "LAUTARO'S BRACE AND BONNY'S GOAL NOT ENOUGH | INTER 3-4 CLUB BRUGGE | UEFA CHAMPIONS LEAGUE", channel: "Inter", date: "Oct 13, 2026" },
+    { id: "yTN2FzYMSac", title: "Atlético Madrid 2-0 Manchester United | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 13, 2026" },
+    { id: "t1eAl5hqxdQ", title: "HIGHLIGHTS | GALATASARAY 1 vs 4 FC BARCELONA | UEFA CHAMPIONS LEAGUE 26/27", channel: "FC Barcelona", date: "Oct 13, 2026" },
+    { id: "doGDbxm_Gjk", title: "Villarreal 3-1 Napoli | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 13, 2026" },
+    { id: "35lpkFOYQ_w", title: "Gruda magic seals the deal! | RB Leipzig - PSV Eindhoven | Highlights | UEFA Champions League", channel: "RB Leipzig", date: "Oct 13, 2026" },
+    { id: "xUW-DuDF_EU", title: "Highlights | UEFA Champions League: RC Lens 0-2 Sporting CP", channel: "Sporting Clube de Portugal", date: "Oct 13, 2026" },
+    { id: "q2yU-8oBBW4", title: "HIGHLIGHTS - Sabah vs Slavia Praga | UEFA Champions League - Jornada 2 2026-27 | TUDN", channel: "TUDN USA", date: "Oct 13, 2026" },
+    { id: "lfEnsErFD8o", title: "Best of: Mo Salah 2019/20 | Premier League Champion", channel: "Liverpool FC", date: "Classic" },
+    { id: "STsFQj4aZM0", title: "Mo Salah's 100 Liverpool goals | Chelsea screamer, Man Utd celebration & penalty in Madrid", channel: "Liverpool FC", date: "Classic" },
+    { id: "cGJBKbManZE", title: "Mo Salah's 100 Liverpool Premier League goals", channel: "Liverpool FC", date: "Classic" },
     { id: "TBe1ZvG4gCA", title: "Manchester City vs PSG 2-4 Highlights | All Goals & Extended Highlights | Champions League 2026", channel: "La2ta Tv", date: "Oct 14, 2026" },
     { id: "P62qYZ3JP2s", title: "Aston Villa 6-0 Fenerbahçe | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "ZDPrO926qlY", title: "Feyenoord 3-2 Como | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
@@ -771,9 +783,6 @@ async function renderHighlights() {
     { id: "4rWFAEXs1Fc", title: "Real Betis 3-2 FC Porto | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
     { id: "NwcIMtLWs3o", title: "Arsenal vs Lille 3-0 EXTENDED HIGHLIGHTS (UEFA Champions League) 2026 Arsenal - LOSC Lille", channel: "Footballia", date: "Oct 13, 2026" },
     { id: "kouIO_sL4EY", title: "FC Bayern Munich vs Viking Highlights (3-3) | OLISE RED CARD • UEFA CHAMPIONS LEAGUE!", channel: "Footballia", date: "Oct 13, 2026" },
-    { id: "eeVr7rqrUdc", title: "Bundesliga 26/27 | ALL GOALS from GameWeek 5 | Full Highlights", channel: "SportyTV", date: "Oct 13, 2026" },
-    { id: "jM7ezxk1sio", title: "LaLiga 26/27 | ALL GOALS GameWeek 8 | Full Highlights | SportyTV", channel: "SportyTV", date: "Oct 13, 2026" },
-    { id: "ko6Oqj289tg", title: "SASSUOLO-MILAN 1-1 | EXTENDED HIGHLIGHTS | SERIE A 2026/27", channel: "Serie A", date: "Oct 12, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
