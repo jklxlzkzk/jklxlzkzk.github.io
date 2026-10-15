@@ -12,7 +12,7 @@
       "prob_home": 60,
       "prob_draw": 22,
       "prob_away": 18,
-      "reason_mm": "စပါတာက ခြေစွမ်းအကောင်းဆုံး၊ အိမ်ကွင်းအသာရှိတယ်။ လီလက်စထရွန်းက အဝေးကွင်းအားနည်းတယ်။"
+      "reason_mm": "စပါတာက MD1 မှာ Ararat-Armenia ကို 4-1 နဲ့ နိုင်ထားတယ် — တိုက်စစ်ခြေကောင်းနေတယ်။ အိမ်ကွင်းမှာ ကစားရမှာလည်း အားသာချက်ပဲ။ Lillestrøm က MD1 မှာ Torreense ကို 1-2 နဲ့ ရှုံးထားလို့ အဝေးကွင်းမှာ ပိုခက်မယ်။"
     },
     {
       "league": "Europa League",
@@ -24,7 +24,7 @@
       "prob_home": 54,
       "prob_draw": 22,
       "prob_away": 24,
-      "reason_mm": "AZ အိမ်ကွင်း 16 ပွဲမရှုံး။ Hapoel ဥရောပ အဝေးကွင်း မကောင်းပါ။"
+      "reason_mm": "AZ က MD1 မှာ Sunderland ကို 0-1 နဲ့ ရှုံးထားလို့ ဒီပွဲမှာ အမှတ်လိုနေတယ်။ အိမ်ကွင်းမှာ ကစားရမှာက အားသာချက်ပဲ။ Hapoel က MD1 မှာ Dinamo နဲ့ 0-0 သရေကျထားပြီး ဂိုးမသွင်းနိုင်သေးဘူး။"
     },
     {
       "league": "Europa League",
@@ -36,7 +36,7 @@
       "prob_home": 30,
       "prob_draw": 30,
       "prob_away": 40,
-      "reason_mm": "H2H Milan 3-1-0 သာ။ ဒါပေမယ့် Milan MD1 0-2 ရှုံး။"
+      "reason_mm": "Salzburg က MD1 မှာ Levski ကို 1-0 နဲ့ နိုင်ထားတယ် — ခံစစ်စနစ်ကျနတယ်။ Milan က MD1 မှာ Benfica ကို 0-2 နဲ့ ရှုံးထားလို့ ဖိအားများနေတယ်။ ဒါပေမယ့် Milan ရဲ့ အတွေ့အကြုံနဲ့ ကစားသမားအရည်အသွေးက ဒီလိုပွဲမျိုးမှာ ကွာခြားမှုလုပ်နိုင်တယ်။"
     },
     {
       "league": "Europa League",
@@ -48,7 +48,7 @@
       "prob_home": 25,
       "prob_draw": 25,
       "prob_away": 50,
-      "reason_mm": "Leverkusen ဂိုးများစွာထုတ်။ Schick ဦးဆောင်တယ်။"
+      "reason_mm": "Leverkusen က MD1 မှာ Celje ကို 2-0 နဲ့ နိုင်ထားတယ် — ခြေစွမ်းတည်ငြိမ်တယ်။ Lech က MD1 မှာ Crystal Palace ကို 0-4 နဲ့ ဂိုးပြတ်ရှုံးထားလို့ ခံစစ်စိုးရိမ်စရာရှိတယ်။ Leverkusen ရဲ့ တိုက်စစ်အရှိန်က ဒီပွဲမှာ အဓိကကွာခြားမှုဖြစ်မယ်။"
     },
     {
       "league": "Europa League",
@@ -60,7 +60,7 @@
       "prob_home": 30,
       "prob_draw": 32,
       "prob_away": 38,
-      "reason_mm": "Omonia ခြေကောင်း၊ Celta ကိုနိုင်ထားတယ်။"
+      "reason_mm": "Omonia က MD1 မှာ Celta ကို 1-0 နဲ့ နိုင်ထားတယ် — ခံစစ်ခိုင်မာတယ်။ Celje က MD1 မှာ Leverkusen ကို 0-2 နဲ့ ရှုံးထားပြီး ဂိုးမသွင်းနိုင်သေးဘူး။ အိမ်ကွင်းအားက Celje ဘက်မှာရှိပေမယ့် Omonia ရဲ့ MD1 ခြေစွမ်းက ပိုယုံကြည်ရတယ်။"
     },
     {
       "league": "Europa League",
@@ -72,7 +72,7 @@
       "prob_home": 42,
       "prob_draw": 28,
       "prob_away": 30,
-      "reason_mm": "Lyon အိမ်ကွင်း 12 ပွဲမရှုံး။ Palace အဝေးကွင်းအားနည်း။"
+      "reason_mm": "Palace က MD1 မှာ Lech ကို 4-0 နဲ့ ဂိုးပြတ်နိုင်ထားတယ် — တိုက်စစ်အရမ်းပူနေတယ်။ Lyon က MD1 မှာ Anderlecht ကို 2-1 နဲ့ နိုင်ထားတယ်။ အိမ်ကွင်းအားနဲ့ Lyon က သရေအထက် မျှော်လင့်နိုင်တယ်၊ ဒါပေမယ့် Palace ရဲ့ ခြေစွမ်းကို လျှော့မတွက်သင့်ဘူး။"
     },
     {
       "league": "Europa League",
@@ -84,7 +84,7 @@
       "prob_home": 42,
       "prob_draw": 27,
       "prob_away": 31,
-      "reason_mm": "Union 2026 အိမ်ကွင်း မရှုံး။ Sociedad MD1 0 မှတ်။"
+      "reason_mm": "Union SG က MD1 မှာ Plzeň ကို 3-0 နဲ့ နိုင်ထားတယ် — ခြေစွမ်းအကောင်းဆုံး အသင်းတစ်သင်းပဲ။ Sociedad က MD1 မှာ Bournemouth ကို 1-2 နဲ့ ရှုံးထားတယ်။ အိမ်ကွင်းမှာ ကစားရမယ့် Union SG က အရှိန်ဆက်ထိန်းနိုင်မယ်လို့ မျှော်လင့်ရတယ်။"
     },
     {
       "league": "Europa League",
@@ -96,7 +96,7 @@
       "prob_home": 25,
       "prob_draw": 30,
       "prob_away": 45,
-      "reason_mm": "Sunderland အရည်အသွေးသာပေမယ့် အဝေးကွင်း Clean Sheet မရှိ။"
+      "reason_mm": "Sunderland က MD1 မှာ AZ ကို 1-0 နဲ့ နိုင်ထားတယ် — ရလဒ်ယူနိုင်တဲ့ အသင်းပဲ။ Torreense က MD1 မှာ Lillestrøm ကို 2-1 နဲ့ နိုင်ထားပေမယ့် ပြိုင်ဘက်အဆင့်က ကွာတယ်။ Sunderland ရဲ့ အရည်အသွေးနဲ့ ခံစစ်စနစ်က ဒီပွဲမှာ အသာစီးရစေမယ်။"
     }
   ]
 }
