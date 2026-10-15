@@ -753,10 +753,10 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "CxEBtJGKPdo", title: "LAUTARO'S BRACE AND BONNY'S GOAL NOT ENOUGH | INTER 3-4 CLUB BRUGGE | UEFA CHAMPIONS LEAGUE", channel: "Inter", date: "Oct 14, 2026" },
+    { id: "ZnAyNQG3gRg", title: "Atletico de Madrid 2-0 Man Utd | Highlights", channel: "Manchester United", date: "Oct 14, 2026" },
+    { id: "NRfFNzy9Yqk", title: "Viking vs Bayern München | UEFA Champions League Highlights | Matchday 2 | 2026-2027", channel: "DAZN Football", date: "Oct 14, 2026" },
     { id: "t1eAl5hqxdQ", title: "HIGHLIGHTS | GALATASARAY 1 vs 4 FC BARCELONA | UEFA CHAMPIONS LEAGUE 26/27", channel: "FC Barcelona", date: "Oct 14, 2026" },
-    { id: "icXeChfKyGY", title: "Defeat in Norway | Bodo/Glimt - BVB 1-0 | Highlights", channel: "Borussia Dortmund", date: "Oct 14, 2026" },
-    { id: "NwcIMtLWs3o", title: "Arsenal vs Lille 3-0 EXTENDED HIGHLIGHTS (UEFA Champions League) 2026", channel: "Footballia", date: "Oct 14, 2026" },
-    { id: "gBn2NobEfI4", title: "Liverpool vs LASK 6-3 Highlights | Barcola Hat-Trick | UEFA Champions League", channel: "Imran News Network", date: "Oct 14, 2026" },
     { id: "pbGHHKXoGI4", title: "Real Madrid vs Roma Highlights 4-3 champions league 2026", channel: "Footballia", date: "Oct 14, 2026" },
     { id: "XAtUUfkXwOc", title: "Manchester City 2-4 PSG | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
   ];
