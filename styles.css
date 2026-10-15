@@ -474,3 +474,7 @@ table.standings { width: 100%; border-collapse: collapse; font-size: 14px; }
 .poll-card-votes { font-size: 12px; color: var(--muted); }
 .poll-card-vote-btn { display: inline-block; margin-top: 6px; padding: 6px 16px; background: var(--accent); color: #fff; border-radius: 20px; font-size: 14px; font-weight: 600; }
 .poll-card-check { position: absolute; top: 8px; right: 8px; font-size: 20px; }
+
+.lineup-match { background: #12233a; border: 1px solid #1a2340; border-radius: 12px; padding: 14px; margin: 12px 0; }
+.lineup-match-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 1rem; margin-bottom: 10px; color: #fff; }
+.lineup-match-head span { color: #8fa3c8; font-size: 0.85rem; }

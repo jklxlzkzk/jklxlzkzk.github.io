@@ -214,7 +214,7 @@ function matchCard(m) {
     ${liveClock}
     ${m.venue ? `<div class="match-venue">🏟 ${esc(m.venue)}</div>` : ''}
     ${goalsHtml(m)}
-    <div class="tap-hint">👆 နှိပ်၍ အသေးစိတ် (lineup • stats) ကြည့်ရန်</div>
+    <div class="tap-hint">👆 နှိပ်၍ လူစာရင်း • ဂိုး/ကတ် • stats အသေးစိတ် ကြည့်ရန်</div>
   </div>`;
 }
 
@@ -331,6 +331,68 @@ async function renderResults() {
     content.innerHTML = html;
   }
   stamp();
+}
+
+async function renderLineups() {
+  const now = Date.now();
+  const days = [yyyymmdd(new Date(now)), yyyymmdd(new Date(now + 86400000))];
+  const boards = await Promise.all(days.map((ds) => fetchScoreboard(ds).catch(() => null)));
+  const seen = new Set();
+  const matches = [];
+  boards.forEach((b) => (b && b.events || []).forEach((e) => {
+    const m = parseMatch(e);
+    if (seen.has(m.id)) return;
+    const kick = new Date(m.date).getTime();
+    if ((m.state === 'pre' && kick - now <= 6 * 3600 * 1000 && kick >= now - 3600 * 1000) || m.state === 'in') {
+      seen.add(m.id); matches.push(m);
+    }
+  }));
+  matches.sort((a, b) => new Date(a.date) - new Date(b.date));
+  if (!matches.length) {
+    content.innerHTML = `<h2 class="section-title">${leagueName()} — 👥 လူစာရင်း</h2>
+      <div class="empty">လာမယ့် ၆ နာရီအတွင်း ပွဲမရှိပါ။<br>လူစာရင်းက ပွဲမစခင် ၁ နာရီအလိုမှ ထွက်ပါတယ်။</div>`;
+    stamp();
+    return;
+  }
+  const limited = matches.slice(0, 12);
+  content.innerHTML = `<h2 class="section-title">${leagueName()} — 👥 ပွဲထွက်လူစာရင်း</h2>
+    <div class="empty">ပွဲမစခင် ၁ နာရီအလိုမှ လူစာရင်း ထွက်ပါတယ်။</div>
+    ${limited.map((m) => `<div class="lineup-match" id="lu-${esc(m.id)}">
+      <div class="lineup-match-head"><b>${esc(teamMm(m.home))} vs ${esc(teamMm(m.away))}</b><span>${esc(fmtDateTime(m.date))}</span></div>
+      <div class="loading">လူစာရင်း ဆွဲနေသည်…</div>
+    </div>`).join('')}`;
+  stamp();
+  await Promise.all(limited.map(async (m) => {
+    const el = document.getElementById('lu-' + m.id);
+    if (!el) return;
+    try {
+      const d = await getJSON(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/summary?event=${encodeURIComponent(m.id)}`);
+      const rosters = d.rosters || [];
+      if (!rosters.length) {
+        el.querySelector('.loading').outerHTML = '<div class="empty">လူစာရင်း မထွက်သေးပါ။</div>';
+        return;
+      }
+      const cols = rosters.map((r) => {
+        const t = r.team || {};
+        const rec = t.id && TEAMS_MM[t.id];
+        const tnm = rec && rec.mm ? rec.mm : (t.shortDisplayName || t.displayName || '');
+        const starters = (r.roster || []).filter((p) => p.starter);
+        const subs = (r.roster || []).filter((p) => !p.starter);
+        const pRow = (p) => {
+          const a = p.athlete || {};
+          const pos = p.position ? ` <span class="pos">${esc(p.position.abbreviation || '')}</span>` : '';
+          return `<div class="lu-row"><span class="lu-j">${esc(p.jersey != null ? p.jersey : '')}</span><span>${esc(a.displayName || a.shortName || '')}</span>${pos}</div>`;
+        };
+        return `<div class="lu-team"><div class="lu-title">${esc(tnm)}${r.formation ? ` <span class="form">(${esc(r.formation)})</span>` : ''}</div>
+          <div class="lu-sec">ပွဲထွက်လူစာရင်း</div>${starters.map(pRow).join('') || '<div class="empty">—</div>'}
+          ${subs.length ? `<div class="lu-sec">အရံခုံ</div>${subs.map(pRow).join('')}` : ''}</div>`;
+      }).join('');
+      el.querySelector('.loading').outerHTML = `<div class="lu-cols">${cols}</div>`;
+    } catch (e) {
+      const ld = el.querySelector('.loading');
+      if (ld) ld.outerHTML = '<div class="empty">လူစာရင်း ဆွဲမရသေးပါ။</div>';
+    }
+  }));
 }
 
 async function renderStandings() {
@@ -1558,6 +1620,7 @@ async function loadTab(quiet) {
     if (state.tab === 'live') await renderLive();
     else if (state.tab === 'fixtures') await renderFixtures();
     else if (state.tab === 'results') await renderResults();
+    else if (state.tab === 'lineups') await renderLineups();
     else if (state.tab === 'standings') await renderStandings();
     else if (state.tab === 'predictions') await renderPredictions();
     else if (state.tab === 'news') await renderNews();
