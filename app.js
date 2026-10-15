@@ -753,10 +753,13 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "jM7ezxk1sio", title: "LaLiga 26/27 | ALL GOALS GameWeek 8 | Full Highlights | SportyTV", channel: "SportyTV", date: "Oct 13, 2026" },
+    { id: "OPHn459c6ZU", title: "GOAL SERIE A | DE BRUYNE at the DOUBLE | Goal Collection | Round 06 | Serie A 2026/27", channel: "Serie A", date: "Oct 13, 2026" },
+    { id: "ko6Oqj289tg", title: "SASSUOLO-MILAN 1-1 | EXTENDED HIGHLIGHTS | SERIE A 2026/27", channel: "Serie A", date: "Oct 13, 2026" },
+    { id: "eeVr7rqrUdc", title: "Bundesliga 26/27 | ALL GOALS from GameWeek 5 | Full Highlights | SportyTV", channel: "SportyTV", date: "Oct 13, 2026" },
+    { id: "-eenrE7OKJM", title: "HIGHLIGHTS, AS Monaco 2-2 Toulouse FC (J6, Ligue 1)", channel: "AS MONACO", date: "Oct 12, 2026" },
     { id: "TrPCZvEixlA", title: "Cristiano Ronaldo: TOP 20 GOALS!", channel: "Manchester United", date: "Classic" },
-    { id: "VMqeFyAqNBo", title: "Cristiano Ronaldo Top 100 Goals | Best Goals of All Time", channel: "Richard Mattos", date: "Classic" },
     { id: "jRtJ9F0xaT0", title: "EVERY Thierry Henry Goal For Arsenal In The Premier League", channel: "Arsenal", date: "Classic" },
-    { id: "o3L8DGeNqHg", title: "Thierry Henry: Top Premier League goals", channel: "Arsenal", date: "Classic" },
     { id: "LbZMKeGD4yw", title: "TOP 10: WAYNE ROONEY GOALS", channel: "Everton Football Club", date: "Classic" },
     { id: "Pq_i5yzIZa0", title: "SERGIO AGUERO | RAINING GOALS | EVERY PREMIER LEAGUE GOAL SCORED | MAN CITY", channel: "Man City", date: "Classic" },
     { id: "DlceSLFU7co", title: "Every Steven Gerrard Goal | Cup Final screamers, Istanbul", channel: "Liverpool FC", date: "Classic" },
@@ -771,9 +774,6 @@ async function renderHighlights() {
     { id: "35lpkFOYQ_w", title: "Gruda magic seals the deal! | RB Leipzig - PSV Eindhoven | Highlights | UEFA Champions League", channel: "RB Leipzig", date: "Oct 13, 2026" },
     { id: "xUW-DuDF_EU", title: "Highlights | UEFA Champions League: RC Lens 0-2 Sporting CP", channel: "Sporting Clube de Portugal", date: "Oct 13, 2026" },
     { id: "q2yU-8oBBW4", title: "HIGHLIGHTS - Sabah vs Slavia Praga | UEFA Champions League - Jornada 2 2026-27 | TUDN", channel: "TUDN USA", date: "Oct 13, 2026" },
-    { id: "lfEnsErFD8o", title: "Best of: Mo Salah 2019/20 | Premier League Champion", channel: "Liverpool FC", date: "Classic" },
-    { id: "STsFQj4aZM0", title: "Mo Salah's 100 Liverpool goals | Chelsea screamer, Man Utd celebration & penalty in Madrid", channel: "Liverpool FC", date: "Classic" },
-    { id: "cGJBKbManZE", title: "Mo Salah's 100 Liverpool Premier League goals", channel: "Liverpool FC", date: "Classic" },
     { id: "TBe1ZvG4gCA", title: "Manchester City vs PSG 2-4 Highlights | All Goals & Extended Highlights | Champions League 2026", channel: "La2ta Tv", date: "Oct 14, 2026" },
     { id: "P62qYZ3JP2s", title: "Aston Villa 6-0 Fenerbahçe | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "ZDPrO926qlY", title: "Feyenoord 3-2 Como | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
