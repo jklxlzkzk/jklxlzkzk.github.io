@@ -753,6 +753,11 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "lfEnsErFD8o", title: "Best of: Mo Salah 2019/20 | Premier League Champion", channel: "Liverpool FC", date: "Classic" },
+    { id: "STsFQj4aZM0", title: "Mo Salah's 100 Liverpool goals | Chelsea screamer, Man Utd celebration & penalty in Madrid", channel: "Liverpool FC", date: "Classic" },
+    { id: "cGJBKbManZE", title: "Mo Salah's 100 Liverpool Premier League goals", channel: "Liverpool FC", date: "Classic" },
+    { id: "o3L8DGeNqHg", title: "Thierry Henry: Top Premier League goals", channel: "Arsenal", date: "Classic" },
+    { id: "VMqeFyAqNBo", title: "Cristiano Ronaldo Top 100 Goals | Best Goals of All Time", channel: "Richard Mattos", date: "Classic" },
     { id: "jM7ezxk1sio", title: "LaLiga 26/27 | ALL GOALS GameWeek 8 | Full Highlights | SportyTV", channel: "SportyTV", date: "Oct 13, 2026" },
     { id: "OPHn459c6ZU", title: "GOAL SERIE A | DE BRUYNE at the DOUBLE | Goal Collection | Round 06 | Serie A 2026/27", channel: "Serie A", date: "Oct 13, 2026" },
     { id: "ko6Oqj289tg", title: "SASSUOLO-MILAN 1-1 | EXTENDED HIGHLIGHTS | SERIE A 2026/27", channel: "Serie A", date: "Oct 13, 2026" },
