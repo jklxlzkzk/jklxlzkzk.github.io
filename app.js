@@ -815,6 +815,9 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "YqqmJHqsIzc", title: "Kashiwa Reysol 5-1 Port FC | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
+    { id: "dJoJorwSGOM", title: "Vissel Kobe 2-0 Jeonbuk Hyundai Motors | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
+    { id: "pNW0_rs0xDw", title: "Buriram United 0-1 Beijing FC | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 13, 2026" },
     { id: "ZDPrO926qlY", title: "Feyenoord 3-2 Como | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
     { id: "4rWFAEXs1Fc", title: "Real Betis 3-2 FC Porto | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
     { id: "Aw8DzuCK_9k", title: "Bodø/Glimt 1-0 Borussia Dortmund | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
@@ -840,9 +843,6 @@ async function renderHighlights() {
     { id: "IwZ8qbJcnSg", title: "BRACE sends Al Wahda top of the group! | PFC Nasaf vs Al Wahda | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 15, 2026" },
     { id: "LPfJs20deN0", title: "Al Muharraq vs Golgohar Sirjan | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 15, 2026" },
     { id: "pCplGMdOKd0", title: "HAT-TRICK HERO Al Haj! | Al Seeb vs Al Hussein | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 14, 2026" },
-    { id: "C1YRyhvYWl4", title: "Last-minute goal wins it after Malcom opener! | Al Jazira vs FC Arkadag | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 14, 2026" },
-    { id: "ZwION9Jm8Og", title: "AZMOUN BRACE makes it two from two! | Al Ittihad vs Shabab Al Ahli | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
-    { id: "PttSrZ0aONY", title: "2026 Match Highlights | Orlando City at Toronto FC | October 14, 2026", channel: "Orlando City SC", date: "Oct 14, 2026" },
     { id: "lfEnsErFD8o", title: "Best of: Mo Salah 2019/20 | Premier League Champion", channel: "Liverpool FC", date: "Classic" },
     { id: "STsFQj4aZM0", title: "Mo Salah's 100 Liverpool goals | Chelsea screamer, Man Utd celebration & penalty in Madrid", channel: "Liverpool FC", date: "Classic" },
     { id: "cGJBKbManZE", title: "Mo Salah's 100 Liverpool Premier League goals", channel: "Liverpool FC", date: "Classic" },
