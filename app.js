@@ -815,6 +815,11 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "TBe1ZvG4gCA", title: "Manchester City vs PSG 2-4 Highlights | All Goals & Extended Highlights | Champions League 2026", channel: "La2ta Tv", date: "Oct 14, 2026" },
+    { id: "CxEBtJGKPdo", title: "LAUTARO'S BRACE AND BONNY'S GOAL NOT ENOUGH | INTER 3-4 CLUB BRUGGE | UEFA CHAMPIONS LEAGUE", channel: "Inter", date: "Oct 13, 2026" },
+    { id: "t1eAl5hqxdQ", title: "HIGHLIGHTS | GALATASARAY 1 vs 4 FC BARCELONA | UEFA CHAMPIONS LEAGUE 26/27", channel: "FC Barcelona", date: "Oct 13, 2026" },
+    { id: "RSodWh8pnOc", title: "EXTENDED HIGHLIGHTS | Liverpool 0-3 Man City | Haaland, Doku & Cherki goals in Anfield win!", channel: "Man City", date: "Oct 11, 2026" },
+    { id: "28S9RO6OhnY", title: "Man Utd 1-1 Spurs | Highlights", channel: "Manchester United", date: "Oct 10, 2026" },
     { id: "DNR9eEQ661k", title: "St. Louis CITY SC vs. Vancouver Whitecaps FC | Full Match Highlights | Streak Stalled!", channel: "Major League Soccer", date: "Oct 14, 2026" },
     { id: "OSomDuioFcI", title: "Nashville SC vs. Sporting Kansas City | Full Match Highlights | STEP TOWARD SUPPORTERS' SHIELD!", channel: "Major League Soccer", date: "Oct 14, 2026" },
     { id: "65GM8SOfv6U", title: "Colorado Rapids vs. Minnesota United | Full Match Highlights | RED CARD DRAMA!", channel: "Major League Soccer", date: "Oct 14, 2026" },
@@ -838,11 +843,6 @@ async function renderHighlights() {
     { id: "3PSwfgiktrM", title: "San Diego FC vs. Houston Dynamo FC | Full Match Highlights | WILD 5-GOAL FIRST HALF!", channel: "Major League Soccer", date: "Oct 14, 2026" },
     { id: "PszrO5TDv24", title: "LA Galaxy vs. Portland Timbers | Full Match Highlights | Marco Reus GOAL AND ASSIST!", channel: "Major League Soccer", date: "Oct 14, 2026" },
     { id: "hK3YQ6Ilqws", title: "Chicago Fire FC vs. Philadelphia Union | Full Match Highlights | Damiani BRACE!", channel: "Major League Soccer", date: "Oct 14, 2026" },
-    { id: "xCwTnWIYGlo", title: "Inter Miami CF vs. New York City FC | Full Match Highlights | Miami Mayhem!", channel: "Major League Soccer", date: "Oct 14, 2026" },
-    { id: "Y5bnjRuMEo0", title: "LAFC vs. Austin FC | Full Match Highlights | the Son & Bouanga Show BACK IN ACTION!", channel: "Major League Soccer", date: "Oct 14, 2026" },
-    { id: "ai5wjB_NI5E", title: "FC Dallas vs. Seattle Sounders | Full Match Highlights | Kaick Banger!", channel: "Major League Soccer", date: "Oct 14, 2026" },
-    { id: "dJoJorwSGOM", title: "Vissel Kobe 2-0 Jeonbuk Hyundai Motors | Highlights | AFC Champions League Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
-    { id: "9rongD4CfE8", title: "FLUMINENSE X PALMEIRAS | MELHORES MOMENTOS | CONMEBOL LIBERTADORES 2026", channel: "CONMEBOL Libertadores", date: "Oct 14, 2026" },
     { id: "lfEnsErFD8o", title: "Best of: Mo Salah 2019/20 | Premier League Champion", channel: "Liverpool FC", date: "Classic" },
     { id: "STsFQj4aZM0", title: "Mo Salah's 100 Liverpool goals | Chelsea screamer, Man Utd celebration & penalty in Madrid", channel: "Liverpool FC", date: "Classic" },
     { id: "cGJBKbManZE", title: "Mo Salah's 100 Liverpool Premier League goals", channel: "Liverpool FC", date: "Classic" },
