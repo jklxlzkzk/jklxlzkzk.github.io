@@ -1,5 +1,102 @@
 {
-  "predictions": [],
+  "updated": "2026-10-15",
   "source": "KZZ Football Analysis",
-  "updated": "2026-10-15"
+  "predictions": [
+    {
+      "league": "Europa League",
+      "home": "Sparta Praha",
+      "away": "Lillestrom",
+      "date": "2026-10-15T23:15:00+06:30",
+      "pick": "Sparta Praha",
+      "confidence": "high",
+      "prob_home": 60,
+      "prob_draw": 22,
+      "prob_away": 18,
+      "reason_mm": "စပါတာက ခြေစွမ်းအကောင်းဆုံး၊ အိမ်ကွင်းအသာရှိတယ်။ လီလက်စထရွန်းက အဝေးကွင်းအားနည်းတယ်။"
+    },
+    {
+      "league": "Europa League",
+      "home": "AZ Alkmaar",
+      "away": "Hapoel Beer-Sheva",
+      "date": "2026-10-15T23:15:00+06:30",
+      "pick": "AZ Alkmaar",
+      "confidence": "medium",
+      "prob_home": 54,
+      "prob_draw": 22,
+      "prob_away": 24,
+      "reason_mm": "AZ အိမ်ကွင်း 16 ပွဲမရှုံး။ Hapoel ဥရောပ အဝေးကွင်း မကောင်းပါ။"
+    },
+    {
+      "league": "Europa League",
+      "home": "Salzburg",
+      "away": "AC Milan",
+      "date": "2026-10-15T23:15:00+06:30",
+      "pick": "AC Milan",
+      "confidence": "low",
+      "prob_home": 30,
+      "prob_draw": 30,
+      "prob_away": 40,
+      "reason_mm": "H2H Milan 3-1-0 သာ။ ဒါပေမယ့် Milan MD1 0-2 ရှုံး။"
+    },
+    {
+      "league": "Europa League",
+      "home": "Lech Poznan",
+      "away": "Bayer Leverkusen",
+      "date": "2026-10-15T23:15:00+06:30",
+      "pick": "Bayer Leverkusen",
+      "confidence": "high",
+      "prob_home": 25,
+      "prob_draw": 25,
+      "prob_away": 50,
+      "reason_mm": "Leverkusen ဂိုးများစွာထုတ်။ Schick ဦးဆောင်တယ်။"
+    },
+    {
+      "league": "Europa League",
+      "home": "Celje",
+      "away": "Omonia Nicosia",
+      "date": "2026-10-15T23:15:00+06:30",
+      "pick": "Omonia Nicosia",
+      "confidence": "medium",
+      "prob_home": 30,
+      "prob_draw": 32,
+      "prob_away": 38,
+      "reason_mm": "Omonia ခြေကောင်း၊ Celta ကိုနိုင်ထားတယ်။"
+    },
+    {
+      "league": "Europa League",
+      "home": "Lyon",
+      "away": "Crystal Palace",
+      "date": "2026-10-15T23:15:00+06:30",
+      "pick": "Lyon",
+      "confidence": "medium",
+      "prob_home": 42,
+      "prob_draw": 28,
+      "prob_away": 30,
+      "reason_mm": "Lyon အိမ်ကွင်း 12 ပွဲမရှုံး။ Palace အဝေးကွင်းအားနည်း။"
+    },
+    {
+      "league": "Europa League",
+      "home": "Union Saint-Gilloise",
+      "away": "Real Sociedad",
+      "date": "2026-10-15T23:15:00+06:30",
+      "pick": "Union Saint-Gilloise",
+      "confidence": "medium",
+      "prob_home": 42,
+      "prob_draw": 27,
+      "prob_away": 31,
+      "reason_mm": "Union 2026 အိမ်ကွင်း မရှုံး။ Sociedad MD1 0 မှတ်။"
+    },
+    {
+      "league": "Europa League",
+      "home": "Torreense",
+      "away": "Sunderland",
+      "date": "2026-10-15T23:15:00+06:30",
+      "pick": "Sunderland",
+      "confidence": "medium",
+      "prob_home": 25,
+      "prob_draw": 30,
+      "prob_away": 45,
+      "reason_mm": "Sunderland အရည်အသွေးသာပေမယ့် အဝေးကွင်း Clean Sheet မရှိ။"
+    }
+  ]
 }
