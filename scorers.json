@@ -508,73 +508,73 @@
   "uefa.champions": [
    {
     "rank": 1,
+    "player": "Erling Haaland",
+    "team": "မန်စီးတီး",
+    "goals": 4,
+    "pid": "253989"
+   },
+   {
+    "rank": 2,
     "player": "Nicolo Tresoldi",
     "team": "ကလပ်ဘရုဂေး",
     "goals": 4,
     "pid": "335201"
    },
    {
-    "rank": 2,
+    "rank": 3,
+    "player": "Ermedin Demirovic",
+    "team": "စတုဂတ်",
+    "goals": 4,
+    "pid": "269136"
+   },
+   {
+    "rank": 4,
     "player": "Harry Kane",
     "team": "ဘိုင်ယန်",
     "goals": 3,
     "pid": "142200"
    },
    {
-    "rank": 3,
+    "rank": 5,
+    "player": "Nicolas Jackson",
+    "team": "အက်စတွန်ဗီလာ",
+    "goals": 3,
+    "pid": "308524"
+   },
+   {
+    "rank": 6,
+    "player": "Ousmane Dembélé",
+    "team": "ပီအက်စ်ဂျီ",
+    "goals": 3,
+    "pid": "229744"
+   },
+   {
+    "rank": 7,
+    "player": "Bradley Barcola",
+    "team": "လီဗာပူး",
+    "goals": 3,
+    "pid": "328238"
+   },
+   {
+    "rank": 8,
     "player": "Ferran Torres",
     "team": "ပီအက်စ်ဂျီ",
     "goals": 3,
     "pid": "265869"
    },
    {
-    "rank": 4,
-    "player": "Ermedin Demirovic",
-    "team": "စတုဂတ်",
-    "goals": 3,
-    "pid": "269136"
-   },
-   {
-    "rank": 5,
+    "rank": 9,
     "player": "Danijel Sturm",
     "team": "ဆလာဗီယာပရက်",
     "goals": 2,
     "pid": "322169"
    },
    {
-    "rank": 6,
+    "rank": 10,
     "player": "Santiago Mouriño",
     "team": "ဗီလာရီးရဲလ်",
     "goals": 2,
     "pid": "318098"
-   },
-   {
-    "rank": 7,
-    "player": "Lautaro Martínez",
-    "team": "အင်တာ",
-    "goals": 2,
-    "pid": "219713"
-   },
-   {
-    "rank": 8,
-    "player": "Michael Olise",
-    "team": "ဘိုင်ယန်",
-    "goals": 2,
-    "pid": "286831"
-   },
-   {
-    "rank": 9,
-    "player": "Luis Suárez",
-    "team": "စပေါ်တင်း",
-    "goals": 2,
-    "pid": "272722"
-   },
-   {
-    "rank": 10,
-    "player": "Karim Adeyemi",
-    "team": "ဘာစီလိုနာ",
-    "goals": 2,
-    "pid": "274913"
    }
   ],
   "uefa.europa": [
@@ -1165,17 +1165,17 @@
    },
    {
     "rank": 2,
-    "player": "Zlatko Tripic",
-    "team": "ဗိုက်ကင်းအက်ဖ်ကေ",
-    "assists": 2,
-    "pid": "164279"
+    "player": "Ousmane Dembélé",
+    "team": "ပီအက်စ်ဂျီ",
+    "assists": 3,
+    "pid": "229744"
    },
    {
     "rank": 3,
-    "player": "Carlos Forbs",
-    "team": "ကလပ်ဘရုဂေး",
-    "assists": 2,
-    "pid": "78836"
+    "player": "Yvan Dibango",
+    "team": "လင့်ဇ်",
+    "assists": 3,
+    "pid": "365165"
    },
    {
     "rank": 4,
@@ -1200,31 +1200,31 @@
    },
    {
     "rank": 7,
-    "player": "Ousmane Dembélé",
-    "team": "ပီအက်စ်ဂျီ",
+    "player": "Zlatko Tripic",
+    "team": "ဗိုက်ကင်းအက်ဖ်ကေ",
     "assists": 2,
-    "pid": "229744"
+    "pid": "164279"
    },
    {
     "rank": 8,
-    "player": "Ivan Lepinjica",
-    "team": "ဆာဘာ့ခ်",
-    "assists": 1,
-    "pid": "260848"
+    "player": "Carlos Forbs",
+    "team": "ကလပ်ဘရုဂေး",
+    "assists": 2,
+    "pid": "78836"
    },
    {
     "rank": 9,
-    "player": "Armando Obispo",
-    "team": "ပီအက်စ်ဗီ",
-    "assists": 1,
-    "pid": "245918"
+    "player": "Angelo Stiller",
+    "team": "စတုဂတ်",
+    "assists": 2,
+    "pid": "290232"
    },
    {
     "rank": 10,
-    "player": "Lautaro Martínez",
-    "team": "အင်တာ",
-    "assists": 1,
-    "pid": "219713"
+    "player": "Matìas Soulè",
+    "team": "ရိုးမား",
+    "assists": 2,
+    "pid": "323974"
    }
   ],
   "uefa.europa": [
