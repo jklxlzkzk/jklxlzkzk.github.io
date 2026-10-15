@@ -14,7 +14,7 @@ const LEAGUES = [
   { id: 'uefa.europa',   name: 'Europa League',    mm: 'ယူရိုပါလိဂ်',             icon: '🟠' },
 ];
 
-const APP_VERSION = 12; // bump on every deploy
+const APP_VERSION = 13; // bump on every deploy
 
 const TABS = {
   live:        '🔴 တိုက်ရိုက်',
@@ -753,9 +753,12 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "C2MALG_04_8", title: "GOALS GALORE! | FULL UEFA Champions League 2026/27 League Phase Highlights", channel: "TNT Sports Football", date: "Oct 14, 2026" },
+    { id: "IDm7jNuOMig", title: "Man City 2-4 PSG | UEFA Champions League Highlights", channel: "TNT Sports Football", date: "Oct 14, 2026" },
+    { id: "18hOut1J0gY", title: "Real Madrid vs Roma 4-3 Highlights | UEFA Champions League", channel: "Imran News Network", date: "Oct 14, 2026" },
     { id: "0u6aMjZ4bh4", title: "Liverpool vs LASK Highlights 6-3 | UEFA Champions League 2026 | Barcola Hat-Trick, Frimpong Goals", channel: "The Quick News", date: "Oct 14, 2026" },
-    { id: "p-EW5_Ki1QY", title: "Real Betis - FC Porto | 3-2 | Highlights | UEFA Champions League 2026/27", channel: "CHEFON FF", date: "Oct 14, 2026" },
-    { id: "icXeChfKyGY", title: "Defeat in Norway | Bodø/Glimt - BVB 1-0 | Highlights", channel: "Borussia Dortmund", date: "Oct 14, 2026" },
+    { id: "eeVr7rqrUdc", title: "Bundesliga 26/27 | ALL GOALS from GameWeek 5 | Full Highlights", channel: "SportyTV", date: "Oct 13, 2026" },
+    { id: "ko6Oqj289tg", title: "SASSUOLO-MILAN 1-1 | EXTENDED HIGHLIGHTS | SERIE A 2026/27", channel: "Serie A", date: "Oct 12, 2026" },
   ];
   html += videos.map(v => `
     <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
