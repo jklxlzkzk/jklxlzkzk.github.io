@@ -753,9 +753,7 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
-    { id: "C2MALG_04_8", title: "GOALS GALORE! | FULL UEFA Champions League 2026/27 League Phase Highlights", channel: "TNT Sports Football", date: "Oct 14, 2026" },
     { id: "icXeChfKyGY", title: "Defeat in Norway | Bodø/Glimt - BVB 1-0 | Highlights", channel: "Borussia Dortmund", date: "Oct 14, 2026" },
-    { id: "kbThokCccLE", title: "Feyenoord vs. Como: Extended Highlights | UCL League Phase MD 2", channel: "CBS Sports Golazo", date: "Oct 14, 2026" },
     { id: "XAtUUfkXwOc", title: "Manchester City 2-4 PSG | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "pbGHHKXoGI4", title: "Real Madrid vs Roma Highlights 4-3 champions league 2026", channel: "Footballia", date: "Oct 14, 2026" },
     { id: "dZN42_J-uBo", title: "Liverpool Vs LASK 6-3 | Bradley Barcola Hat-Trick | All Goals & Highlights | Champions League 2026", channel: "FootLovia", date: "Oct 14, 2026" },
