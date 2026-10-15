@@ -815,9 +815,6 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
-    { id: "XAtUUfkXwOc", title: "Manchester City 2-4 PSG | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
-    { id: "4rWFAEXs1Fc", title: "Real Betis 3-2 FC Porto | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
-    { id: "Aw8DzuCK_9k", title: "Bodø/Glimt 1-0 Borussia Dortmund | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "1jU2ASFtgsI", title: "Slovan Bratislava 0-3 VfB Stuttgart | Highlights | UEFA Champions League 2026/27", channel: "CHEFON FF", date: "Oct 14, 2026" },
     { id: "dJoJorwSGOM", title: "Vissel Kobe 2-0 Jeonbuk Hyundai Motors | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
     { id: "YqqmJHqsIzc", title: "Kashiwa Reysol 5-1 Port FC | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
@@ -835,7 +832,6 @@ async function renderHighlights() {
     { id: "PszrO5TDv24", title: "LA Galaxy vs. Portland Timbers | Full Match Highlights | Marco Reus GOAL AND ASSIST!", channel: "Major League Soccer", date: "Oct 14, 2026" },
     { id: "MdvZuSHh9TM", title: "East Bengal 2-3 Al Shorta | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 14, 2026" },
     { id: "pXaCEY4BfMk", title: "Liverpool vs LASK Highlights 6-3 BARCOLA HATTRICK • UEFA CHAMPIONS LEAGUE", channel: "Footballia", date: "Oct 14, 2026" },
-    { id: "P62qYZ3JP2s", title: "Aston Villa 6-0 Fenerbahçe | Champions League 26/26 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
     { id: "ymVX9lP2mT0", title: "Roma vs Real Madrid 3-4 • MALEN & MBAPPE Goals - Highlights Uefa Champions League 26/27", channel: "Antonionne Football", date: "Oct 14, 2026" },
     { id: "NVML4k7fKv8", title: "Al Faisaly vs Al Nahda | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 15, 2026" },
     { id: "7kdZgks1TRA", title: "1st-half drama sends Al Taawoun top! | Al Taawoun vs Al Rayyan | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 15, 2026" },
