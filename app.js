@@ -753,6 +753,11 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
+    { id: "xCwTnWIYGlo", title: "Inter Miami CF vs. New York City FC | Full Match Highlights | Miami Mayhem!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "Y5bnjRuMEo0", title: "LAFC vs. Austin FC | Full Match Highlights | the Son & Bouanga Show BACK IN ACTION!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "ai5wjB_NI5E", title: "FC Dallas vs. Seattle Sounders | Full Match Highlights | Kaick Banger!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "zf_I3Jy99G4", title: "RONALDO leads the way! | Al Nassr vs PFC Neftchi | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 13, 2026" },
+    { id: "pNW0_rs0xDw", title: "Buriram United vs Beijing FC | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 13, 2026" },
     { id: "dJoJorwSGOM", title: "Vissel Kobe 2-0 Jeonbuk Hyundai Motors | Highlights | AFC Champions League Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
     { id: "9rongD4CfE8", title: "FLUMINENSE X PALMEIRAS | MELHORES MOMENTOS | CONMEBOL LIBERTADORES 2026", channel: "CONMEBOL Libertadores", date: "Oct 14, 2026" },
     { id: "YqqmJHqsIzc", title: "FIVE goals before the break! | Kashiwa Reysol vs Port FC | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
@@ -761,11 +766,8 @@ async function renderHighlights() {
     { id: "cGJBKbManZE", title: "Mo Salah's 100 Liverpool Premier League goals", channel: "Liverpool FC", date: "Classic" },
     { id: "o3L8DGeNqHg", title: "Thierry Henry: Top Premier League goals", channel: "Arsenal", date: "Classic" },
     { id: "VMqeFyAqNBo", title: "Cristiano Ronaldo Top 100 Goals | Best Goals of All Time", channel: "Richard Mattos", date: "Classic" },
-    { id: "jM7ezxk1sio", title: "LaLiga 26/27 | ALL GOALS GameWeek 8 | Full Highlights | SportyTV", channel: "SportyTV", date: "Oct 13, 2026" },
     { id: "OPHn459c6ZU", title: "GOAL SERIE A | DE BRUYNE at the DOUBLE | Goal Collection | Round 06 | Serie A 2026/27", channel: "Serie A", date: "Oct 13, 2026" },
     { id: "ko6Oqj289tg", title: "SASSUOLO-MILAN 1-1 | EXTENDED HIGHLIGHTS | SERIE A 2026/27", channel: "Serie A", date: "Oct 13, 2026" },
-    { id: "eeVr7rqrUdc", title: "Bundesliga 26/27 | ALL GOALS from GameWeek 5 | Full Highlights | SportyTV", channel: "SportyTV", date: "Oct 13, 2026" },
-    { id: "-eenrE7OKJM", title: "HIGHLIGHTS, AS Monaco 2-2 Toulouse FC (J6, Ligue 1)", channel: "AS MONACO", date: "Oct 12, 2026" },
     { id: "TrPCZvEixlA", title: "Cristiano Ronaldo: TOP 20 GOALS!", channel: "Manchester United", date: "Classic" },
     { id: "jRtJ9F0xaT0", title: "EVERY Thierry Henry Goal For Arsenal In The Premier League", channel: "Arsenal", date: "Classic" },
     { id: "LbZMKeGD4yw", title: "TOP 10: WAYNE ROONEY GOALS", channel: "Everton Football Club", date: "Classic" },
