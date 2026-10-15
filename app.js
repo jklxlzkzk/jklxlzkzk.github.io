@@ -815,19 +815,19 @@ async function renderHighlights() {
   let html = `<h2 class="section-title">🎬 Highlight Videos</h2>`;
   html += `<div class="highlights-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">`;
   const videos = [
-    { id: "YqqmJHqsIzc", title: "Kashiwa Reysol 5-1 Port FC | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
-    { id: "dJoJorwSGOM", title: "Vissel Kobe 2-0 Jeonbuk Hyundai Motors | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 14, 2026" },
-    { id: "pNW0_rs0xDw", title: "Buriram United 0-1 Beijing FC | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 13, 2026" },
-    { id: "ZDPrO926qlY", title: "Feyenoord 3-2 Como | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
-    { id: "4rWFAEXs1Fc", title: "Real Betis 3-2 FC Porto | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
-    { id: "Aw8DzuCK_9k", title: "Bodø/Glimt 1-0 Borussia Dortmund | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 14, 2026" },
-    { id: "N6cj7Ex5rb4", title: "HIGHLIGHTS - Shakhtar Donetsk vs AEK Atenas | UEFA Champions League - Jornada 2 2026-27 | TUDN", channel: "TUDN USA", date: "Oct 14, 2026" },
-    { id: "1jU2ASFtgsI", title: "Slovan Bratislava - VfB Stuttgart | 0-3 | Highlights | UEFA Champions League 2026/27", channel: "CHEFON FF", date: "Oct 14, 2026" },
-    { id: "ZnAyNQG3gRg", title: "Atletico de Madrid 2-0 Man Utd | Highlights", channel: "Manchester United", date: "Oct 13, 2026" },
-    { id: "35lpkFOYQ_w", title: "Gruda magic seals the deal! | RB Leipzig - PSV Eindhoven | Highlights | UEFA Champions League", channel: "RB Leipzig", date: "Oct 13, 2026" },
-    { id: "fQEZ-H_SVB4", title: "Viking FK 3-3 Bayern Munich | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 13, 2026" },
-    { id: "doGDbxm_Gjk", title: "Villarreal 3-1 Napoli | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Asia", date: "Oct 13, 2026" },
-    { id: "TBe1ZvG4gCA", title: "Manchester City vs PSG 2-4 Highlights | All Goals & Extended Highlights | Champions League 2026", channel: "La2ta Tv", date: "Oct 14, 2026" },
+    { id: "C1YRyhvYWl4", title: "Al Jazira 2-1 FC Arkadag | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 15, 2026" },
+    { id: "SjGtgRh_dMI", title: "Melbourne Victory 3-0 FC Seoul | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 15, 2026" },
+    { id: "pRO8JfsXxl0", title: "Persib Bandung 1-0 Viettel FC | Highlights ACL Two", channel: "TV360 Thể Thao", date: "Oct 15, 2026" },
+    { id: "hK3YQ6Ilqws", title: "Chicago Fire FC vs. Philadelphia Union | Full Match Highlights | Damiani BRACE!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "Y5bnjRuMEo0", title: "LAFC vs. Austin FC | Full Match Highlights | the Son & Bouanga Show BACK IN ACTION!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "PszrO5TDv24", title: "LA Galaxy vs. Portland Timbers | Full Match Highlights | Marco Reus GOAL AND ASSIST!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "3PSwfgiktrM", title: "San Diego FC vs. Houston Dynamo FC | Full Match Highlights | WILD 5-GOAL FIRST HALF!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "ai5wjB_NI5E", title: "FC Dallas vs. Seattle Sounders | Full Match Highlights | Kaick Banger!", channel: "Major League Soccer", date: "Oct 14, 2026" },
+    { id: "MdvZuSHh9TM", title: "East Bengal 2-3 Al Shorta | Highlights ACL Two", channel: "The AFC Hub", date: "Oct 14, 2026" },
+    { id: "1g0A4x8FWzw", title: "Al Sadd 0-2 Al Hilal | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 13, 2026" },
+    { id: "ZwION9Jm8Og", title: "Al Ittihad 1-2 Shabab Al Ahli | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 13, 2026" },
+    { id: "po_3Da0HYYs", title: "Pohang Steelers 0-2 Johor Darul Ta'zim | Highlights ACL Elite", channel: "JDTTV", date: "Oct 13, 2026" },
+    { id: "zf_I3Jy99G4", title: "Al Nassr 3-1 PFC Neftchi | Highlights ACL Elite", channel: "The AFC Hub", date: "Oct 12, 2026" },
     { id: "DNR9eEQ661k", title: "St. Louis CITY SC vs. Vancouver Whitecaps FC | Full Match Highlights | Streak Stalled!", channel: "Major League Soccer", date: "Oct 14, 2026" },
     { id: "OSomDuioFcI", title: "Nashville SC vs. Sporting Kansas City | Full Match Highlights | STEP TOWARD SUPPORTERS' SHIELD!", channel: "Major League Soccer", date: "Oct 14, 2026" },
     { id: "65GM8SOfv6U", title: "Colorado Rapids vs. Minnesota United | Full Match Highlights | RED CARD DRAMA!", channel: "Major League Soccer", date: "Oct 14, 2026" },
@@ -855,7 +855,6 @@ async function renderHighlights() {
     { id: "DlceSLFU7co", title: "Every Steven Gerrard Goal | Cup Final screamers, Istanbul", channel: "Liverpool FC", date: "Classic" },
     { id: "i1p5PAgNvR0", title: "All 200 Mo Salah Goals For Liverpool", channel: "Liverpool FC", date: "Classic" },
     { id: "t5PtlOA0Ksc", title: "ALL 57 Mo Salah Goals and Assist from 2024/25", channel: "Liverpool FC", date: "Classic" },
-
   ];
   html += videos.map(v => `
     <div class="highlight-card" onclick="openHighlight('${v.id}', '${esc(v.title).replace(/'/g, "&#39;")}')" style="border:1px solid #ddd;border-radius:12px;padding:8px;cursor:pointer;">
