@@ -760,6 +760,8 @@ async function renderHighlights() {
     { id: "dZN42_J-uBo", title: "Liverpool Vs LASK 6-3 | Bradley Barcola Hat-Trick | All Goals & Highlights | Champions League 2026", channel: "FootLovia", date: "Oct 14, 2026" },
     { id: "18hOut1J0gY", title: "Real Madrid vs Roma 4-3 Highlights | UEFA Champions League", channel: "Imran News Network", date: "Oct 14, 2026" },
     { id: "4rWFAEXs1Fc", title: "Real Betis 3-2 FC Porto | Champions League 26/27 Match Highlights", channel: "beIN SPORTS Indonesia", date: "Oct 14, 2026" },
+    { id: "NwcIMtLWs3o", title: "Arsenal vs Lille 3-0 EXTENDED HIGHLIGHTS (UEFA Champions League) 2026 Arsenal - LOSC Lille", channel: "Footballia", date: "Oct 13, 2026" },
+    { id: "kouIO_sL4EY", title: "FC Bayern Munich vs Viking Highlights (3-3) | OLISE RED CARD • UEFA CHAMPIONS LEAGUE!", channel: "Footballia", date: "Oct 13, 2026" },
     { id: "eeVr7rqrUdc", title: "Bundesliga 26/27 | ALL GOALS from GameWeek 5 | Full Highlights", channel: "SportyTV", date: "Oct 13, 2026" },
     { id: "jM7ezxk1sio", title: "LaLiga 26/27 | ALL GOALS GameWeek 8 | Full Highlights | SportyTV", channel: "SportyTV", date: "Oct 13, 2026" },
     { id: "ko6Oqj289tg", title: "SASSUOLO-MILAN 1-1 | EXTENDED HIGHLIGHTS | SERIE A 2026/27", channel: "Serie A", date: "Oct 12, 2026" },
