@@ -148,10 +148,10 @@
   "ita.1": [
    {
     "rank": 1,
-    "player": "Donyell Malen",
+    "player": "–",
     "team": "ရိုးမား",
     "goals": 6,
-    "pid": "259481"
+    "pid": ""
    },
    {
     "rank": 2,
@@ -162,10 +162,10 @@
    },
    {
     "rank": 3,
-    "player": "Daniel Maldini",
+    "player": "–",
     "team": "ကာဂလီယာရီ",
     "goals": 4,
-    "pid": "290545"
+    "pid": ""
    },
    {
     "rank": 4,
@@ -176,24 +176,24 @@
    },
    {
     "rank": 5,
-    "player": "Lautaro Martínez",
+    "player": "–",
     "team": "အင်တာ",
     "goals": 4,
-    "pid": "219713"
+    "pid": ""
    },
    {
     "rank": 6,
-    "player": "Giorgi Kvernadze",
+    "player": "–",
     "team": "ဖရိုစီနိုနီ",
     "goals": 3,
-    "pid": "360714"
+    "pid": ""
    },
    {
     "rank": 7,
-    "player": "Jurgen Ekkelenkamp",
+    "player": "–",
     "team": "အူဒီနီဆီ",
     "goals": 3,
-    "pid": "270817"
+    "pid": ""
    },
    {
     "rank": 8,
@@ -211,10 +211,10 @@
    },
    {
     "rank": 10,
-    "player": "Adrien Rabiot",
+    "player": "–",
     "team": "အေစီမီလန်",
     "goals": 3,
-    "pid": "176203"
+    "pid": ""
    }
   ],
   "ger.1": [
@@ -292,59 +292,59 @@
   "fra.1": [
    {
     "rank": 1,
-    "player": "Lassine Sinayoko",
+    "player": "–",
     "team": "ပဲရစ်အက်ဖ်စီ",
     "goals": 4,
-    "pid": "271137"
+    "pid": ""
    },
    {
     "rank": 2,
-    "player": "Amine Gouiri",
+    "player": "–",
     "team": "မာဆေး",
     "goals": 4,
-    "pid": "259743"
+    "pid": ""
    },
    {
     "rank": 3,
-    "player": "Louis Mafouta",
+    "player": "–",
     "team": "လမန်း",
     "goals": 4,
-    "pid": "268720"
+    "pid": ""
    },
    {
     "rank": 4,
-    "player": "Kamory Doumbia",
+    "player": "–",
     "team": "ဘရက်စ်",
     "goals": 4,
-    "pid": "330412"
+    "pid": ""
    },
    {
     "rank": 5,
-    "player": "Esteban Lepaul",
+    "player": "–",
     "team": "ရန်းစ်",
     "goals": 4,
-    "pid": "323850"
+    "pid": ""
    },
    {
     "rank": 6,
-    "player": "Ferran Torres",
+    "player": "–",
     "team": "ပီအက်စ်ဂျီ",
     "goals": 4,
-    "pid": "265869"
+    "pid": ""
    },
    {
     "rank": 7,
-    "player": "Paris Brunner",
+    "player": "–",
     "team": "မိုနာကို",
     "goals": 4,
-    "pid": "365789"
+    "pid": ""
    },
    {
     "rank": 8,
-    "player": "Cameron Archer",
+    "player": "–",
     "team": "အောက်ဆဲ",
     "goals": 4,
-    "pid": "293347"
+    "pid": ""
    },
    {
     "rank": 9,
@@ -550,10 +550,10 @@
    },
    {
     "rank": 7,
-    "player": "Bradley Barcola",
+    "player": "–",
     "team": "လီဗာပူး",
     "goals": 3,
-    "pid": "328238"
+    "pid": ""
    },
    {
     "rank": 8,
@@ -564,10 +564,10 @@
    },
    {
     "rank": 9,
-    "player": "Danijel Sturm",
+    "player": "–",
     "team": "ဆလာဗီယာပရက်",
     "goals": 2,
-    "pid": "322169"
+    "pid": ""
    },
    {
     "rank": 10,
@@ -798,45 +798,45 @@
   "ita.1": [
    {
     "rank": 1,
-    "player": "Paulo Dybala",
+    "player": "–",
     "team": "ရိုးမား",
     "assists": 4,
-    "pid": "164839"
+    "pid": ""
    },
    {
     "rank": 2,
-    "player": "Romano Schmid",
+    "player": "–",
     "team": "ဖရိုစီနိုနီ",
     "assists": 3,
-    "pid": "238296"
+    "pid": ""
    },
    {
     "rank": 3,
-    "player": "Andy Diouf",
+    "player": "–",
     "team": "အင်တာ",
     "assists": 3,
-    "pid": "319167"
+    "pid": ""
    },
    {
     "rank": 4,
-    "player": "Danilo Veiga",
+    "player": "–",
     "team": "လက်ချီ",
     "assists": 2,
-    "pid": "344844"
+    "pid": ""
    },
    {
     "rank": 5,
-    "player": "Michel Adopo",
+    "player": "–",
     "team": "ကာဂလီယာရီ",
     "assists": 2,
-    "pid": "272745"
+    "pid": ""
    },
    {
     "rank": 6,
-    "player": "Mattia Zaccagni",
+    "player": "–",
     "team": "လာဇီယို",
     "assists": 2,
-    "pid": "204669"
+    "pid": ""
    },
    {
     "rank": 7,
@@ -847,10 +847,10 @@
    },
    {
     "rank": 8,
-    "player": "Gianluca Mancini",
+    "player": "–",
     "team": "ရိုးမား",
     "assists": 2,
-    "pid": "212597"
+    "pid": ""
    },
    {
     "rank": 9,
@@ -942,10 +942,10 @@
   "fra.1": [
    {
     "rank": 1,
-    "player": "Cristian Cásseres Jr.",
+    "player": "–",
     "team": "တူးလူး",
     "assists": 4,
-    "pid": "271244"
+    "pid": ""
    },
    {
     "rank": 2,
@@ -977,10 +977,10 @@
    },
    {
     "rank": 6,
-    "player": "Zachary Athekame",
+    "player": "–",
     "team": "လိုင်ယွန်",
     "assists": 2,
-    "pid": "370758"
+    "pid": ""
    },
    {
     "rank": 7,
@@ -1005,10 +1005,10 @@
    },
    {
     "rank": 10,
-    "player": "Amine El Ouazzani",
+    "player": "–",
     "team": "အွန်ဂျေး",
     "assists": 2,
-    "pid": "301262"
+    "pid": ""
    }
   ],
   "ned.1": [
@@ -1179,10 +1179,10 @@
    },
    {
     "rank": 4,
-    "player": "Nico Paz",
+    "player": "–",
     "team": "ကိုမို",
     "assists": 2,
-    "pid": "337970"
+    "pid": ""
    },
    {
     "rank": 5,
@@ -1193,24 +1193,24 @@
    },
    {
     "rank": 6,
-    "player": "Pau Torres",
+    "player": "–",
     "team": "အက်စတွန်ဗီလာ",
     "assists": 2,
-    "pid": "251100"
+    "pid": ""
    },
    {
     "rank": 7,
-    "player": "Zlatko Tripic",
+    "player": "–",
     "team": "ဗိုက်ကင်းအက်ဖ်ကေ",
     "assists": 2,
-    "pid": "164279"
+    "pid": ""
    },
    {
     "rank": 8,
-    "player": "Carlos Forbs",
+    "player": "–",
     "team": "ကလပ်ဘရုဂေး",
     "assists": 2,
-    "pid": "78836"
+    "pid": ""
    },
    {
     "rank": 9,
@@ -1221,10 +1221,10 @@
    },
    {
     "rank": 10,
-    "player": "Matìas Soulè",
+    "player": "–",
     "team": "ရိုးမား",
     "assists": 2,
-    "pid": "323974"
+    "pid": ""
    }
   ],
   "uefa.europa": [
