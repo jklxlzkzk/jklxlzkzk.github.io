@@ -76,10 +76,10 @@
   "esp.1": [
    {
     "rank": 1,
-    "player": "Raphinha",
+    "player": "–",
     "team": "ဘာစီလိုနာ",
     "goals": 12,
-    "pid": "231050"
+    "pid": ""
    },
    {
     "rank": 2,
@@ -90,10 +90,10 @@
    },
    {
     "rank": 3,
-    "player": "Lamine Yamal",
+    "player": "–",
     "team": "ဘာစီလိုနာ",
     "goals": 7,
-    "pid": "362150"
+    "pid": ""
    },
    {
     "rank": 4,
@@ -132,10 +132,10 @@
    },
    {
     "rank": 9,
-    "player": "Pierre-Emerick Aubameyang",
+    "player": "–",
     "team": "ဒီပို့တီဗို",
     "goals": 5,
-    "pid": "122260"
+    "pid": ""
    },
    {
     "rank": 10,
@@ -334,17 +334,17 @@
    },
    {
     "rank": 7,
-    "player": "Paris Brunner",
+    "player": "–",
     "team": "မိုနာကို",
     "goals": 4,
-    "pid": "365789"
+    "pid": ""
    },
    {
     "rank": 8,
-    "player": "Cameron Archer",
+    "player": "–",
     "team": "အောက်ဆဲ",
     "goals": 4,
-    "pid": "293347"
+    "pid": ""
    },
    {
     "rank": 9,
@@ -696,17 +696,17 @@
    },
    {
     "rank": 7,
-    "player": "Josko Gvardiol",
+    "player": "–",
     "team": "မန်စီးတီး",
     "assists": 3,
-    "pid": "299910"
+    "pid": ""
    },
    {
     "rank": 8,
-    "player": "João Pedro",
+    "player": "–",
     "team": "ချယ်လ်ဆီး",
     "assists": 3,
-    "pid": "284960"
+    "pid": ""
    },
    {
     "rank": 9,
@@ -761,10 +761,10 @@
    },
    {
     "rank": 6,
-    "player": "Unai López",
+    "player": "–",
     "team": "ရာယိုဗယ်လီကာနို",
     "assists": 3,
-    "pid": "203711"
+    "pid": ""
    },
    {
     "rank": 7,
@@ -775,10 +775,10 @@
    },
    {
     "rank": 8,
-    "player": "Carlos Soler",
+    "player": "–",
     "team": "ရီးရဲလ်ဆိုစီဒက်",
     "assists": 3,
-    "pid": "235072"
+    "pid": ""
    },
    {
     "rank": 9,
@@ -1028,10 +1028,10 @@
    },
    {
     "rank": 3,
-    "player": "–",
+    "player": "Givairo Read",
     "team": "ဖီယင်နော့",
     "assists": 4,
-    "pid": ""
+    "pid": "337084"
    },
    {
     "rank": 4,
