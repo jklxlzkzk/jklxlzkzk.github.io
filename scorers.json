@@ -73,78 +73,7 @@
     "pid": "301166"
    }
   ],
-  "esp.1": [
-   {
-    "rank": 1,
-    "player": "Raphinha",
-    "team": "ဘာစီလိုနာ",
-    "goals": 12,
-    "pid": "231050"
-   },
-   {
-    "rank": 2,
-    "player": "Kylian Mbappé",
-    "team": "ရီးယဲလ်",
-    "goals": 7,
-    "pid": "231388"
-   },
-   {
-    "rank": 3,
-    "player": "Lamine Yamal",
-    "team": "ဘာစီလိုနာ",
-    "goals": 7,
-    "pid": "362150"
-   },
-   {
-    "rank": 4,
-    "player": "Sergio Camello",
-    "team": "ရာယိုဗယ်လီကာနို",
-    "goals": 7,
-    "pid": "276652"
-   },
-   {
-    "rank": 5,
-    "player": "Yassir Zabiri",
-    "team": "ရေးစင်းဆန်တန်ဒါး",
-    "goals": 7,
-    "pid": "390389"
-   },
-   {
-    "rank": 6,
-    "player": "Roberto Fernández",
-    "team": "အက်စ်ပန်ညောလ်",
-    "goals": 6,
-    "pid": "318773"
-   },
-   {
-    "rank": 7,
-    "player": "Ante Budimir",
-    "team": "အိုဆာဆူနာ",
-    "goals": 6,
-    "pid": "207288"
-   },
-   {
-    "rank": 8,
-    "player": "Fer Niño",
-    "team": "အဲလ်ချီ",
-    "goals": 5,
-    "pid": "301684"
-   },
-   {
-    "rank": 9,
-    "player": "Pierre-Emerick Aubameyang",
-    "team": "ဒီပို့တီဗို",
-    "goals": 5,
-    "pid": "122260"
-   },
-   {
-    "rank": 10,
-    "player": "Lucas Boyé",
-    "team": "အလာဗတ်စ်",
-    "goals": 5,
-    "pid": "207236"
-   }
-  ],
+  "esp.1": [],
   "ita.1": [
    {
     "rank": 1,
@@ -723,78 +652,7 @@
     "pid": "243396"
    }
   ],
-  "esp.1": [
-   {
-    "rank": 1,
-    "player": "Lamine Yamal",
-    "team": "ဘာစီလိုနာ",
-    "assists": 5,
-    "pid": "362150"
-   },
-   {
-    "rank": 2,
-    "player": "Javi Hernandez",
-    "team": "အက်စ်ပန်ညောလ်",
-    "assists": 5,
-    "pid": "367946"
-   },
-   {
-    "rank": 3,
-    "player": "Anthony Gordon",
-    "team": "ဘာစီလိုနာ",
-    "assists": 4,
-    "pid": "268782"
-   },
-   {
-    "rank": 4,
-    "player": "Iñigo Vicente",
-    "team": "ရေးစင်းဆန်တန်ဒါး",
-    "assists": 3,
-    "pid": "284699"
-   },
-   {
-    "rank": 5,
-    "player": "Vinícius Júnior",
-    "team": "ရီးယဲလ်",
-    "assists": 3,
-    "pid": "252107"
-   },
-   {
-    "rank": 6,
-    "player": "Unai López",
-    "team": "ရာယိုဗယ်လီကာနို",
-    "assists": 3,
-    "pid": "203711"
-   },
-   {
-    "rank": 7,
-    "player": "Ángel Pérez",
-    "team": "အလာဗတ်စ်",
-    "assists": 3,
-    "pid": "374621"
-   },
-   {
-    "rank": 8,
-    "player": "Carlos Soler",
-    "team": "ရီးရဲလ်ဆိုစီဒက်",
-    "assists": 3,
-    "pid": "235072"
-   },
-   {
-    "rank": 9,
-    "player": "Alberto Moleiro",
-    "team": "ဗီလာရီးရဲလ်",
-    "assists": 3,
-    "pid": "307390"
-   },
-   {
-    "rank": 10,
-    "player": "José Antonio Morente",
-    "team": "အဲလ်ချီ",
-    "assists": 3,
-    "pid": "259916"
-   }
-  ],
+  "esp.1": [],
   "ita.1": [
    {
     "rank": 1,
