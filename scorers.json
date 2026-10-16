@@ -8,78 +8,7 @@
   "fra.1": [],
   "ned.1": [],
   "por.1": [],
-  "uefa.champions": [
-   {
-    "rank": 1,
-    "player": "Erling Haaland",
-    "team": "မန်စီးတီး",
-    "goals": 4,
-    "pid": "253989"
-   },
-   {
-    "rank": 2,
-    "player": "–",
-    "team": "ကလပ်ဘရုဂေး",
-    "goals": 4,
-    "pid": ""
-   },
-   {
-    "rank": 3,
-    "player": "–",
-    "team": "စတုဂတ်",
-    "goals": 4,
-    "pid": ""
-   },
-   {
-    "rank": 4,
-    "player": "–",
-    "team": "ဘိုင်ယန်",
-    "goals": 3,
-    "pid": ""
-   },
-   {
-    "rank": 5,
-    "player": "Nicolas Jackson",
-    "team": "အက်စတွန်ဗီလာ",
-    "goals": 3,
-    "pid": "308524"
-   },
-   {
-    "rank": 6,
-    "player": "Ousmane Dembélé",
-    "team": "ပီအက်စ်ဂျီ",
-    "goals": 3,
-    "pid": "229744"
-   },
-   {
-    "rank": 7,
-    "player": "–",
-    "team": "လီဗာပူး",
-    "goals": 3,
-    "pid": ""
-   },
-   {
-    "rank": 8,
-    "player": "Ferran Torres",
-    "team": "ပီအက်စ်ဂျီ",
-    "goals": 3,
-    "pid": "265869"
-   },
-   {
-    "rank": 9,
-    "player": "–",
-    "team": "ဆလာဗီယာပရက်",
-    "goals": 2,
-    "pid": ""
-   },
-   {
-    "rank": 10,
-    "player": "Santiago Mouriño",
-    "team": "ဗီလာရီးရဲလ်",
-    "goals": 2,
-    "pid": "318098"
-   }
-  ],
+  "uefa.champions": [],
   "uefa.europa": []
  },
  "assists": {
@@ -90,78 +19,7 @@
   "fra.1": [],
   "ned.1": [],
   "por.1": [],
-  "uefa.champions": [
-   {
-    "rank": 1,
-    "player": "Lamine Yamal",
-    "team": "ဘာစီလိုနာ",
-    "assists": 4,
-    "pid": "362150"
-   },
-   {
-    "rank": 2,
-    "player": "–",
-    "team": "ပီအက်စ်ဂျီ",
-    "assists": 3,
-    "pid": ""
-   },
-   {
-    "rank": 3,
-    "player": "–",
-    "team": "လင့်ဇ်",
-    "assists": 3,
-    "pid": ""
-   },
-   {
-    "rank": 4,
-    "player": "–",
-    "team": "ကိုမို",
-    "assists": 2,
-    "pid": ""
-   },
-   {
-    "rank": 5,
-    "player": "Deniz Undav",
-    "team": "စတုဂတ်",
-    "assists": 2,
-    "pid": "273300"
-   },
-   {
-    "rank": 6,
-    "player": "Pau Torres",
-    "team": "အက်စတွန်ဗီလာ",
-    "assists": 2,
-    "pid": "251100"
-   },
-   {
-    "rank": 7,
-    "player": "–",
-    "team": "ဗိုက်ကင်းအက်ဖ်ကေ",
-    "assists": 2,
-    "pid": ""
-   },
-   {
-    "rank": 8,
-    "player": "Carlos Forbs",
-    "team": "ကလပ်ဘရုဂေး",
-    "assists": 2,
-    "pid": "78836"
-   },
-   {
-    "rank": 9,
-    "player": "–",
-    "team": "စတုဂတ်",
-    "assists": 2,
-    "pid": ""
-   },
-   {
-    "rank": 10,
-    "player": "Matìas Soulè",
-    "team": "ရိုးမား",
-    "assists": 2,
-    "pid": "323974"
-   }
-  ],
+  "uefa.champions": [],
   "uefa.europa": []
  }
 }
