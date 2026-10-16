@@ -4,10 +4,10 @@
   "eng.1": [
    {
     "rank": 1,
-    "player": "–",
+    "player": "Erling Haaland",
     "team": "မန်စီးတီး",
     "goals": 6,
-    "pid": ""
+    "pid": "253989"
    },
    {
     "rank": 2,
@@ -18,17 +18,17 @@
    },
    {
     "rank": 3,
-    "player": "–",
+    "player": "Morgan Rogers",
     "team": "ချယ်လ်ဆီး",
     "goals": 4,
-    "pid": ""
+    "pid": "265653"
    },
    {
     "rank": 4,
-    "player": "–",
+    "player": "Rayan Cherki",
     "team": "မန်စီးတီး",
     "goals": 4,
-    "pid": ""
+    "pid": "298008"
    },
    {
     "rank": 5,
@@ -53,10 +53,10 @@
    },
    {
     "rank": 8,
-    "player": "–",
+    "player": "Bruno Fernandes",
     "team": "မန်ယူ",
     "goals": 3,
-    "pid": ""
+    "pid": "124091"
    },
    {
     "rank": 9,
@@ -132,10 +132,10 @@
    },
    {
     "rank": 9,
-    "player": "–",
+    "player": "Pierre-Emerick Aubameyang",
     "team": "ဒီပို့တီဗို",
     "goals": 5,
-    "pid": ""
+    "pid": "122260"
    },
    {
     "rank": 10,
@@ -227,10 +227,10 @@
    },
    {
     "rank": 2,
-    "player": "–",
+    "player": "Phillip Tietz",
     "team": "မိန့်ဇ်",
     "goals": 4,
-    "pid": ""
+    "pid": "234376"
    },
    {
     "rank": 3,
@@ -436,10 +436,10 @@
   "por.1": [
    {
     "rank": 1,
-    "player": "Vangelis Pavlidis",
+    "player": "–",
     "team": "ဘန်ဖီကာ",
     "goals": 8,
-    "pid": "220819"
+    "pid": ""
    },
    {
     "rank": 2,
@@ -675,10 +675,10 @@
    },
    {
     "rank": 4,
-    "player": "–",
+    "player": "Cole Palmer",
     "team": "ချယ်လ်ဆီး",
     "assists": 3,
-    "pid": ""
+    "pid": "296395"
    },
    {
     "rank": 5,
@@ -696,10 +696,10 @@
    },
    {
     "rank": 7,
-    "player": "–",
+    "player": "Josko Gvardiol",
     "team": "မန်စီးတီး",
     "assists": 3,
-    "pid": ""
+    "pid": "299910"
    },
    {
     "rank": 8,
@@ -949,10 +949,10 @@
    },
    {
     "rank": 2,
-    "player": "–",
+    "player": "Florian Thauvin",
     "team": "လန့်စ်",
     "assists": 4,
-    "pid": ""
+    "pid": "156898"
    },
    {
     "rank": 3,
@@ -1158,10 +1158,10 @@
   "uefa.champions": [
    {
     "rank": 1,
-    "player": "–",
+    "player": "Lamine Yamal",
     "team": "ဘာစီလိုနာ",
     "assists": 4,
-    "pid": ""
+    "pid": "362150"
    },
    {
     "rank": 2,
