@@ -292,10 +292,10 @@
   "fra.1": [
    {
     "rank": 1,
-    "player": "Lassine Sinayoko",
+    "player": "–",
     "team": "ပဲရစ်အက်ဖ်စီ",
     "goals": 4,
-    "pid": "271137"
+    "pid": ""
    },
    {
     "rank": 2,
@@ -355,10 +355,10 @@
    },
    {
     "rank": 10,
-    "player": "Florian Thauvin",
+    "player": "–",
     "team": "လန့်စ်",
     "goals": 3,
-    "pid": "156898"
+    "pid": ""
    }
   ],
   "ned.1": [
@@ -942,17 +942,17 @@
   "fra.1": [
    {
     "rank": 1,
-    "player": "Cristian Cásseres Jr.",
+    "player": "–",
     "team": "တူးလူး",
     "assists": 4,
-    "pid": "271244"
+    "pid": ""
    },
    {
     "rank": 2,
-    "player": "Florian Thauvin",
+    "player": "–",
     "team": "လန့်စ်",
     "assists": 4,
-    "pid": "156898"
+    "pid": ""
    },
    {
     "rank": 3,
@@ -970,45 +970,45 @@
    },
    {
     "rank": 5,
-    "player": "Panos Katseris",
+    "player": "–",
     "team": "လိုရီယန့်",
     "assists": 3,
-    "pid": "364754"
+    "pid": ""
    },
    {
     "rank": 6,
-    "player": "Zachary Athekame",
+    "player": "–",
     "team": "လိုင်ယွန်",
     "assists": 2,
-    "pid": "370758"
+    "pid": ""
    },
    {
     "rank": 7,
-    "player": "Joris Chotard",
+    "player": "–",
     "team": "ဘရက်စ်",
     "assists": 2,
-    "pid": "291850"
+    "pid": ""
    },
    {
     "rank": 8,
-    "player": "Corentin Tolisso",
+    "player": "–",
     "team": "လိုင်ယွန်",
     "assists": 2,
-    "pid": "192060"
+    "pid": ""
    },
    {
     "rank": 9,
-    "player": "Adrien Thomasson",
+    "player": "–",
     "team": "ရန်းစ်",
     "assists": 2,
-    "pid": "173266"
+    "pid": ""
    },
    {
     "rank": 10,
-    "player": "Amine El Ouazzani",
+    "player": "–",
     "team": "အွန်ဂျေး",
     "assists": 2,
-    "pid": "301262"
+    "pid": ""
    }
   ],
   "ned.1": [
